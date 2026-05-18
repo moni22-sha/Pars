@@ -11,7 +11,7 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center text-center bg-brand-primary">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/src/assets/images/industrial_facility_hero_1779100225865.png"
+            src={image16}
             alt="Industrial Facility" 
             className="w-full h-full object-cover opacity-20"
           />
@@ -102,7 +102,7 @@ export default function Home() {
             <div className="relative">
                <div className="rounded-2xl overflow-hidden shadow-2xl">
                  <img 
-                  src="/src/assets/images/industrial_facility_hero_1779100225865.png"  
+                  src={image16}  
                   alt="Capability" 
                   className="w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
