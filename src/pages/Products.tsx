@@ -3,7 +3,7 @@ import { FileText, ChevronRight, Settings, Cpu, Boxes } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 // Fixed the broken asset file path and named configuration parameters
 import image1 from '../assets/images/image1.png';
-import percision from '../assets/images/Percision.png';
+import percision from '../assets/images/percision.png';
 import image2 from '../assets/images/image2.png';
 import image3 from '../assets/images/image3.png';
 import image4 from '../assets/images/image4.png';
