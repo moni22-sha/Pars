@@ -1,0 +1,6 @@
+{
+  "name": "PIW Engineering Works",
+  "description": "Precision Engineering Solutions for Modern Manufacturing specializing in high-precision tooling, machining, fabrication, and industrial engineering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

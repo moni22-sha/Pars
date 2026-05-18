@@ -1,0 +1,191 @@
+import {Link, NavLink} from 'react-router-dom';
+import {Menu, X, Phone, Mail, MapPin} from 'lucide-react';
+import {useState} from 'react';
+import {motion, AnimatePresence} from 'motion/react';
+import para from '../assets/images/para.png';
+
+const navLinks = [
+  {name: 'Home', path: '/'},
+  {name: 'About', path: '/about'},
+  {name: 'Services', path: '/services'},
+  {name: 'Products', path: '/products'},
+  {name: 'Facility', path: '/facility'},
+  {name: 'Clients', path: '/clients'},
+  {name: 'Contact', path: '/contact'},
+];
+
+export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <div className="top-accent w-full" />
+      <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center gap-2">
+              <img 
+                src={para} 
+                alt="PIW Engineering Works Logo" 
+                className="h-15 w-20"
+                referrerPolicy="no-referrer"
+              />
+              <div className="flex flex-col">
+                <span className="text-xl font-display font-bold text-brand-primary leading-tight"></span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium"></span>
+              </div>
+            </Link>
+          </div>
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                className={({isActive}) =>
+                  `text-sm font-medium transition-colors hover:text-brand-accent ${
+                    isActive ? 'text-brand-accent' : 'text-slate-600'
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+            <Link
+              to="/contact"
+              className="bg-brand-primary text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-brand-secondary transition-all"
+            >
+              Get a Quote
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-slate-600 hover:text-brand-accent p-2"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{opacity: 0, height: 0}}
+            animate={{opacity: 1, height: 'auto'}}
+            exit={{opacity: 0, height: 0}}
+            className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
+          >
+            <div className="px-4 pt-2 pb-6 space-y-1">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={({isActive}) =>
+                    `block px-3 py-4 text-base font-medium rounded-md ${
+                      isActive ? 'text-brand-accent bg-slate-50' : 'text-slate-600 hover:text-brand-accent hover:bg-slate-50'
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              ))}
+              <div className="pt-4 border-t border-slate-100 mt-4 px-3">
+                 <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full text-center bg-brand-primary text-white px-5 py-3 rounded-md text-base font-semibold"
+                >
+                  Get a Quote
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+    </>
+  );
+}
+
+export function Footer() {
+  return (
+    <footer className="bg-slate-900 text-slate-300 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="col-span-1 lg:col-span-1">
+            <Link to="/" className="flex items-center gap-2 mb-6">
+               <img 
+                src={para} 
+                alt="PIW Logo" 
+                className="h-10 w-auto"
+                referrerPolicy="no-referrer"
+              />
+              <div className="flex flex-col">
+                <span className="text-lg font-display font-bold text-white leading-tight"></span>
+              </div>
+            </Link>
+            <p className="text-sm leading-relaxed text-slate-400 mb-6">
+              Precision engineering solutions for modern manufacturing. Specializing in high-precision tooling, machining, and fabrication since 1994.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Services</h3>
+            <ul className="space-y-4 text-sm">
+              <li><Link to="/services" className="hover:text-brand-accent transition-colors">Progressive Tools</Link></li>
+              <li><Link to="/services" className="hover:text-brand-accent transition-colors">Press Tools</Link></li>
+              <li><Link to="/services" className="hover:text-brand-accent transition-colors">CNC Machining</Link></li>
+              <li><Link to="/services" className="hover:text-brand-accent transition-colors">Jigs & Fixtures</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Company</h3>
+            <ul className="space-y-4 text-sm">
+              <li><Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link></li>
+              <li><Link to="/facility" className="hover:text-brand-accent transition-colors">Our Facility</Link></li>
+              <li><Link to="/clients" className="hover:text-brand-accent transition-colors">Trusted Clients</Link></li>
+              <li><Link to="/contact" className="hover:text-brand-accent transition-colors">Contact Us</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Get in Touch</h3>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-brand-accent shrink-0" />
+                <span>[Insert Full Address]</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-brand-accent shrink-0" />
+                <span>[Insert Phone Number]</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-brand-accent shrink-0" />
+                <span>[Insert Email Address]</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-slate-500">
+            © {new Date().getFullYear()} PIW Engineering Works. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-xs text-slate-500">
+            <a href="#" className="hover:text-white">Privacy Policy</a>
+            <a href="#" className="hover:text-white">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
