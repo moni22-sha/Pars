@@ -24,6 +24,8 @@ import image19 from "../assets/images/image19.png";
 import image20 from "../assets/images/image20.png";
 import image21 from "../assets/images/image21.png";
 import image22 from "../assets/images/image22.png";
+import image23 from "../assets/images/image23.png";
+import image24 from "../assets/images/image24.png";
 
 const categories = [
   'Progressive Dies', 
@@ -58,7 +60,7 @@ const productDetails: Record<string, CategoryDetail> = {
       {
         name: 'Spline Die Block',
         material: 'HCHCR Premium Hardened Steel',
-        specs: 'A high-precision CNC-machined die block featuring an internal spline profile, designed for press tooling, broaching, and precision metal forming applications.',
+        specs: 'A high-precision CNC-machined die block featuring an internal spline profile, designed for press tooling, broaching, and precision metal forming applications..',
         image: image1
       },
        {
@@ -78,6 +80,12 @@ const productDetails: Record<string, CategoryDetail> = {
         material: 'HCHCR Premium Hardened Steel',
         specs: 'High-precision Window Shaving Punch (511) manufactured from premium SKD11 tool steel with hardness of HRC 58–60 for superior wear resistance and dimensional accuracy.',
         image: image12
+      },
+       {
+        name: 'Wire Cut EDM Machine',
+        material: 'HCHCR Premium Hardened Steel',
+        specs: 'A Wire Cut EDM machine is a high-precision manufacturing machine used to cut hard metals and complex shapes using a thin electrically charged wire.',
+        image: image23
       },
     ]
   },
@@ -229,11 +237,12 @@ const productDetails: Record<string, CategoryDetail> = {
         specs: 'The Mazak CNC VMC is a high-precision vertical machining center designed for advanced milling, drilling, tapping, and precision machining operations. Engineered for superior accuracy',
         image: image16
       },
-       {
-        name: 'Circular Slotted Metal Disc',
+       
+      {
+        name: 'Sodick Wire Cut EDM Machine',
         material: 'SS316 Stainless Steel Alloy',
-        specs: 'A precision CNC-machined circular metal rotor plate with radial slots and mounting holes, used in industrial machinery, motors, pumps, or airflow/mechanical systems.',
-        image: image17
+        specs: 'A Sodick Wire-Cut EDM (Electrical Discharge Machining) Machine is a high-precision CNC machine used for cutting complex metal components with extreme accuracy using a thin electrically charged wire.',
+        image: image24
       },
     ]
   }

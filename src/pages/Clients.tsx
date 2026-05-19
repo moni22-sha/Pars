@@ -1,245 +1,168 @@
+
 import { ShieldCheck, Award, Globe, Building2, HelpCircle } from 'lucide-react';
-import { motion, Variants } from 'motion/react';
 import image3 from '../assets/images/image3.png';
+import logo1 from '../assets/images/logo1.png';
+import logo2 from '../assets/images/logo2.png';
+import logo3 from '../assets/images/logo3.png';
+import logo4 from '../assets/images/logo4.png';
+import logo5 from '../assets/images/logo6.png'; // matches your current import path
+import logo6 from '../assets/images/logo7.png';
+import logo7 from '../assets/images/logo8.png';
+import logo8 from '../assets/images/logo9.png';
+import logo9 from '../assets/images/logo10.png';
+import logo10 from '../assets/images/logo11.png';
 
 export default function Clients() {
+  // Combined client data mapping names to their imported logo assets
   const clients = [
-    'TIDC India Ltd.',
-    'Amalgamation Valeo Clutch',
-    'Modine Thermal Systems',
-    'Federal Mogul',
-    'Petterssons',
-    'Sundaram Fasteners',
-    'TI Diamond Chain',
-    'TI Metal Forming',
-    'Magna Cosma',
-    'PHA',
-    'DAS',
-    'Donga',
-    'Cirteq (UK)',
-    'Akai Fasteners (Sri Lanka)',
+    { name: 'TIDC India Ltd.', logo: logo1 },
+    { name: 'Amalgamation Valeo Clutch', logo: logo2 },
+    { name: 'Modine Thermal Systems', logo: logo3 },
+    { name: 'Federal Mogul', logo: logo4 },
+    { name: 'Petterssons', logo: logo5 },
+    { name: 'Sundaram Fasteners', logo: logo6 },
+    { name: 'TI Diamond Chain', logo: logo1 },
+    { name: 'TI Metal Forming', logo: logo1 },
+    { name: 'Magna Cosma', logo: null },
+    { name: 'PHA', logo: null },
+    // Clients without explicit logos yet can still fall back cleanly to styling
+    { name: 'DAS', logo: logo7 },
+    { name: 'Donga', logo: logo8 },
+    { name: 'Cirteq (UK)', logo: logo9 },
+    { name: 'Akai Fasteners (Sri Lanka)', logo: logo10 },
   ];
 
-  // Motion variants for staggering the grid items cleanly
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.04, // Slightly faster ripple feel for the client grid
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { type: 'spring', stiffness: 120, damping: 16 },
-    },
-  };
-
-  // New Variants for the feature badges layout
-  const badgeContainerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
-  };
-
-  const badgeVariants: Variants = {
-    hidden: { opacity: 0, x: 30, y: 10 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: { type: 'spring', stiffness: 90, damping: 14 },
-    },
-  };
-
   return (
-    <div className="bg-white overflow-x-hidden">
-      {/* Banner */}
-      <section className="bg-slate-900 py-32 text-center relative overflow-hidden">
-         <div className="absolute inset-0 z-0">
-                          <img 
-                            src={image3}
-                            alt="Industrial Facility" 
-                            className="w-full h-full object-cover opacity-20"
-                          />
-                          </div>
-        {/* Animated grid overlay to give structural movement */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.35, scale: 1 }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-          className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px]" 
-        />
-        
-        {/* Ambient background glow tracking in */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: 'linear' }}
-          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-accent/10 blur-[120px] rounded-full pointer-events-none"
-        />
+    <div className="bg-slate-50 overflow-x-hidden">
+      {/* Banner - Vibrant Ocean Deep Gradient */}
+      <section className="bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950 py-32 text-center relative overflow-hidden shadow-inner">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={image3}
+            alt="Industrial Facility" 
+            className="w-full h-full object-cover opacity-15 mix-blend-overlay"
+          />
+        </div>
+        {/* Subtle colorful light leaks */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:16px_16px] opacity-40" />
         
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, type: 'spring', bounce: 0.25 }}
-          >
+          <div>
             <h1 className="text-5xl md:text-6xl text-white mb-6 font-bold tracking-tight">
-              Our Clients
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300">Global Network</span>
             </h1>
-          </motion.div>
+          </div>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: 'easeOut' }}
-            className="text-xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed"
-          >
+          <p className="text-xl text-sky-200/80 font-light max-w-2xl mx-auto leading-relaxed">
             Trusted by reputed industrial manufacturers and OEMs globally for over three decades.
-          </motion.p>
+          </p>
         </div>
       </section>
 
-      {/* Description */}
-      <section className="py-24 border-b border-slate-100">
+      {/* Description - Editorial layout with deep accents */}
+      <section className="py-24 bg-white border-b border-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.75, ease: 'easeOut' }}
-              className="md:w-1/2"
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
-                <Building2 className="h-3.5 w-3.5" /> Global Track Record
+            <div className="md:w-1/2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 border border-sky-100">
+                <Building2 className="h-3.5 w-3.5 text-sky-500" /> Global Track Record
               </div>
-              <h2 className="text-3xl md:text-4xl mb-6 font-bold text-slate-900 tracking-tight">
+              <h2 className="text-3xl md:text-4xl mb-6 font-bold text-blue-950 tracking-tight">
                 Trusted by Leading Industrial Brands
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed">
                 Over the years, PIW Engineering Works has earned the trust of reputed industrial manufacturers and OEMs by consistently delivering precision-engineered solutions with reliability and quality.
               </p>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              variants={badgeContainerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-100px' }}
-              className="md:w-1/2 grid grid-cols-2 gap-4 w-full"
-            >
-              <motion.div 
-                variants={badgeVariants}
-                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
-                className="p-6 bg-slate-50 rounded-xl border border-slate-100 text-center group cursor-default shadow-sm hover:bg-white hover:shadow-md hover:border-slate-200 transition-all duration-300"
-              >
-                <Globe className="h-8 w-8 text-brand-accent mx-auto mb-3 group-hover:rotate-[15deg] transition-transform duration-300" />
-                <span className="block text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-brand-primary transition-colors">
+            <div className="md:w-1/2 grid grid-cols-2 gap-4 w-full">
+              {/* Feature Box 1 */}
+              <div className="p-6 bg-gradient-to-b from-sky-50 to-white rounded-xl border border-sky-100 text-center group cursor-default shadow-sm hover:shadow-md hover:border-sky-300 transition-all duration-300 hover:-translate-y-2 transform">
+                <div className="w-12 h-12 bg-sky-500 rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-sky-500/20 group-hover:rotate-[12deg] transition-transform duration-300">
+                  <Globe className="h-6 w-6 text-white" />
+                </div>
+                <span className="block text-xs font-bold uppercase tracking-widest text-sky-900 group-hover:text-sky-600 transition-colors">
                   Global Presence
                 </span>
-              </motion.div>
+              </div>
               
-              <motion.div 
-                variants={badgeVariants}
-                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
-                className="p-6 bg-slate-50 rounded-xl border border-slate-100 text-center group cursor-default shadow-sm hover:bg-white hover:shadow-md hover:border-slate-200 transition-all duration-300"
-              >
-                <Award className="h-8 w-8 text-brand-accent mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                <span className="block text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-brand-primary transition-colors">
+              {/* Feature Box 2 */}
+              <div className="p-6 bg-gradient-to-b from-amber-50 to-white rounded-xl border border-amber-100 text-center group cursor-default shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300 hover:-translate-y-2 transform">
+                <div className="w-12 h-12 bg-amber-500 rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-amber-500/20 group-hover:scale-110 transition-transform duration-300">
+                  <Award className="h-6 w-6 text-white" />
+                </div>
+                <span className="block text-xs font-bold uppercase tracking-widest text-amber-900 group-hover:text-amber-600 transition-colors">
                   Industry Leader
                 </span>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Client List */}
-      <section className="py-24 bg-slate-50 industrial-grid">
+      {/* Client List - Soft grid background with vibrant dynamic card strokes */}
+      <section className="py-24 bg-gradient-to-b from-blue-50/50 to-indigo-50/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {clients.map((client) => (
-              <motion.div 
-                key={client} 
-                variants={itemVariants}
-                whileHover={{ 
-                  y: -6, 
-                  scale: 1.03,
-                  boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.05), 0 4px 10px -6px rgb(0 0 0 / 0.05)'
-                }}
-                className="bg-white p-8 rounded border border-slate-200 flex items-center justify-center text-center shadow-sm hover:border-brand-accent transition-all duration-300 group cursor-default"
+              <div 
+                key={client.name} 
+                className={`bg-white p-6 min-h-[140px] rounded-xl border flex flex-col items-center justify-center text-center shadow-sm transition-all duration-300 group cursor-default hover:-translate-y-1.5 hover:scale-[1.03] hover:shadow-xl ${
+                  client.logo 
+                    ? 'border-slate-200 hover:border-sky-400' 
+                    : 'border-amber-100 bg-amber-50/10 hover:bg-white hover:border-amber-400'
+                }`}
               >
-                <span className="text-slate-800 font-display font-medium text-sm group-hover:text-brand-accent uppercase tracking-wider transition-colors duration-300">
-                  {client}
+                {client.logo ? (
+                  /* Soft colored mask layout that gains full brilliance on hover */
+                  <img 
+                    src={client.logo} 
+                    alt={`${client.name} Logo`} 
+                    className="max-h-14 max-w-full object-contain filter saturate-50 opacity-80 group-hover:saturate-100 group-hover:opacity-100 transition-all duration-300 mb-3"
+                  />
+                ) : null}
+                
+                <span className={`font-medium tracking-wide transition-colors duration-300 ${
+                  client.logo 
+                    ? 'text-xs text-slate-500 group-hover:text-sky-600 font-sans' 
+                    : 'text-sm text-amber-900 font-semibold group-hover:text-amber-600'
+                }`}>
+                  {client.name}
                 </span>
-              </motion.div>
+              </div>
             ))}
             
-            {/* Final Placeholder grid cell */}
-            <motion.div 
-              variants={itemVariants}
-              whileHover={{ scale: 0.98 }}
-              className="bg-slate-100/80 p-8 rounded border-dashed border-2 border-slate-300 flex flex-col items-center justify-center text-center gap-2 group cursor-default"
-            >
-              <HelpCircle className="h-5 w-5 text-slate-400 group-hover:text-slate-500 group-hover:animate-pulse transition-colors" />
-              <span className="text-slate-500 font-medium italic text-sm">
+            {/* Colorful Final Help/Placeholder box */}
+            <div className="bg-indigo-950 p-8 rounded-xl border-dashed border-2 border-indigo-400 flex flex-col items-center justify-center text-center gap-2 group cursor-default transition-all duration-300 hover:scale-[0.98] shadow-md">
+              <HelpCircle className="h-6 w-6 text-sky-400 group-hover:text-sky-300 group-hover:animate-pulse transition-colors" />
+              <span className="text-sky-200/90 font-medium italic text-sm">
                 And many more industrial partners...
               </span>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Commitment */}
-      <section className="py-24 bg-white overflow-hidden relative">
+      {/* Commitment - Energetic Green Confidence Seal */}
+      <section className="py-24 bg-white overflow-hidden relative border-t border-slate-100">
         <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.3, rotate: -45 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
-            className="mb-6 flex justify-center text-brand-accent"
-          >
-            <div className="p-4 bg-brand-accent/5 rounded-full ring-8 ring-brand-accent/0 hover:ring-brand-accent/5 transition-all duration-500">
-              <ShieldCheck className="h-12 w-12" />
+          <div className="mb-6 flex justify-center">
+            <div className="p-4 bg-emerald-50 rounded-full ring-8 ring-emerald-50/50 hover:ring-emerald-100 transition-all duration-500">
+              <ShieldCheck className="h-12 w-12 text-emerald-600" />
             </div>
-          </motion.div>
+          </div>
           
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-3xl mb-6 font-bold text-slate-900 tracking-tight"
-          >
+          <h2 className="text-3xl mb-4 font-bold text-blue-950 tracking-tight">
             Our Commitment
-          </motion.h2>
+          </h2>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-xl text-slate-600 italic leading-relaxed font-light px-4"
-          >
+          <div className="w-16 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 mx-auto mb-6 rounded-full" />
+          
+          <p className="text-xl text-slate-700 italic leading-relaxed font-light px-4">
             "Our long-standing client relationships reflect our dedication to engineering precision, consistent quality, timely delivery, and customer satisfaction."
-          </motion.p>
+          </p>
         </div>
       </section>
     </div>
