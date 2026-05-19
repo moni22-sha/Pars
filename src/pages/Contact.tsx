@@ -1,11 +1,19 @@
 import {Phone, Mail, MapPin, Clock, Send} from 'lucide-react';
 import {motion} from 'motion/react';
+import image10 from '../assets/images/image10.png';
 
 export default function Contact() {
   return (
     <div className="bg-white">
       {/* Header */}
       <section className="bg-brand-primary min-h-[400px] flex items-center py-24 relative overflow-hidden">
+          <div className="absolute inset-0 z-0">
+                                   <img 
+                                     src={image10}
+                                     alt="Industrial Facility" 
+                                     className="w-full h-full object-cover opacity-20"
+                                   />
+                                   </div>
         <div className="absolute inset-0 opacity-10">
            <div className="absolute top-0 left-0 h-96 w-96 bg-brand-accent rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
         </div>

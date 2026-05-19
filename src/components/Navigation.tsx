@@ -179,7 +179,7 @@ export function Footer() {
         
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} PIW Engineering Works. All rights reserved.
+            © {new Date().getFullYear()} Pars Industries Works. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-slate-500">
             <a href="#" className="hover:text-white">Privacy Policy</a>

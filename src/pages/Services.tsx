@@ -1,120 +1,230 @@
-import {ArrowRight, Settings, Command, Cpu, Shrink, Drill, Zap, Boxes} from 'lucide-react';
-import {motion} from 'motion/react';
+
+import React from 'react';
+import {
+  ArrowRight,
+  Settings,
+  Command,
+  Cpu,
+  Shrink,
+  Drill,
+  Zap,
+  Boxes,
+  Cog,
+} from 'lucide-react';
+import { motion } from 'motion/react';
+import image15 from '../assets/images/image15.png';
 
 export default function Services() {
   const services = [
     {
+      title: 'CNC Machining Services',
+      icon: <Cpu />,
+      description:
+        'At Danesh Industries, we specialize in high‑precision CNC machining solutions tailored for OEMs, industrial projects, and specialized engineering requirements.'
+    },
+    {
+      title: 'Fabrication Services',
+      icon: <Boxes />,
+      description:
+        'Our fabrication unit is equipped to handle both light and heavy fabrication works for diverse industries with advanced manufacturing standards.'
+    },
+    {
       title: 'Progressive Tools',
       icon: <Command />,
-      description: 'We design and manufacture high-precision progressive tools engineered for efficient and continuous production operations. Our tooling solutions are developed to deliver accuracy, repeatability, and long-term operational reliability.'
+      description:
+        'We design and manufacture high‑precision progressive tools engineered for efficient and continuous production operations.'
     },
     {
       title: 'Press Tools',
       icon: <Shrink />,
-      description: 'Our custom press tools are manufactured to support a wide range of metal forming and stamping applications. Designed with precision and durability, our press tools ensure smooth and efficient manufacturing performance.'
+      description:
+        'Custom press tools designed for reliable metal forming and industrial stamping applications with precision and durability.'
     },
     {
       title: 'Jigs & Fixtures',
       icon: <Settings />,
-      description: 'We provide precision-engineered jigs and fixtures that improve production efficiency, reduce setup time, and maintain dimensional consistency throughout manufacturing processes.'
+      description:
+        'Precision‑engineered jigs and fixtures that improve production efficiency, reduce setup time, and maintain dimensional consistency.'
     },
     {
-      title: 'Gauges',
+      title: 'Inspection Gauges',
       icon: <Drill />,
-      description: 'Our inspection gauges are designed to ensure accurate measurement and quality verification across production environments. Every gauge is manufactured to meet stringent quality and precision standards.'
+      description:
+        'Inspection gauges manufactured to ensure accurate measurement and quality verification across production environments.'
     },
-    {
-      title: 'Welding Fixtures',
-      icon: <Boxes />,
-      description: 'We develop durable and reliable welding fixtures that enhance positioning accuracy, structural stability, and workflow efficiency during welding operations.'
-    },
-    {
-      title: 'CNC Machining',
-      icon: <Cpu />,
-      description: 'Our CNC machining services deliver precision-manufactured components with tight tolerances, superior surface finishes, and consistent production quality for industrial applications.'
-    },
-    {
-      title: 'Fabrication Solutions',
-      icon: <Zap />,
-      description: 'We offer custom fabrication services tailored to industrial requirements, combining engineering expertise with advanced manufacturing techniques to deliver high-quality fabricated components and assemblies.'
-    }
   ];
 
   return (
-    <div className="bg-white">
-      {/* Banner */}
-      <section className="bg-slate-900 py-24 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
-           <h1 className="text-5xl md:text-6xl text-white mb-6">Our Services</h1>
-           <p className="text-xl text-slate-400 font-light max-w-2xl">
-             Precision engineering services designed for industrial excellence and production performance.
-           </p>
+    <div className="bg-[#f8fafc] overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-[420px] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105 animate-pulse"
+          style={{
+            backgroundImage: image15,
+          }}
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-[2px]" />
+
+        {/* Floating Animation */}
+        <motion.div
+          animate={{ y: [0, -15, 0] }}
+          transition={{ repeat: Infinity, duration: 5 }}
+          className="absolute top-20 left-10 hidden lg:block"
+        >
+          <Cog className="w-24 h-24 text-blue-200 opacity-40" />
+        </motion.div>
+
+        <motion.div
+          animate={{ rotate: [0, 360] }}
+          transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
+          className="absolute bottom-10 right-10 hidden lg:block"
+        >
+          <Settings className="w-24 h-24 text-blue-300 opacity-30" />
+        </motion.div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-6xl font-extrabold text-[#123a74] mb-6"
+          >
+            Our Services
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-lg md:text-2xl text-gray-700 leading-relaxed"
+          >
+            Comprehensive manufacturing solutions from precision machining
+            to quality assurance.
+          </motion.p>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="space-y-12">
-              {services.map((service, index) => (
-                <motion.div 
-                  initial={{opacity: 0, y: 20}}
-                  whileInView={{opacity: 1, y: 0}}
-                  viewport={{once: true}}
-                  key={service.title} 
-                  className={`flex flex-col lg:flex-row gap-12 items-center p-8 rounded-2xl border border-slate-100 hover:border-brand-accent transition-all ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+      {/* Services Cards */}
+      <section className="relative -mt-8 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="group relative bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500"
+            >
+              {/* Top Border Animation */}
+              <div className="absolute top-0 left-0 h-1 w-0 bg-blue-500 group-hover:w-full transition-all duration-700" />
+
+              <div className="p-10">
+                {/* Icon */}
+                <motion.div
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  className="w-20 h-20 rounded-2xl bg-blue-50 flex items-center justify-center mb-8"
                 >
-                   <div className="lg:w-1/3">
-                      <div className="p-10 bg-slate-50 text-brand-accent rounded-2xl w-full aspect-square flex items-center justify-center">
-                         {React.cloneElement(service.icon as React.ReactElement, {className: 'h-24 w-24 opacity-20'})}
-                         <div className="absolute font-display font-black text-6xl opacity-5 select-none">{String(index + 1).padStart(2, '0')}</div>
-                      </div>
-                   </div>
-                   <div className="lg:w-2/3">
-                      <h3 className="text-3xl font-bold mb-6 text-slate-900">{service.title}</h3>
-                      <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                        {service.description}
-                      </p>
-                      <button className="flex items-center text-brand-accent font-bold group">
-                         Discuss your requirement <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                      </button>
-                   </div>
+                  {service.icon}
                 </motion.div>
-              ))}
-           </div>
+
+                {/* Title */}
+                <h3 className="text-3xl font-bold text-blue-500 mb-5 group-hover:text-[#123a74] transition-colors duration-300">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 text-lg leading-relaxed mb-8 line-clamp-4">
+                  {service.description}
+                </p>
+
+                {/* Button */}
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 bg-blue-500 hover:bg-[#123a74] text-white font-semibold px-7 py-3 rounded-full transition-all duration-300"
+                >
+                  Read More
+                  <ArrowRight className="w-5 h-5" />
+                </motion.button>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Industries We Serve */}
-      <section className="py-24 bg-slate-50 industrial-grid">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="text-center mb-16">
-              <h2 className="text-3xl uppercase tracking-widest text-slate-500 font-bold mb-4">Industries We Serve</h2>
-              <p className="text-slate-400">Tailored solutions for diverse industrial sectors.</p>
-           </div>
-           
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <IndustryTag label="Automotive" />
-              <IndustryTag label="Electrical & Electronics" />
-              <IndustryTag label="Heavy Engineering" />
-              <IndustryTag label="OEM Manufacturing" />
-              <IndustryTag label="Fabrication" />
-              <IndustryTag label="Precision Components" />
-              <IndustryTag label="Industrial Manufacturing" />
-              <IndustryTag label="Global Export" />
-           </div>
-         </div>
+      {/* Industries Section */}
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-[#123a74] mb-4"
+            >
+              Industries We Serve
+            </motion.h2>
+
+            <p className="text-gray-600 text-lg">
+              Delivering advanced engineering solutions for diverse sectors.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              'Automotive',
+              'Electrical',
+              'Heavy Engineering',
+              'OEM Manufacturing',
+              'Industrial Fabrication',
+              'Precision Components',
+              'Machine Tools',
+              'Global Export',
+            ].map((item, index) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
+                className="bg-[#f8fafc] border border-gray-100 rounded-2xl py-8 px-4 text-center shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <span className="font-semibold text-[#123a74] tracking-wide">
+                  {item}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
+
+      {/* Floating WhatsApp Button */}
+      <motion.a
+        href="https://wa.me/1234567890"
+        target="_blank"
+        rel="noopener noreferrer"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-green-500 shadow-2xl flex items-center justify-center hover:scale-110 transition-transform"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 32 32"
+          fill="white"
+          className="w-8 h-8"
+        >
+          <path d="M19.11 17.24c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.14-1.3-.79-.7-1.33-1.56-1.49-1.83-.16-.27-.02-.41.12-.55.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.6-1.45-.82-1.99-.22-.52-.44-.45-.6-.46h-.51c-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.24 0 1.32.96 2.59 1.09 2.77.14.18 1.88 2.87 4.56 4.02.64.27 1.14.43 1.53.55.64.2 1.22.17 1.68.1.51-.08 1.58-.65 1.8-1.28.22-.63.22-1.17.15-1.28-.07-.11-.24-.18-.51-.32z" />
+          <path d="M16 .4C7.39.4.4 7.39.4 16c0 2.82.75 5.57 2.18 7.99L0 32l8.22-2.55A15.55 15.55 0 0016 31.6c8.61 0 15.6-6.99 15.6-15.6S24.61.4 16 .4zm0 28.34c-2.44 0-4.83-.66-6.91-1.91l-.49-.29-4.88 1.51 1.59-4.75-.32-.5A12.67 12.67 0 013.33 16C3.33 8.99 8.99 3.33 16 3.33S28.67 8.99 28.67 16 23.01 28.74 16 28.74z" />
+        </svg>
+      </motion.a>
     </div>
   );
 }
-
-function IndustryTag({label}: {label: string}) {
-  return (
-    <div className="bg-white px-6 py-8 rounded shadow-sm border border-slate-100 text-center flex items-center justify-center">
-       <span className="text-slate-800 font-bold uppercase tracking-wider text-xs">{label}</span>
-    </div>
-  );
-}
-
-import React from 'react';

@@ -18,6 +18,12 @@ import image12 from "../assets/images/image12.png";
 import image14 from "../assets/images/image14.png";
 import image15 from "../assets/images/image15.png";
 import image16 from "../assets/images/image16.png";
+import image17 from "../assets/images/image17.png";
+import image18 from "../assets/images/image18.png";
+import image19 from "../assets/images/image19.png";
+import image20 from "../assets/images/image20.png";
+import image21 from "../assets/images/image21.png";
+import image22 from "../assets/images/image22.png";
 
 const categories = [
   'Progressive Dies', 
@@ -50,10 +56,10 @@ const productDetails: Record<string, CategoryDetail> = {
     subProducts: [
      
       {
-        name: 'Partition Plate Die sets',
+        name: 'Spline Die Block',
         material: 'HCHCR Premium Hardened Steel',
-        specs: 'Custom engineered matrix configurations matching structural component builds.',
-        image: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=800&auto=format'
+        specs: 'A high-precision CNC-machined die block featuring an internal spline profile, designed for press tooling, broaching, and precision metal forming applications.',
+        image: image1
       },
        {
         name: 'Blanking Die Insert',
@@ -78,13 +84,19 @@ const productDetails: Record<string, CategoryDetail> = {
   'Press Tools': {
     title: 'Press Tools',
     description: 'We manufacture reliable and durable press tooling solutions designed for demanding industrial forming and stamping operations. Each tool is built with high-grade materials to withstand heavy use while maintaining superior production quality.',
-    mainImage: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=800&auto=format',
+    mainImage: image20,
     subProducts: [
       {
-        name: 'Forming & Punching Tooling',
+        name: 'Industrial Machined Parts',
         material: 'WPS High-Carbon Steel',
-        specs: 'Heavy duty configurations engineered to execute clean punch actions under intense workflows.',
-        image: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=800&auto=format'
+        specs: 'A collection of high-precision CNC machined metal components manufactured for industrial tooling, automation systems, jigs & fixtures, and mechanical engineering applications.',
+        image: image20
+      },
+       {
+        name: 'Notch Cam Slider',
+        material: 'WPS High-Carbon Steel',
+        specs: 'A precision CNC-machined notch cam slide manufactured from SKD11 hardened tool steel, designed for accurate sliding and cam movement operations in industrial press tooling and metal forming applications.',
+        image: image22
       }
     ]
   },
@@ -98,7 +110,26 @@ const productDetails: Record<string, CategoryDetail> = {
         material: 'Hardened Structural Steel Alloys',
         specs: 'High-strength tooling clamping kit designed for secure workholding in CNC machining, milling, drilling, and industrial fixture applications. Manufactured from hardened steel for durability and precision, this kit ensures stable component positioning, improved machining accuracy, and reliable industrial performance.',
         image: image15
+      },
+       {
+        name: 'CNC Machined Mounting Block',
+        material: 'Hardened Structural Steel Alloys',
+        specs: 'A precision CNC-machined metal mounting block designed for industrial tooling, fixture alignment, and mechanical assembly applications.',
+        image: image18
+      },
+         {
+        name: 'Precision Locator Block',
+        material: 'Hardened Structural Steel Alloys',
+        specs: 'A precision-machined metal block used for positioning, alignment, and support in industrial tooling and fixture applications.',
+        image: image19
+      },
+       {
+        name: 'Threaded Fixture Block',
+        material: 'Hardened Structural Steel Alloys',
+        specs: 'A precision CNC-machined threaded block designed for industrial tooling, workholding, and fixture applications.',
+        image: image21
       }
+    
     ]
   },
   'Gauges': {
@@ -197,6 +228,12 @@ const productDetails: Record<string, CategoryDetail> = {
         material: 'SS316 Stainless Steel Alloy',
         specs: 'The Mazak CNC VMC is a high-precision vertical machining center designed for advanced milling, drilling, tapping, and precision machining operations. Engineered for superior accuracy',
         image: image16
+      },
+       {
+        name: 'Circular Slotted Metal Disc',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'A precision CNC-machined circular metal rotor plate with radial slots and mounting holes, used in industrial machinery, motors, pumps, or airflow/mechanical systems.',
+        image: image17
       },
     ]
   }

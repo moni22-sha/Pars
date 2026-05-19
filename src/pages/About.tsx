@@ -1,19 +1,72 @@
-import {CheckCircle2} from 'lucide-react';
-import {motion} from 'motion/react';
-
+import { CheckCircle2, Factory, Target, Compass } from 'lucide-react';
+import { motion, Variants } from 'motion/react';
+import image20 from '../assets/images/image20.png';
 export default function About() {
+  // Stagger wrapper for lists or grids
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: 'spring', stiffness: 100, damping: 15 },
+    },
+  };
+
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-x-hidden">
       {/* Banner */}
-      <section className="bg-brand-primary py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        </div>
+      <section className="bg-brand-primary py-32 relative overflow-hidden">
+         <div className="absolute inset-0 z-0">
+                  <img 
+                    src={image20}
+                    alt="Industrial Facility" 
+                    className="w-full h-full object-cover opacity-20"
+                  />
+                  <div className="absolute inset-0 bg-black/40" />
+                </div>
+        {/* Subtle sliding texture layer */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 0.15, scale: 1 }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
+          className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] pointer-events-none"
+        />
+        
+        {/* Ambient geometric light effect */}
+        <motion.div 
+          initial={{ opacity: 0, x: '20%' }}
+          animate={{ opacity: 0.2, x: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          className="absolute -right-20 -bottom-20 w-[500px] h-[500px] bg-brand-accent/30 rounded-full blur-[100px] pointer-events-none hidden md:block"
+        />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-5xl md:text-6xl text-white mb-6">About PIW Engineering Works</h1>
-          <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">
+          <motion.h1 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: 'spring', stiffness: 80, damping: 15 }}
+            className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+          >
+            About Engineering Works
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-slate-300 max-w-2xl leading-relaxed font-light"
+          >
             Precision-driven engineering solutions built on quality, expertise, and manufacturing excellence.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -21,8 +74,17 @@ export default function About() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h2 className="text-4xl text-slate-900 mb-8">Company Overview</h2>
+            <motion.div 
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.75, ease: 'easeOut' }}
+              className="space-y-6"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold uppercase tracking-wider">
+                <Factory className="h-3.5 w-3.5" /> Corporate Profile
+              </div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-6 tracking-tight">Company Overview</h2>
               <p className="text-lg text-slate-600 leading-relaxed">
                 PIW Engineering Works is a precision engineering and manufacturing company specializing in tooling solutions, CNC machining, fabrication systems, and industrial engineering support.
               </p>
@@ -32,75 +94,119 @@ export default function About() {
               <p className="text-slate-600 leading-relaxed">
                 Operating from a fully equipped 4000+ sq. ft. manufacturing facility, we combine technical expertise with advanced production capabilities to deliver efficient, durable, and cost-effective engineering solutions that align with modern industrial standards.
               </p>
-              <div className="bg-slate-50 p-8 rounded-lg border-l-4 border-brand-accent">
-                <p className="italic text-slate-700">
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="bg-slate-50 p-8 rounded-xl border-l-4 border-brand-accent shadow-sm transition-all"
+              >
+                <p className="italic text-slate-700 leading-relaxed">
                   "With the trust of 1000+ clients across various industrial sectors, we continue to deliver high-quality tooling systems, precision components, and customized engineering solutions."
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Staggered Stat Blocks */}
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            >
                <StatBox number="30+" label="Years of Experience" />
                <StatBox number="1000+" label="Satisfied Clients" />
                <StatBox number="4000+" label="Sq. Ft. Facility" />
                <StatBox number="100%" label="Quality Commitment" />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-24 bg-slate-50 industrial-grid">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-               <motion.div 
-                 whileHover={{y: -5}}
-                 className="bg-white p-12 rounded-2xl shadow-xl border border-slate-100"
-               >
-                  <h3 className="text-2xl font-bold text-brand-primary mb-6 flex items-center gap-3">
-                    <div className="h-8 w-2 bg-brand-accent rounded"></div>
-                    Our Mission
-                  </h3>
-                  <p className="text-slate-600 text-lg leading-relaxed">
-                    To deliver precision-engineered manufacturing solutions that enhance productivity, quality, and operational efficiency for industries worldwide.
-                  </p>
-               </motion.div>
-               
-               <motion.div 
-                 whileHover={{y: -5}}
-                 className="bg-white p-12 rounded-2xl shadow-xl border border-slate-100"
-               >
-                  <h3 className="text-2xl font-bold text-brand-primary mb-6 flex items-center gap-3">
-                    <div className="h-8 w-2 bg-brand-accent rounded"></div>
-                    Our Vision
-                  </h3>
-                  <p className="text-slate-600 text-lg leading-relaxed">
-                    To become a trusted leader in precision engineering and tooling solutions through innovation, technical excellence, and long-term customer partnerships.
-                  </p>
-               </motion.div>
-            </div>
-         </div>
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* Subtle structural grid backdrop layout lines */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+             <motion.div 
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ type: 'spring', stiffness: 70, damping: 14 }}
+               whileHover={{ y: -8, scale: 1.01 }}
+               className="bg-white p-12 rounded-2xl shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group"
+             >
+                <h3 className="text-2xl font-bold text-brand-primary mb-6 flex items-center gap-3">
+                  <div className="p-2 bg-brand-accent/10 text-brand-accent rounded-lg group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                    <Target className="h-5 w-5" />
+                  </div>
+                  Our Mission
+                </h3>
+                <p className="text-slate-600 text-lg leading-relaxed">
+                  To deliver precision-engineered manufacturing solutions that enhance productivity, quality, and operational efficiency for industries worldwide.
+                </p>
+             </motion.div>
+             
+             <motion.div 
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ type: 'spring', stiffness: 70, damping: 14, delay: 0.15 }}
+               whileHover={{ y: -8, scale: 1.01 }}
+               className="bg-white p-12 rounded-2xl shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group"
+             >
+                <h3 className="text-2xl font-bold text-brand-primary mb-6 flex items-center gap-3">
+                  <div className="p-2 bg-brand-accent/10 text-brand-accent rounded-lg group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                    <Compass className="h-5 w-5 animate-spin-slow group-hover:rotate-45 transition-transform" />
+                  </div>
+                  Our Vision
+                </h3>
+                <p className="text-slate-600 text-lg leading-relaxed">
+                  To become a trusted leader in precision engineering and tooling solutions through innovation, technical excellence, and long-term customer partnerships.
+                </p>
+             </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Strengths */}
-      <section className="py-24">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-display font-bold uppercase tracking-tight text-slate-900">Our Core Strengths</h2>
-            <div className="h-1 w-20 bg-brand-accent mx-auto mt-4"></div>
+          <div className="text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl font-bold tracking-tight text-slate-900 uppercase"
+            >
+              Our Core Strengths
+            </motion.h2>
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="h-1 bg-brand-accent mx-auto mt-4"
+            />
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12">
-            <StrengthItem text="30+ Years of Industry Experience" />
-            <StrengthItem text="1000+ Satisfied Clients" />
-            <StrengthItem text="4000+ Sq. Ft. Facility" />
-            <StrengthItem text="Precision Engineering Expertise" />
-            <StrengthItem text="Advanced Infrastructure" />
-            <StrengthItem text="Skilled Technical Workforce" />
-            <StrengthItem text="Quality-Driven Processes" />
-            <StrengthItem text="Customized Industrial Solutions" />
-            <StrengthItem text="Timely Project Delivery" />
-          </div>
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12"
+          >
+            <StrengthItem variants={itemVariants} text="30+ Years of Industry Experience" />
+            <StrengthItem variants={itemVariants} text="1000+ Satisfied Clients" />
+            <StrengthItem variants={itemVariants} text="4000+ Sq. Ft. Facility" />
+            <StrengthItem variants={itemVariants} text="Precision Engineering Expertise" />
+            <StrengthItem variants={itemVariants} text="Advanced Infrastructure" />
+            <StrengthItem variants={itemVariants} text="Skilled Technical Workforce" />
+            <StrengthItem variants={itemVariants} text="Quality-Driven Processes" />
+            <StrengthItem variants={itemVariants} text="Customized Industrial Solutions" />
+            <StrengthItem variants={itemVariants} text="Timely Project Delivery" />
+          </motion.div>
         </div>
       </section>
     </div>
@@ -109,20 +215,45 @@ export default function About() {
 
 function StatBox({number, label}: {number: string, label: string}) {
   return (
-    <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-100 text-center">
-      <div className="text-4xl font-display font-bold text-brand-accent mb-2">{number}</div>
+    <motion.div 
+      variants={{
+        hidden: { opacity: 0, y: 30, scale: 0.95 },
+        visible: { opacity: 1, y: 0, scale: 1 }
+      }}
+      whileHover={{ 
+        y: -6, 
+        scale: 1.03,
+        boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.05)'
+      }}
+      className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg border border-slate-100 text-center transition-all duration-300 cursor-default"
+    >
+      <motion.div 
+        initial={{ scale: 0.6 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: 'spring', stiffness: 150, delay: 0.2 }}
+        className="text-4xl font-bold text-brand-accent mb-2 tracking-tight"
+      >
+        {number}
+      </motion.div>
       <div className="text-xs uppercase tracking-widest text-slate-500 font-bold">{label}</div>
-    </div>
+    </motion.div>
   );
 }
 
-function StrengthItem({text}: {text: string}) {
+function StrengthItem({text, variants}: {text: string, variants: Variants}) {
   return (
-    <div className="flex items-center gap-4 group">
-      <div className="bg-emerald-50 text-emerald-600 p-2 rounded-full group-hover:bg-brand-accent group-hover:text-white transition-colors">
+    <motion.div 
+      variants={variants}
+      whileHover={{ x: 6 }}
+      className="flex items-center gap-4 group cursor-default"
+    >
+      <div className="bg-emerald-50 text-emerald-600 p-2 rounded-full group-hover:bg-brand-accent group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-sm">
         <CheckCircle2 className="h-5 w-5" />
       </div>
-      <span className="text-slate-700 font-medium">{text}</span>
-    </div>
+      <span className="text-slate-700 font-medium group-hover:text-slate-900 transition-colors">
+        {text}
+      </span>
+    </motion.div>
   );
 }
