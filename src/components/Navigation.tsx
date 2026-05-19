@@ -11,6 +11,7 @@ const navLinks = [
   {name: 'Products', path: '/products'},
   {name: 'Facility', path: '/facility'},
   {name: 'Clients', path: '/clients'},
+  {name: 'Blog', path: '/blog'},
   {name: 'Contact', path: '/contact'},
 ];
 
@@ -162,15 +163,15 @@ export function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-brand-accent shrink-0" />
-                <span>[Insert Full Address]</span>
+                <span>SP 156, 12th Street, Ambattur Industrial Estate, Chennai 600 058</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-brand-accent shrink-0" />
-                <span>[Insert Phone Number]</span>
+                <span> +91 98402 55994/044 - 2688 0479</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-brand-accent shrink-0" />
-                <span>[Insert Email Address]</span>
+                <span>parsindustrieswork@gmail.com</span>
               </li>
             </ul>
           </div>

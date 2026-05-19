@@ -30,7 +30,7 @@ export default function Contact() {
                        <MapPin className="h-6 w-6 text-brand-accent shrink-0" />
                        <div>
                           <p className="font-bold mb-1">Our Address</p>
-                          <p className="text-slate-400 text-sm">PIW Engineering Works<br />[Insert Full Address]</p>
+                          <p className="text-slate-400 text-sm"><br />SP 156, 12th Street, Ambattur Industrial Estate, Chennai 600 058</p>
                        </div>
                     </div>
                     
@@ -38,7 +38,7 @@ export default function Contact() {
                        <Phone className="h-6 w-6 text-brand-accent shrink-0" />
                        <div>
                           <p className="font-bold mb-1">Phone Number</p>
-                          <p className="text-slate-400 text-sm">[Insert Phone Number]</p>
+                          <p className="text-slate-400 text-sm"> +91 98402 55994/044 - 2688 0479</p>
                        </div>
                     </div>
                     
@@ -46,7 +46,7 @@ export default function Contact() {
                        <Mail className="h-6 w-6 text-brand-accent shrink-0" />
                        <div>
                           <p className="font-bold mb-1">Email Address</p>
-                          <p className="text-slate-400 text-sm">[Insert Email Address]</p>
+                          <p className="text-slate-400 text-sm">parsindustrieswork@gmail.com</p>
                        </div>
                     </div>
                     
