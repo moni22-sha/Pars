@@ -220,12 +220,7 @@ const productDetails: Record<string, CategoryDetail> = {
         specs: 'Precision machined for accurate sealing and extreme chemical resistance capabilities.',
         image: percision
       },
-      {
-        name: 'Precision CNC Flange Hub',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'High-precision CNC machined flange hub engineered for industrial automation, rotary systems, and precision mechanical assemblies. Featuring a concentric multi-hole design, superior surface finish, and high-strength metal construction for accurate alignment and durable performance.',
-        image: image2
-      },
+     
        {
         name: 'Precision CNC Shaft Assembly',
         material: 'SS316 Stainless Steel Alloy',
@@ -244,12 +239,7 @@ const productDetails: Record<string, CategoryDetail> = {
         specs: 'High-precision CNC machined fixture block designed for industrial tooling, automation systems, and precision mechanical assemblies. Manufactured from premium-grade metal with accurate drilled mounting holes and a precision-cut slot profile for stable positioning, durability, and reliable performance.',
         image: image5
       },
-        {
-        name: 'Precision Wear Plate',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'High-precision CNC machined fixture block designed for industrial tooling, automation systems, and precision mechanical assemblies. Manufactured from premium-grade metal with accurate drilled mounting holes and a precision-cut slot profile for stable positioning, durability, and reliable performance.',
-        image: image6
-      },
+    
        {
         name: 'Precision Stop Block',
         material: 'SS316 Stainless Steel Alloy',
@@ -315,12 +305,7 @@ const productDetails: Record<string, CategoryDetail> = {
         specs: 'Used for precision alignment, positioning, and controlled flow or mechanical applications in industrial assemblies and tooling systems.',
         image: image34
       },
-       {
-        name: 'Precision Spacer Block',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'Used for accurate spacing, alignment, and support in precision machining, tooling, and industrial assembly applications.',
-        image: image36
-      },
+     
 
        {
         name: 'Precision Machined Components',

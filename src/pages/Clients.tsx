@@ -12,6 +12,7 @@ import logo9 from '../assets/images/logo10.png';
 import logo10 from '../assets/images/logo11.png';
 import logo12 from '../assets/images/logo12.png';
 import logo13 from '../assets/images/logo13.png';
+import logo14 from '../assets/images/logo14.png';
 
 export default function Clients() {
   // Combined client data mapping names to their imported logo assets
@@ -22,7 +23,7 @@ export default function Clients() {
     { name: 'Federal Mogul', logo: logo4 },
     { name: 'Petterssons', logo: logo12 },
     { name: 'Sundaram Fasteners', logo: logo5 },
-    { name: 'TI Diamond Chain', logo: logo1 },
+    { name: 'TI Diamond Chain', logo: logo14 },
     { name: 'TI Metal Forming', logo: logo1 },
     { name: 'Magna Cosma', logo: logo6 },
     { name: 'PHA', logo: logo13 },
