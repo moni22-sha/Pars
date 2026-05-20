@@ -42,215 +42,253 @@ import image39 from "../assets/images/image39.png";
 import image40 from "../assets/images/image40.png";
 import image42 from "../assets/images/image42.png";
 
-// Product Interface for type safety
+// Updated Product Interface with category tracking
 interface Product {
   id?: string;
   name: string;
   description: string;
   features?: string[];
   image: string;
+  category: 'Precision  Dies' | 'Press Tools' | 'Jigs & Fixtures' | 'Gauges' | 'Welding Fixtures' | 'Precision Components';
 }
 
 // Product data array for easy management
 const FEATURED_PRODUCTS: Product[] = [
   {
-        name: 'Spline Die Block',
-        description: 'A high-precision CNC-machined die block featuring an internal spline profile, designed for press tooling, broaching, and precision metal forming applications..',
-        image: image1
-      },
-       {
-        name: 'Blanking Die Insert',
-        description: 'A Blanking Die Insert is a replaceable, high-precision cutting component used in industrial stamping presses to punch flat shapes out of sheet metal.',
-        image: image9
-      },
-        {
-        name: 'Precision Dowel Pins',
-        description: 'High-precision dowel pins engineered for progressive die applications and precision tooling systems. Manufactured with superior CNC machining and hardened steel construction, these pins provide accurate alignment, exceptional wear resistance, and long-lasting performance in demanding industrial environments.',
-        image: image10
-      },
-      {
-        name: 'Window Shaving Punch (511)',
-        description: 'High-precision Window Shaving Punch (511) manufactured from premium SKD11 tool steel with hardness of HRC 58–60 for superior wear resistance and dimensional accuracy.',
-        image: image12
-      },
-      
-      
-       {
-        name: 'Sodick AG400L Wire Cut EDM',
-        description:"The Sodick AG400L is a high-precision CNC Wire Cut EDM machine used for cutting complex and accurate metal components using electrically charged wire technology.",
-        image: image25
-      },
-       {
-        name: 'Precision Locking Plate',
-        description:"Used for accurate positioning, locking, and alignment of mechanical components in precision engineering and industrial assemblies.",
-        image: image37
-      },
-      {
-        name: 'Progressive Die Insert',
-  
-        description:'Used in progressive die operations for precision cutting, shaping, and forming of sheet metal components with high accuracy.',
-        image: image40
-      },
- 
-      {
-        name: 'Industrial Machined Parts',
-        description: 'A collection of high-precision CNC machined metal components manufactured for industrial tooling, automation systems, jigs & fixtures, and mechanical engineering applications.',
-        image: image20
-      },
-       {
-        name: 'Notch Cam Slider',
-        description: 'A precision CNC-machined notch cam slide manufactured from SKD11 hardened tool steel, designed for accurate sliding and cam movement operations in industrial press tooling and metal forming applications.',
-        image: image22
-      },
-  
-      {
-        name: 'Tooling Clamping Kit',
-        description: 'High-strength tooling clamping kit designed for secure workholding in CNC machining, milling, drilling, and industrial fixture applications. Manufactured from hardened steel for durability and precision, this kit ensures stable component positioning, improved machining accuracy, and reliable industrial performance.',
-        image: image15
-      },
-       {
-        name: 'CNC Machined Mounting Block',
-        description: 'A precision CNC-machined metal mounting block designed for industrial tooling, fixture alignment, and mechanical assembly applications.',
-        image: image18
-      },
-         {
-        name: 'Precision Locator Block',
-        description: 'A precision-machined metal block used for positioning, alignment, and support in industrial tooling and fixture applications.',
-        image: image19
-      },
-       {
-        name: 'Threaded Fixture Block',
-        description: 'A precision CNC-machined threaded block designed for industrial tooling, workholding, and fixture applications.',
-        image: image21
-      },
-    {
-        name: 'Precision Fixture Component',
-        description: 'Used for accurate positioning, alignment, and support of industrial parts during machining and assembly operations.',
-        image:image32
-      },
-      {
-        name: 'Jig & Fixture Base Plate',
-        description: 'Used for accurate holding, positioning, and alignment of components during machining and assembly operations.',
-        image:image38
-      },
-    
-  
-    {
-        name: 'Surface Grinding Machine',
-        description: 'Used for precision grinding and finishing of metal components, dies, and tool surfaces to achieve high accuracy and smooth surface finish.',
-        image: image28
-      },
-  
-      {
-        name: 'Manual & Robotic Welding Beds',
-        description: 'Integrated spatter-resistant pneumatic clamp designs for absolute rigid framing.',
-        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format'
-      },
-  
-      {
-        name: 'Plug Valve Components',
-        description: 'Precision machined for accurate sealing and extreme chemical resistance capabilities.',
-        image: percision
-      },
-      {
-        name: 'Precision CNC Flange Hub',
-        description: 'High-precision CNC machined flange hub engineered for industrial automation, rotary systems, and precision mechanical assemblies. Featuring a concentric multi-hole design, superior surface finish, and high-strength metal construction for accurate alignment and durable performance.',
-        image: image2
-      },
-       {
-        name: 'Precision CNC Shaft Assembly',
-        description: 'High-precision CNC machined shaft assembly engineered for industrial automation, rotary motion systems, and mechanical transmission applications. Manufactured with premium-grade steel and finished with superior surface machining for exceptional durability, smooth rotation, and high dimensional accuracy.',
-        image: image3
-      },
-        {
-        name: 'Precision Flexible Coupling',
-        description: 'High-precision flexible coupling engineered for accurate torque transmission and vibration reduction in industrial motion systems. Manufactured with premium CNC machining and designed for smooth rotational performance, alignment compensation, and long-lasting durability',
-        image: image4
-      },
-         {
-        name: 'Precision CNC Fixture Block',
-        description: 'High-precision CNC machined fixture block designed for industrial tooling, automation systems, and precision mechanical assemblies. Manufactured from premium-grade metal with accurate drilled mounting holes and a precision-cut slot profile for stable positioning, durability, and reliable performance.',
-        image: image5
-      },
-        {
-        name: 'Precision Wear Plate',
-        description: 'High-precision CNC machined fixture block designed for industrial tooling, automation systems, and precision mechanical assemblies. Manufactured from premium-grade metal with accurate drilled mounting holes and a precision-cut slot profile for stable positioning, durability, and reliable performance.',
-        image: image6
-      },
-       {
-        name: 'Precision Stop Block',
-        description: '“Compact precision-machined stop block engineered for accurate positioning, fixture alignment, and industrial tooling applications. Designed with smooth rounded geometry and premium metallic finishing for durability and reliable mechanical performance.',
-        image: image7
-      },
-        {
-        name: 'PRE-PP-505 Precision Tooling Component',
-        description: 'PRE-PP-505 is a high-precision CNC machined tooling component manufactured from premium SKD11 tool steel with hardness ranging from HRC 58–60. Engineered for superior wear resistance, dimensional accuracy, and long operational life in demanding industrial and tooling applications',
-        image: image8
-      },
-       {
-        name: 'Precision CNC Flange Hub Assembly',
-        description: 'High-precision CNC machined flange hub assembly engineered for industrial automation, rotary systems, and precision mechanical applications. Manufactured with superior dimensional accuracy and a premium metallic finish, this component ensures stable mounting, smooth rotational alignment, and long-lasting industrial performance.',
-        image: image11
-      },
-      {
-        name: 'DMG DMC 835V CNC Vertical Machining Center (VMC)',
-        description: 'The DMG DMC 835V is a high-precision CNC Vertical Machining Center designed for advanced milling, drilling, tapping, and precision machining operations. Engineered for superior accuracy',
-        image: image14
-      },
-         {
-        name: 'Mazak CNC Vertical Machining Center (VMC)',
-        description: 'The Mazak CNC VMC is a high-precision vertical machining center designed for advanced milling, drilling, tapping, and precision machining operations. Engineered for superior accuracy',
-        image: image16
-      },
-       
-      {
-        name: 'Sodick Wire Cut EDM Machine',
-        description: 'A Sodick Wire-Cut EDM (Electrical Discharge Machining) Machine is a high-precision CNC machine used for cutting complex metal components with extreme accuracy using a thin electrically charged wire.',
-        image: image24
-      },
-        {
-        name: 'EDM Chiller Unit',
-        description: 'Used for cooling and maintaining the temperature of the Wire Cut EDM machine for stable and high-precision machining.',
-        image: image27
-      },
-     
-       {
-        name: 'Milling Machine',
-        description: 'Used for precision machining, drilling, slotting, and shaping of metal components for dies, tools, and industrial parts.',
-        image: image30
-      },
-       
-       
-      {
-        name: 'Mounting Plate',
-        description: 'Used for accurate mounting, alignment, and fastening of machine components in precision engineering and industrial assemblies.',
-        image: image33
-      },
-      
-       {
-        name: 'Precision Disc Plate',
-        description: 'Used for precision alignment, positioning, and controlled flow or mechanical applications in industrial assemblies and tooling systems.',
-        image: image34
-      },
-       {
-        name: 'Precision Spacer Block',
-        description: 'Used for accurate spacing, alignment, and support in precision machining, tooling, and industrial assembly applications.',
-        image: image36
-      },
-
-       {
-        name: 'Precision Machined Components',
-        description: 'Used for precision fitting, alignment, and industrial engineering applications with high dimensional accuracy and fine machining quality.',
-        image: image39
-      },
-      {
-        name: 'CNC Vertical Machining Center (VMC)',
-        description: 'Used for precision milling, drilling, cutting, and machining of metal components with high accuracy in industrial manufacturing applications.',
-        image: image42
-      },
+  name: 'Progressive Dies',
+ description: 'Our progressive dies are engineered for high-speed and high-volume production applications. We focus on exceptional precision and consistency, ensuring that every component meets tight tolerances across millions of cycles to optimize your manufacturing efficiency.',
+      image: image29,
+      category: 'Precision  Dies'
+  },
+  {
+    name: 'Spline Die Block',
+    description: 'A high-precision CNC-machined die block featuring an internal spline profile, designed for press tooling, broaching, and precision metal forming applications..',
+    image: image1,
+    category: 'Precision  Dies'
+  },
+  {
+    name: 'Blanking Die Insert',
+    description: 'A Blanking Die Insert is a replaceable, high-precision cutting component used in industrial stamping presses to punch flat shapes out of sheet metal.',
+    image: image9,
+    category: 'Precision  Dies'
+  },
+  {
+    name: 'Precision Dowel Pins',
+    description: 'High-precision dowel pins engineered for progressive die applications and precision tooling systems. Manufactured with superior CNC machining and hardened steel construction, these pins provide accurate alignment, exceptional wear resistance, and long-lasting performance in demanding industrial environments.',
+    image: image10,
+    category: 'Precision  Dies'
+  },
+  {
+    name: 'Window Shaving Punch (511)',
+    description: 'High-precision Window Shaving Punch (511) manufactured from premium SKD11 tool steel with hardness of HRC 58–60 for superior wear resistance and dimensional accuracy.',
+    image: image12,
+    category: 'Precision  Dies'
+  },
+  {
+    name: 'Sodick AG400L Wire Cut EDM',
+    description: "The Sodick AG400L is a high-precision CNC Wire Cut EDM machine used for cutting complex and accurate metal components using electrically charged wire technology.",
+    image: image25,
+    category: 'Precision  Dies'
+  },
+  {
+    name: 'Precision Locking Plate',
+    description: "Used for accurate positioning, locking, and alignment of mechanical components in precision engineering and industrial assemblies.",
+    image: image37,
+    category: 'Precision  Dies'
+  },
+  {
+    name: 'Progressive Die Insert',
+    description: 'Used in progressive die operations for precision cutting, shaping, and forming of sheet metal components with high accuracy.',
+    image: image40,
+    category: 'Precision  Dies'
+  },
+  {
+    name: 'Industrial Machined Parts',
+    description: 'A collection of high-precision CNC machined metal components manufactured for industrial tooling, automation systems, jigs & fixtures, and mechanical engineering applications.',
+    image: image20,
+    category: 'Press Tools'
+  },
+  {
+    name: 'Notch Cam Slider',
+    description: 'A precision CNC-machined notch cam slide manufactured from SKD11 hardened tool steel, designed for accurate sliding and cam movement operations in industrial press tooling and metal forming applications.',
+    image: image22,
+    category: 'Press Tools'
+  },
+  {
+    name: 'Tooling Clamping Kit',
+    description: 'High-strength tooling clamping kit designed for secure workholding in CNC machining, milling, drilling, and industrial fixture applications. Manufactured from hardened steel for durability and precision, this kit ensures stable component positioning, improved machining accuracy, and reliable industrial performance.',
+    image: image15,
+    category: 'Jigs & Fixtures'
+  },
+  {
+    name: 'CNC Machined Mounting Block',
+    description: 'A precision CNC-machined metal mounting block designed for industrial tooling, fixture alignment, and mechanical assembly applications.',
+    image: image18,
+    category: 'Jigs & Fixtures'
+  },
+  {
+    name: 'Precision Locator Block',
+    description: 'A precision-machined metal block used for positioning, alignment, and support in industrial tooling and fixture applications.',
+    image: image19,
+    category: 'Jigs & Fixtures'
+  },
+  {
+    name: 'Threaded Fixture Block',
+    description: 'A precision CNC-machined threaded block designed for industrial tooling, workholding, and fixture applications.',
+    image: image21,
+    category: 'Jigs & Fixtures'
+  },
+  {
+    name: 'Precision Fixture Component',
+    description: 'Used for accurate positioning, alignment, and support of industrial parts during machining and assembly operations.',
+    image: image32,
+    category: 'Jigs & Fixtures'
+  },
+  {
+    name: 'Jig & Fixture Base Plate',
+    description: 'Used for accurate holding, positioning, and alignment of components during machining and assembly operations.',
+    image: image38,
+    category: 'Jigs & Fixtures'
+  },
+  {
+    name: 'Surface Grinding Machine',
+    description: 'Used for precision grinding and finishing of metal components, dies, and tool surfaces to achieve high accuracy and smooth surface finish.',
+    image: image28,
+    category: 'Gauges'
+  },
+  {
+    name: 'Manual & Robotic Welding Beds',
+    description: 'Integrated spatter-resistant pneumatic clamp designs for absolute rigid framing.',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format',
+    category: 'Welding Fixtures'
+  },
+  {
+    name: 'Plug Valve Components',
+    description: 'Precision machined for accurate sealing and extreme chemical resistance capabilities.',
+    image: percision,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision CNC Flange Hub',
+    description: 'High-precision CNC machined flange hub engineered for industrial automation, rotary systems, and precision mechanical assemblies. Featuring a concentric multi-hole design, superior surface finish, and high-strength metal construction for accurate alignment and durable performance.',
+    image: image2,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision CNC Shaft Assembly',
+    description: 'High-precision CNC machined shaft assembly engineered for industrial automation, rotary motion systems, and mechanical transmission applications. Manufactured with premium-grade steel and finished with superior surface machining for exceptional durability, smooth rotation, and high dimensional accuracy.',
+    image: image3,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision Flexible Coupling',
+    description: 'High-precision flexible coupling engineered for accurate torque transmission and vibration reduction in industrial motion systems. Manufactured with premium CNC machining and designed for smooth rotational performance, alignment compensation, and long-lasting durability',
+    image: image4,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision CNC Fixture Block',
+    description: 'High-precision CNC machined fixture block designed for industrial tooling, automation systems, and precision mechanical assemblies. Manufactured from premium-grade metal with accurate drilled mounting holes and a precision-cut slot profile for stable positioning, durability, and reliable performance.',
+    image: image5,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision Wear Plate',
+    description: 'High-precision CNC machined fixture block designed for industrial tooling, automation systems, and precision mechanical assemblies. Manufactured from premium-grade metal with accurate drilled mounting holes and a precision-cut slot profile for stable positioning, durability, and reliable performance.',
+    image: image6,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision Stop Block',
+    description: '“Compact precision-machined stop block engineered for accurate positioning, fixture alignment, and industrial tooling applications. Designed with smooth rounded geometry and premium metallic finishing for durability and reliable mechanical performance.',
+    image: image7,
+    category: "Precision Components"
+  },
+  {
+    name: 'PRE-PP-505 Precision Tooling Component',
+    description: 'PRE-PP-505 is a high-precision CNC machined tooling component manufactured from premium SKD11 tool steel with hardness ranging from HRC 58–60. Engineered for superior wear resistance, dimensional accuracy, and long operational life in demanding industrial and tooling applications',
+    image: image8,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision CNC Flange Hub Assembly',
+    description: 'High-precision CNC machined flange hub assembly engineered for industrial automation, rotary systems, and precision mechanical applications. Manufactured with superior dimensional accuracy and a premium metallic finish, this component ensures stable mounting, smooth rotational alignment, and long-lasting industrial performance.',
+    image: image11,
+    category: "Precision Components"
+  },
+  {
+    name: 'DMG DMC 835V CNC Vertical Machining Center (VMC)',
+    description: 'The DMG DMC 835V is a high-precision CNC Vertical Machining Center designed for advanced milling, drilling, tapping, and precision machining operations. Engineered for superior accuracy',
+    image: image14,
+    category: "Precision Components"
+  },
+  {
+    name: 'Mazak CNC Vertical Machining Center (VMC)',
+    description: 'The Mazak CNC VMC is a high-precision vertical machining center designed for advanced milling, drilling, tapping, and precision machining operations. Engineered for superior accuracy',
+    image: image16,
+    category: "Precision Components"
+  },
+  {
+    name: 'Sodick Wire Cut EDM Machine',
+    description: 'A Sodick Wire-Cut EDM (Electrical Discharge Machining) Machine is a high-precision CNC machine used for cutting complex metal components with extreme accuracy using a thin electrically charged wire.',
+    image: image24,
+    category: "Precision Components"
+  },
+  {
+    name: 'EDM Chiller Unit',
+    description: 'Used for cooling and maintaining the temperature of the Wire Cut EDM machine for stable and high-precision machining.',
+    image: image27,
+    category: "Precision Components"
+  },
+  {
+    name: 'Milling Machine',
+    description: 'Used for precision machining, drilling, slotting, and shaping of metal components for dies, tools, and industrial parts.',
+    image: image30,
+    category: "Precision Components"
+  },
+  {
+    name: 'Mounting Plate',
+    description: 'Used for accurate mounting, alignment, and fastening of machine components in precision engineering and industrial assemblies.',
+    image: image33,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision Disc Plate',
+    description: 'Used for precision alignment, positioning, and controlled flow or mechanical applications in industrial assemblies and tooling systems.',
+    image: image34,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision Spacer Block',
+    description: 'Used for accurate spacing, alignment, and support in precision machining, tooling, and industrial assembly applications.',
+    image: image36,
+    category: "Precision Components"
+  },
+  {
+    name: 'Precision Machined Components',
+    description: 'Used for precision fitting, alignment, and industrial engineering applications with high dimensional accuracy and fine machining quality.',
+    image: image39,
+    category: "Precision Components"
+  },
+  {
+    name: 'CNC Vertical Machining Center (VMC)',
+    description: 'Used for precision milling, drilling, cutting, and machining of metal components with high accuracy in industrial manufacturing applications.',
+    image: image42,
+    category: "Precision Components"
+  },
 ];
 
 export default function Home() {
+  // Corrected categories list matching the updated structural fields
+  const CATEGORIES = [
+    'Precision  Dies',
+    'Press Tools',
+    'Jigs & Fixtures',
+    'Gauges',
+    'Welding Fixtures',
+    'Precision Components'
+  ] as const;
+
   return (
     <div className="overflow-hidden relative">
       {/* Hero Section */}
@@ -362,10 +400,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🟢 NEW: Featured Products Section */}
+      {/* Featured Products Section - Organized Into 6 Categories */}
       <section className="py-24 bg-slate-100 border-t border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
             <div>
               <div className="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded text-xs font-bold uppercase tracking-widest mb-3 border-l-4 border-brand-accent">
                 Our Capabilities
@@ -381,60 +419,86 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {FEATURED_PRODUCTS.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all flex flex-col group border border-slate-200/60"
-              >
-                <div className="h-52 bg-slate-200 relative overflow-hidden shrink-0">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-accent transition-colors">
-                    {product.name}
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
-                    {product.description}
-                  </p>
-                  
-                  {product.features?.length ? (
-                    <div className="border-t border-slate-100 pt-4 mb-6">
-                      <ul className="space-y-2">
-                        {product.features.map((feature, fIndex) => (
-                          <li key={fIndex} className="flex items-center gap-2 text-xs font-semibold text-slate-500">
-                            <Layers className="h-3.5 w-3.5 text-brand-accent shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : null}
+          {/* Vertical spacing wrapper separating categories */}
+          <div className="space-y-24">
+            {CATEGORIES.map((categoryTitle) => {
+              const filteredProducts = FEATURED_PRODUCTS.filter(p => p.category === categoryTitle);
 
-                  <Link 
-                    to={`/products#${product.id}`}
-                    className="inline-flex items-center justify-center bg-slate-900 text-white group-hover:bg-brand-accent font-bold text-sm py-3 px-6 rounded-xl transition-all text-center gap-2"
-                  >
-                    Technical Specifications
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
+              if (filteredProducts.length === 0) return null;
+
+              return (
+                <div key={categoryTitle} className="border-t border-slate-200/80 pt-12 first:border-none first:pt-0">
+                  {/* Category Section Header */}
+                  <div className="mb-10">
+                    <h3 className="text-2xl font-bold text-slate-800 tracking-tight flex items-center gap-3">
+                      <span className="h-2.5 w-2.5 rounded-full bg-brand-accent shrink-0" />
+                      {categoryTitle}
+                    </h3>
+                    <p className="text-xs text-slate-500 font-medium mt-1.5 uppercase tracking-wider pl-4">
+                      {filteredProducts.length} Premium High-Precision {filteredProducts.length === 1 ? 'Model' : 'Models'}
+                    </p>
+                  </div>
+
+                  {/* Responsive Grid display for items within this category */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filteredProducts.map((product, index) => (
+                      <motion.div
+                        key={product.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
+                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all flex flex-col group border border-slate-200/60"
+                      >
+                        {/* Box Constraints Adjusted for Crisp Image Layouts */}
+                        <div className="w-full aspect-[20/15] bg-slate-100 relative overflow-hidden shrink-0 border-b border-slate-100">
+                          <img 
+                            src={product.image} 
+                            alt={product.name} 
+                            loading="lazy"
+                            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
+                        
+                        <div className="p-8 flex flex-col flex-grow">
+                          <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-accent transition-colors">
+                            {product.name}
+                          </h4>
+                          <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-4">
+                            {product.description}
+                          </p>
+                          
+                          {product.features?.length ? (
+                            <div className="border-t border-slate-100 pt-4 mb-6">
+                              <ul className="space-y-2">
+                                {product.features.map((feature, fIndex) => (
+                                  <li key={fIndex} className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+                                    <Layers className="h-3.5 w-3.5 text-brand-accent shrink-0" />
+                                    {feature}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : null}
+
+                          <Link 
+                            to={`/products#${product.id}`}
+                            className="inline-flex items-center justify-center bg-slate-900 text-white group-hover:bg-brand-accent font-bold text-sm py-3 px-6 rounded-xl transition-all text-center gap-2 mt-auto"
+                          >
+                            Technical Specifications
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                          </Link>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
-
       {/* About Preview */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -474,15 +538,15 @@ export default function Home() {
                      <img src={image16} className="w-full h-full object-cover" alt="Detail" />
                    </div>
                    <div className="h-64 bg-slate-200 rounded-lg overflow-hidden">
-                     <img src={image30} className="w-full h-full object-cover grayscale" alt="Detail" />
+                     <img src={image16} className="w-full h-full object-cover grayscale" alt="Detail" />
                    </div>
                 </div>
                 <div className="space-y-4 pt-8">
                    <div className="h-64 bg-slate-200 rounded-lg overflow-hidden">
-                    <img src={image27} className="w-full h-full object-cover grayscale" alt="Detail" />
+                    <img src={image16} className="w-full h-full object-cover grayscale" alt="Detail" />
                    </div>
                    <div className="h-48 bg-slate-100 rounded-lg overflow-hidden">
-                    <img src={image25} className="w-full h-full object-cover" alt="Detail" />
+                    <img src={image16} className="w-full h-full object-cover" alt="Detail" />
                    </div>
                 </div>
              </div>
@@ -556,8 +620,7 @@ export default function Home() {
   );
 }
 
-// Sub-components:
-
+// Sub-components
 interface IconProps {
   className?: string;
 }

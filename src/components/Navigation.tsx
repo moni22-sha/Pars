@@ -1,18 +1,18 @@
-import {Link, NavLink} from 'react-router-dom';
-import {Menu, X, Phone, Mail, MapPin} from 'lucide-react';
-import {useState} from 'react';
-import {motion, AnimatePresence} from 'motion/react';
+import { Link, NavLink } from 'react-router-dom';
+import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import para from '../assets/images/para.png';
 
 const navLinks = [
-  {name: 'Home', path: '/'},
-  {name: 'About', path: '/about'},
-  {name: 'Services', path: '/services'},
-  {name: 'Products', path: '/products'},
-  {name: 'Facility', path: '/facility'},
-  {name: 'Clients', path: '/clients'},
-  {name: 'Blog', path: '/blog'},
-  {name: 'Contact', path: '/contact'},
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Services', path: '/services' },
+  { name: 'Products', path: '/products' },
+  { name: 'Facility', path: '/facility' },
+  { name: 'Clients', path: '/clients' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 export function Navbar() {
@@ -22,96 +22,121 @@ export function Navbar() {
     <>
       <div className="top-accent w-full" />
       <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center gap-2">
-              <img 
-                src={para} 
-                alt="PIW Engineering Works Logo" 
-                className="h-15 w-20"
-                referrerPolicy="no-referrer"
-              />
-              <div className="flex flex-col">
-                <span className="text-xl font-display font-bold text-brand-primary leading-tight"></span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium"></span>
-              </div>
-            </Link>
-          </div>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                className={({isActive}) =>
-                  `text-sm font-medium transition-colors hover:text-brand-accent ${
-                    isActive ? 'text-brand-accent' : 'text-slate-600'
-                  }`
-                }
-              >
-                {link.name}
-              </NavLink>
-            ))}
-            <Link
-              to="/contact"
-              className="bg-brand-primary text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-brand-secondary transition-all"
-            >
-              Get a Quote
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-600 hover:text-brand-accent p-2"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{opacity: 0, height: 0}}
-            animate={{opacity: 1, height: 'auto'}}
-            exit={{opacity: 0, height: 0}}
-            className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
-          >
-            <div className="px-4 pt-2 pb-6 space-y-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-20">
+            <div className="flex items-center">
+              <Link to="/" className="flex items-center gap-2">
+                <img 
+                  src={para} 
+                  alt="PIW Engineering Works Logo" 
+                  className="h-15 w-20"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="flex flex-col">
+                  <span className="text-xl font-display font-bold text-brand-primary leading-tight"></span>
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium"></span>
+                </div>
+              </Link>
+            </div>
+            
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
                   to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={({isActive}) =>
-                    `block px-3 py-4 text-base font-medium rounded-md ${
-                      isActive ? 'text-brand-accent bg-slate-50' : 'text-slate-600 hover:text-brand-accent hover:bg-slate-50'
+                  className={({ isActive }) =>
+                    `relative text-sm font-medium transition-colors hover:text-brand-accent py-2 ${
+                      isActive ? 'text-brand-accent' : 'text-slate-600'
                     }`
                   }
                 >
-                  {link.name}
+                  {({ isActive }) => (
+                    // motion.span adds a subtle scaling click effect when pressed
+                    <motion.span
+                      whileTap={{ scale: 0.95, y: 1 }}
+                      className="inline-block relative z-10"
+                    >
+                      {link.name}
+                      {isActive && (
+                        // This moves the active underline smoothly from word to word when clicked
+                        <motion.div
+                          layoutId="activeUnderline"
+                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-accent"
+                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                    </motion.span>
+                  )}
                 </NavLink>
               ))}
-              <div className="pt-4 border-t border-slate-100 mt-4 px-3">
-                 <Link
+              <motion.div whileTap={{ scale: 0.95 }}>
+                <Link
                   to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="block w-full text-center bg-brand-primary text-white px-5 py-3 rounded-md text-base font-semibold"
+                  className="bg-brand-primary text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-brand-secondary transition-all inline-block"
                 >
                   Get a Quote
                 </Link>
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-slate-600 hover:text-brand-accent p-2"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
+            >
+              <div className="px-4 pt-2 pb-6 space-y-1">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={({ isActive }) =>
+                      `block px-3 py-4 text-base font-medium rounded-md ${
+                        isActive ? 'text-brand-accent bg-slate-50' : 'text-slate-600 hover:text-brand-accent hover:bg-slate-50'
+                      }`
+                    }
+                  >
+                    <motion.span 
+                      whileTap={{ x: 6 }} 
+                      className="block"
+                    >
+                      {link.name}
+                    </motion.span>
+                  </NavLink>
+                ))}
+                <div className="pt-4 border-t border-slate-100 mt-4 px-3">
+                  <motion.div whileTap={{ scale: 0.98 }}>
+                    <Link
+                      to="/contact"
+                      onClick={() => setIsOpen(false)}
+                      className="block w-full text-center bg-brand-primary text-white px-5 py-3 rounded-md text-base font-semibold"
+                    >
+                      Get a Quote
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
     </>
   );
 }
