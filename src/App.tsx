@@ -8,7 +8,6 @@ import Facility from './pages/Facility';
 import Clients from './pages/Clients';
 import Contact from './pages/Contact';
 
-import { ProgressiveDies } from './components/ProgressiveDies';
 
 
 export default function App() {
@@ -23,7 +22,7 @@ export default function App() {
           <Route path="facility" element={<Facility />} />
           <Route path="clients" element={<Clients />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="progressive-dies" element={<ProgressiveDies />} />
+        
           
         </Route>
       </Routes>

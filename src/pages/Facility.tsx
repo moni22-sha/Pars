@@ -1,20 +1,31 @@
-import { Factory, Shovel, Monitor, Settings, HardHat, Gauge, Users, Workflow } from 'lucide-react';
+import { Factory } from 'lucide-react';
 import { motion, Variants } from 'motion/react';
 import image16 from '../assets/images/image16.png';
+import image10 from '../assets/images/image10.png';
+import image26 from '../assets/images/image26.png';
+import image20 from '../assets/images/image20.png';
+import image41 from '../assets/images/image41.png';
+import image28 from '../assets/images/image28.png';
+import image42 from '../assets/images/image42.png';
+import percision from '../assets/images/percision.png';
+import image43 from '../assets/images/image43.png';
+import image44 from '../assets/images/image44.png';
+// Import your other images here:
+// import image11 from '../assets/images/image11.png';
+// import image12 from '../assets/images/image12.png';
 
 export default function Facility() {
+  // Array updated to use full images for every single item
   const highlights = [
-    { icon: <Monitor className="h-6 w-6" />, title: 'CNC Machines' },
-    { icon: <Settings className="h-6 w-6" />, title: 'Precision Tool Room' },
-    { icon: <Factory className="h-6 w-6" />, title: 'Fabrication Unit' },
-    { icon: <Shovel className="h-6 w-6" />, title: 'Welding Setup' },
-    { icon: <Gauge className="h-6 w-6" />, title: 'Quality Inspection Systems' },
-    { icon: <Gauge className="h-6 w-6" />, title: 'Advanced Measuring Instruments' },
-    { icon: <Users className="h-6 w-6" />, title: 'Skilled Production Team' },
-    { icon: <Workflow className="h-6 w-6" />, title: 'Efficient Workflow Management' },
+    { image: image42, title: 'CNC Machines' },
+    { image: percision, title: 'Precision Tool Room' }, // Replace with your actual image variable
+    { image: image41, title: 'Fabrication Unit' },     // Replace with your actual image variable
+    { image: image44, title: 'Welding Setup' },         // Replace with your actual image variable
+    { image: image28, title: 'Quality Inspection Systems' },
+    { image: image43, title: 'Advanced Measuring Instruments' },
+    { image: image16, title: 'Efficient Workflow Management' },
   ];
 
-  // Explicitly typing container and item variants to satisfy TypeScript's index signatures
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -93,21 +104,30 @@ export default function Facility() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {highlights.map((item, index) => (
               <motion.div 
                 key={index} 
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="p-8 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center group cursor-default"
+                className="bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group cursor-default"
               >
-                <div className="mb-6 mx-auto p-4 bg-slate-50 w-fit rounded-lg text-brand-primary group-hover:text-brand-accent group-hover:bg-slate-100 transition-colors duration-300">
-                  {item.icon}
+                {/* Image Space Container */}
+                <div className="aspect-video w-full bg-slate-100 overflow-hidden relative border-b border-slate-100">
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  />
                 </div>
-                <h3 className="font-bold text-slate-800 uppercase tracking-wider text-xs group-hover:text-brand-primary transition-colors duration-300">
-                  {item.title}
-                </h3>
+                
+                {/* Title Container */}
+                <div className="p-5">
+                  <h3 className="font-bold text-slate-800 tracking-wide text-sm group-hover:text-brand-primary transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -116,7 +136,6 @@ export default function Facility() {
 
       {/* Excellence Section */}
       <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
-        {/* Animated Background Icon */}
         <motion.div 
           initial={{ opacity: 0, rotate: -10, scale: 0.8 }}
           whileInView={{ opacity: 0.05, rotate: 5, scale: 1 }}
@@ -142,10 +161,7 @@ export default function Facility() {
                 Every stage of our manufacturing process is carefully monitored to ensure precision, consistency, and superior product quality.
               </p>
               <div className="space-y-6">
-                <motion.div 
-                  whileHover={{ x: 6 }}
-                  className="flex gap-4 items-start group"
-                >
+                <motion.div whileHover={{ x: 6 }} className="flex gap-4 items-start group">
                   <div className="bg-brand-accent/20 p-2 rounded text-brand-accent shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
                     <CheckIcon />
                   </div>
@@ -153,10 +169,7 @@ export default function Facility() {
                     Strict quality and safety standards maintained throughout the facility.
                   </p>
                 </motion.div>
-                <motion.div 
-                  whileHover={{ x: 6 }}
-                  className="flex gap-4 items-start group"
-                >
+                <motion.div whileHover={{ x: 6 }} className="flex gap-4 items-start group">
                   <div className="bg-brand-accent/20 p-2 rounded text-brand-accent shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
                     <CheckIcon />
                   </div>
@@ -177,7 +190,7 @@ export default function Facility() {
             >
               <div className="aspect-video rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl group">
                 <img 
-                  src= {image16} 
+                  src={image16} 
                   alt="Excellence" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
                 />

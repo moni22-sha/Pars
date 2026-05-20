@@ -1,6 +1,5 @@
 
 import { ShieldCheck, Award, Globe, Building2, HelpCircle } from 'lucide-react';
-import image3 from '../assets/images/image3.png';
 import logo1 from '../assets/images/logo1.png';
 import logo2 from '../assets/images/logo2.png';
 import logo3 from '../assets/images/logo3.png';
@@ -11,6 +10,8 @@ import logo7 from '../assets/images/logo8.png';
 import logo8 from '../assets/images/logo9.png';
 import logo9 from '../assets/images/logo10.png';
 import logo10 from '../assets/images/logo11.png';
+import logo12 from '../assets/images/logo12.png';
+import logo13 from '../assets/images/logo13.png';
 
 export default function Clients() {
   // Combined client data mapping names to their imported logo assets
@@ -19,12 +20,12 @@ export default function Clients() {
     { name: 'Amalgamation Valeo Clutch', logo: logo2 },
     { name: 'Modine Thermal Systems', logo: logo3 },
     { name: 'Federal Mogul', logo: logo4 },
-    { name: 'Petterssons', logo: logo5 },
-    { name: 'Sundaram Fasteners', logo: logo6 },
+    { name: 'Petterssons', logo: logo12 },
+    { name: 'Sundaram Fasteners', logo: logo5 },
     { name: 'TI Diamond Chain', logo: logo1 },
     { name: 'TI Metal Forming', logo: logo1 },
-    { name: 'Magna Cosma', logo: null },
-    { name: 'PHA', logo: null },
+    { name: 'Magna Cosma', logo: logo6 },
+    { name: 'PHA', logo: logo13 },
     // Clients without explicit logos yet can still fall back cleanly to styling
     { name: 'DAS', logo: logo7 },
     { name: 'Donga', logo: logo8 },
@@ -37,11 +38,7 @@ export default function Clients() {
       {/* Banner - Vibrant Ocean Deep Gradient */}
       <section className="bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950 py-32 text-center relative overflow-hidden shadow-inner">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={image3}
-            alt="Industrial Facility" 
-            className="w-full h-full object-cover opacity-15 mix-blend-overlay"
-          />
+          
         </div>
         {/* Subtle colorful light leaks */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/10 blur-[100px] rounded-full pointer-events-none" />

@@ -14,6 +14,49 @@ import {
 import { motion } from 'motion/react';
 import image15 from '../assets/images/image15.png';
 
+const industries = [
+  {
+    title: 'Automotive',
+    image:
+      'https://cdn-icons-png.flaticon.com/512/744/744465.png',
+  },
+  {
+    title: 'Electrical',
+    image:
+      'https://cdn-icons-png.flaticon.com/512/1048/1048953.png',
+  },
+  {
+    title: 'Heavy Engineering',
+    image:
+      'https://cdn-icons-png.flaticon.com/512/1995/1995574.png',
+  },
+  {
+    title: 'OEM Manufacturing',
+    image:
+      'https://cdn-icons-png.flaticon.com/512/4290/4290854.png',
+  },
+  {
+    title: 'Industrial Fabrication',
+    image:
+      'https://cdn-icons-png.flaticon.com/512/2942/2942789.png',
+  },
+  {
+    title: 'Precision Components',
+    image:
+      'https://cdn-icons-png.flaticon.com/512/1687/1687675.png',
+  },
+  {
+    title: 'Machine Tools',
+    image:
+      'https://cdn-icons-png.flaticon.com/512/2092/2092663.png',
+  },
+  {
+    title: 'Global Export',
+    image:
+      'https://cdn-icons-png.flaticon.com/512/854/854878.png',
+  },
+];
+
 export default function Services() {
   const services = [
     {

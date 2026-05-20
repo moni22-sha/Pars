@@ -26,6 +26,23 @@ import image21 from "../assets/images/image21.png";
 import image22 from "../assets/images/image22.png";
 import image23 from "../assets/images/image23.png";
 import image24 from "../assets/images/image24.png";
+import image25 from "../assets/images/image25.png";
+import image27 from "../assets/images/image27.png";
+import image28 from "../assets/images/image28.png";
+import image29 from "../assets/images/image29.png";
+import image30 from "../assets/images/image30.png";
+import image31 from "../assets/images/image31.png";
+import image32 from "../assets/images/image32.png";
+import image33 from "../assets/images/image33.png";
+import image34 from "../assets/images/image34.png";
+import image36 from "../assets/images/image36.png";
+import image37 from "../assets/images/image37.png";
+import image38 from "../assets/images/image38.png";
+import image39 from "../assets/images/image39.png";
+import image40 from "../assets/images/image40.png";
+import image42 from "../assets/images/image42.png";
+
+
 
 const categories = [
   'Progressive Dies', 
@@ -54,7 +71,7 @@ const productDetails: Record<string, CategoryDetail> = {
   'Progressive Dies': {
     title: 'Progressive Dies',
     description: 'Our progressive dies are engineered for high-speed and high-volume production applications. We focus on exceptional precision and consistency, ensuring that every component meets tight tolerances across millions of cycles to optimize your manufacturing efficiency.',
-    mainImage: image1,
+    mainImage: image29,
     subProducts: [
      
       {
@@ -81,11 +98,25 @@ const productDetails: Record<string, CategoryDetail> = {
         specs: 'High-precision Window Shaving Punch (511) manufactured from premium SKD11 tool steel with hardness of HRC 58–60 for superior wear resistance and dimensional accuracy.',
         image: image12
       },
+      
+      
        {
-        name: 'Wire Cut EDM Machine',
+        name: 'Sodick AG400L Wire Cut EDM',
         material: 'HCHCR Premium Hardened Steel',
-        specs: 'A Wire Cut EDM machine is a high-precision manufacturing machine used to cut hard metals and complex shapes using a thin electrically charged wire.',
-        image: image23
+        specs:"The Sodick AG400L is a high-precision CNC Wire Cut EDM machine used for cutting complex and accurate metal components using electrically charged wire technology.",
+        image: image25
+      },
+       {
+        name: 'Precision Locking Plate',
+        material: 'HCHCR Premium Hardened Steel',
+        specs:"Used for accurate positioning, locking, and alignment of mechanical components in precision engineering and industrial assemblies.",
+        image: image37
+      },
+      {
+        name: 'Progressive Die Insert',
+        material: 'HCHCR Premium Hardened Steel',
+        specs:'Used in progressive die operations for precision cutting, shaping, and forming of sheet metal components with high accuracy.',
+        image: image40
       },
     ]
   },
@@ -136,6 +167,18 @@ const productDetails: Record<string, CategoryDetail> = {
         material: 'Hardened Structural Steel Alloys',
         specs: 'A precision CNC-machined threaded block designed for industrial tooling, workholding, and fixture applications.',
         image: image21
+      },
+    {
+        name: 'Precision Fixture Component',
+        material: 'Hardened Structural Steel Alloys',
+        specs: 'Used for accurate positioning, alignment, and support of industrial parts during machining and assembly operations.',
+        image:image32
+      },
+      {
+        name: 'Jig & Fixture Base Plate',
+        material: 'Hardened Structural Steel Alloys',
+        specs: 'Used for accurate holding, positioning, and alignment of components during machining and assembly operations.',
+        image:image38
       }
     
     ]
@@ -143,14 +186,14 @@ const productDetails: Record<string, CategoryDetail> = {
   'Gauges': {
     title: 'Gauges',
     description: 'Our precision inspection gauges are designed for accurate dimensional verification and rigorous quality assurance. We manufacture durable gauges that help you maintain strict compliance with international quality standards.',
-    mainImage: 'https://images.unsplash.com/photo-1581092580497-e0d23cb61402?q=80&w=800&auto=format',
+    mainImage: image28,
     subProducts: [
-      {
-        name: 'Go / No-Go Threshold Gauges',
-        material: 'Tungsten Carbide / Tool Steel',
-        specs: 'Sub-micron finish tolerances with certified verification standards structural builds.',
-        image: 'https://images.unsplash.com/photo-1581092580497-e0d23cb61402?q=80&w=800&auto=format'
-      }
+    {
+        name: 'Surface Grinding Machine',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'Used for precision grinding and finishing of metal components, dies, and tool surfaces to achieve high accuracy and smooth surface finish.',
+        image: image28
+      },
     ]
   },
   'Welding Fixtures': {
@@ -243,6 +286,53 @@ const productDetails: Record<string, CategoryDetail> = {
         material: 'SS316 Stainless Steel Alloy',
         specs: 'A Sodick Wire-Cut EDM (Electrical Discharge Machining) Machine is a high-precision CNC machine used for cutting complex metal components with extreme accuracy using a thin electrically charged wire.',
         image: image24
+      },
+        {
+        name: 'EDM Chiller Unit',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'Used for cooling and maintaining the temperature of the Wire Cut EDM machine for stable and high-precision machining.',
+        image: image27
+      },
+     
+       {
+        name: 'Milling Machine',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'Used for precision machining, drilling, slotting, and shaping of metal components for dies, tools, and industrial parts.',
+        image: image30
+      },
+       
+       
+      {
+        name: 'Mounting Plate',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'Used for accurate mounting, alignment, and fastening of machine components in precision engineering and industrial assemblies.',
+        image: image33
+      },
+      
+       {
+        name: 'Precision Disc Plate',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'Used for precision alignment, positioning, and controlled flow or mechanical applications in industrial assemblies and tooling systems.',
+        image: image34
+      },
+       {
+        name: 'Precision Spacer Block',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'Used for accurate spacing, alignment, and support in precision machining, tooling, and industrial assembly applications.',
+        image: image36
+      },
+
+       {
+        name: 'Precision Machined Components',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'Used for precision fitting, alignment, and industrial engineering applications with high dimensional accuracy and fine machining quality.',
+        image: image39
+      },
+      {
+        name: 'CNC Vertical Machining Center (VMC)',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'Used for precision milling, drilling, cutting, and machining of metal components with high accuracy in industrial manufacturing applications.',
+        image: image42
       },
     ]
   }
