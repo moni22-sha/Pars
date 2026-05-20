@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { ShieldCheck, Award, Globe, Building2, HelpCircle } from 'lucide-react';
 import logo1 from '../assets/images/logo1.png';
 import logo2 from '../assets/images/logo2.png';
@@ -13,13 +13,14 @@ import logo10 from '../assets/images/logo11.png';
 import logo12 from '../assets/images/logo12.png';
 import logo13 from '../assets/images/logo13.png';
 import logo14 from '../assets/images/logo14.png';
+import logo15 from '../assets/images/logo15.png';
 
 export default function Clients() {
   // Combined client data mapping names to their imported logo assets
   const clients = [
     { name: 'TIDC India Ltd.', logo: logo1 },
     { name: 'Amalgamation Valeo Clutch', logo: logo2 },
-    { name: 'Modine Thermal Systems', logo: logo3 },
+    { name: 'Modine Thermal Systems', logo: logo15 },
     { name: 'Federal Mogul', logo: logo4 },
     { name: 'Petterssons', logo: logo12 },
     { name: 'Sundaram Fasteners', logo: logo5 },
@@ -114,11 +115,11 @@ export default function Clients() {
                 }`}
               >
                 {client.logo ? (
-                  /* Soft colored mask layout that gains full brilliance on hover */
+                  /* Changed initial filtering to show crisp full colors instead of grey mask layers */
                   <img 
                     src={client.logo} 
                     alt={`${client.name} Logo`} 
-                    className="max-h-14 max-w-full object-contain filter saturate-50 opacity-80 group-hover:saturate-100 group-hover:opacity-100 transition-all duration-300 mb-3"
+                    className="max-h-14 max-w-full object-contain filter saturate-100 opacity-100 transition-all duration-300 mb-3"
                   />
                 ) : null}
                 
@@ -132,7 +133,7 @@ export default function Clients() {
               </div>
             ))}
             
-            {/* Colorful Final Help/Placeholder box */}
+            
             <div className="bg-indigo-950 p-8 rounded-xl border-dashed border-2 border-indigo-400 flex flex-col items-center justify-center text-center gap-2 group cursor-default transition-all duration-300 hover:scale-[0.98] shadow-md">
               <HelpCircle className="h-6 w-6 text-sky-400 group-hover:text-sky-300 group-hover:animate-pulse transition-colors" />
               <span className="text-sky-200/90 font-medium italic text-sm">
