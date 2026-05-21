@@ -88,7 +88,7 @@ export default function Facility() {
               viewport={{ once: true, margin: '-100px' }}
               className="text-3xl mb-4 font-bold text-slate-900"
             >
-              Facility Highlights
+              Our Facility
             </motion.h2>
             <motion.div 
               initial={{ width: 0 }}

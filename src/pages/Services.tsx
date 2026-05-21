@@ -63,13 +63,13 @@ export default function Services() {
       title: 'CNC Machining Services',
       icon: <Cpu />,
       description:
-        'At Danesh Industries, we specialize in high‑precision CNC machining solutions tailored for OEMs, industrial projects, and specialized engineering requirements.'
+        'At Pars Industries, we specialize in high‑precision CNC machining solutions tailored for OEMs, industrial projects, and specialized engineering requirements.'
     },
     {
-      title: 'Fabrication Services',
+      title: 'Vertical Machining Centers(VMC)',
       icon: <Boxes />,
       description:
-        'Our fabrication unit is equipped to handle both light and heavy fabrication works for diverse industries with advanced manufacturing standards.'
+        'Advanced VMC machining services delivering high-precision CNC components, molds, dies, and industrial parts with superior accuracy, durability, and fast production turnaround in India.',
     },
     {
       title: 'Progressive Tools',

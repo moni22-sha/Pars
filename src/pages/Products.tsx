@@ -41,6 +41,7 @@ import image38 from "../assets/images/image38.png";
 import image39 from "../assets/images/image39.png";
 import image40 from "../assets/images/image40.png";
 import image42 from "../assets/images/image42.png";
+import image45 from "../assets/images/image45.png";
 
 
 
@@ -318,6 +319,12 @@ const productDetails: Record<string, CategoryDetail> = {
         material: 'SS316 Stainless Steel Alloy',
         specs: 'Used for precision milling, drilling, cutting, and machining of metal components with high accuracy in industrial manufacturing applications.',
         image: image42
+      },
+        {
+        name: 'Precision CNC Machined Mounting Flange',
+        material: 'SS316 Stainless Steel Alloy',
+        specs: 'High-precision CNC machined mounting flange manufactured for industrial and engineering applications. Durable, accurate, and custom-designed components for automotive, machinery, and heavy engineering industries in India.',
+        image: image45
       },
     ]
   }
