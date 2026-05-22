@@ -25,7 +25,7 @@ import intake from "../assets/images/intake.png";
 import core from "../assets/images/core.png";
 import side from "../assets/images/side.png";
 import side1 from "../assets/images/side1.png";
-import base from "../assets/images/base.png";
+import Base from "../assets/images/Base.png";
 import matrix from '../assets/images/matrix.png';
 import fine1 from '../assets/images/fine1.png';
 import locate from '../assets/images/locate.png';
@@ -105,7 +105,7 @@ const productDetails: Record<string, CategoryDetail> = {
        {
         name: 'Base Insert',
         description: 'High-precision progressive die assembly designed for complex sheet metal stamping and forming applications in automotive and industrial manufacturing.',
-        image: base
+        image: Base
       },
     ]
   },
