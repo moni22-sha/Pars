@@ -3,7 +3,7 @@ import { FileText, ChevronRight, Settings, Cpu, Boxes } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 // Fixed the broken asset file path and named configuration parameters
 import balancingfigures from "../assets/images/balancingfigures.png";
-import balancingdie from "../assets/images/balancingdie.png";
+import Balancingdie from "../assets/images/Balancingdie.png";
 import claw from "../assets/images/claw.png";
 import collat from "../assets/images/collat.png";
 import Grinding from "../assets/images/Grinding.png";
@@ -60,12 +60,12 @@ const productDetails: Record<string, CategoryDetail> = {
   'Progressive Dies': {
     title: 'Progressive Dies',
     description: 'Our progressive dies are engineered for high-speed and high-volume production applications. We focus on exceptional precision and consistency, ensuring that every component meets tight tolerances across millions of cycles to optimize your manufacturing efficiency.',
-    mainImage: balancingdie,
+    mainImage: Balancingdie,
     subProducts: [
       {
         name: 'Balacing Die Block',
         description: 'High-precision machined mounting flange manufactured with advanced CNC machining for industrial and engineering applications. Durable, accurate, and designed for superior performance and reliability.',
-        image: balancingdie
+        image: Balancingdie
       },
        {
         name: 'Claw-blank',
