@@ -12,7 +12,7 @@ import {
   Cog,
 } from 'lucide-react';
 import { motion } from 'motion/react';
-import image15 from '../assets/images/image15.png';
+import factory4 from '../assets/images/factory4.png';
 
 const industries = [
   {
@@ -105,7 +105,7 @@ export default function Services() {
         <div
           className="absolute inset-0 bg-cover bg-center scale-105 animate-pulse"
           style={{
-            backgroundImage: image15,
+            backgroundImage: factory4,
           }}
         />
 

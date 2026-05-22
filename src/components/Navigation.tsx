@@ -3,6 +3,7 @@ import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import para from '../assets/images/para.png';
+import adlogo from '../assets/images/adlogo.png';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -28,6 +29,12 @@ export function Navbar() {
               <Link to="/" className="flex items-center gap-2">
                 <img 
                   src={para} 
+                  alt="PIW Engineering Works Logo" 
+                  className="h-15 w-20"
+                  referrerPolicy="no-referrer"
+                />
+                <img 
+                  src={adlogo} 
                   alt="PIW Engineering Works Logo" 
                   className="h-15 w-20"
                   referrerPolicy="no-referrer"

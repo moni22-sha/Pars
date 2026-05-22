@@ -1,48 +1,37 @@
-import { useState } from 'react';
+import { useState, cloneElement, ReactElement } from 'react';
 import { FileText, ChevronRight, Settings, Cpu, Boxes } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 // Fixed the broken asset file path and named configuration parameters
-import image1 from '../assets/images/image1.png';
-import percision from '../assets/images/percision.png';
-import image2 from '../assets/images/image2.png';
+import balancingfigures from "../assets/images/balancingfigures.png";
+import balancingdie from "../assets/images/balancingdie.png";
+import claw from "../assets/images/claw.png";
+import collat from "../assets/images/collat.png";
+import Grinding from "../assets/images/Grinding.png";
+import ejectorpins from "../assets/images/ejectorpins.png";
+import fine from "../assets/images/fine.png";
+import Gauges from "../assets/images/Gauges.png";
+import lower from "../assets/images/lower.png";
+import piercing from "../assets/images/piercing.png";
+import punch from "../assets/images/punch.png";
+import shaft from "../assets/images/shaft.png";
+import sheetmetal from "../assets/images/sheetmetal.png";
+import slitting from "../assets/images/slitting.png";
+import slot from "../assets/images/slot.png";
+import ingauge from "../assets/images/ingauges.png";
+import draw from "../assets/images/draw.png";
+import cavity from "../assets/images/cavity.png";
+import coining from "../assets/images/coining.png";
+import intake from "../assets/images/intake.png";
+import core from "../assets/images/core.png";
+import side from "../assets/images/side.png";
+import side1 from "../assets/images/side1.png";
+import base from "../assets/images/base.png";
+import matrix from '../assets/images/matrix.png';
+import fine1 from '../assets/images/fine1.png';
+import locate from '../assets/images/locate.png';
 import image3 from '../assets/images/image3.png';
-import image4 from '../assets/images/image4.png';
-import image5 from '../assets/images/image5.png';
-import image6 from '../assets/images/image6.png';
-import image7 from '../assets/images/image7.png';
-import image8 from '../assets/images/image8.png';
-import image9 from '../assets/images/image9.png';
-import image10 from '../assets/images/image10.png';
-import image11 from '../assets/images/image11.png';
-import image12 from "../assets/images/image12.png";
-import image14 from "../assets/images/image14.png";
-import image15 from "../assets/images/image15.png";
-import image16 from "../assets/images/image16.png";
-import image17 from "../assets/images/image17.png";
-import image18 from "../assets/images/image18.png";
-import image19 from "../assets/images/image19.png";
-import image20 from "../assets/images/image20.png";
-import image21 from "../assets/images/image21.png";
-import image22 from "../assets/images/image22.png";
-import image23 from "../assets/images/image23.png";
-import image24 from "../assets/images/image24.png";
-import image25 from "../assets/images/image25.png";
-import image27 from "../assets/images/image27.png";
-import image28 from "../assets/images/image28.png";
-import image29 from "../assets/images/image29.png";
-import image30 from "../assets/images/image30.png";
-import image31 from "../assets/images/image31.png";
-import image32 from "../assets/images/image32.png";
-import image33 from "../assets/images/image33.png";
-import image34 from "../assets/images/image34.png";
-import image36 from "../assets/images/image36.png";
-import image37 from "../assets/images/image37.png";
-import image38 from "../assets/images/image38.png";
-import image39 from "../assets/images/image39.png";
-import image40 from "../assets/images/image40.png";
-import image42 from "../assets/images/image42.png";
-import image45 from "../assets/images/image45.png";
-
+import notch from '../assets/images/notch.png';
+import shaving from '../assets/images/shaving.png';
 
 
 const categories = [
@@ -56,8 +45,7 @@ const categories = [
 
 interface SubProduct {
   name: string;
-  material: string;
-  specs: string;
+  description: string;
   image: string;
 }
 
@@ -72,259 +60,187 @@ const productDetails: Record<string, CategoryDetail> = {
   'Progressive Dies': {
     title: 'Progressive Dies',
     description: 'Our progressive dies are engineered for high-speed and high-volume production applications. We focus on exceptional precision and consistency, ensuring that every component meets tight tolerances across millions of cycles to optimize your manufacturing efficiency.',
-    mainImage: image29,
+    mainImage: balancingdie,
     subProducts: [
-     
       {
-        name: 'Spline Die Block',
-        material: 'HCHCR Premium Hardened Steel',
-        specs: 'A high-precision CNC-machined die block featuring an internal spline profile, designed for press tooling, broaching, and precision metal forming applications..',
-        image: image1
+        name: 'Balacing Die Block',
+        description: 'High-precision machined mounting flange manufactured with advanced CNC machining for industrial and engineering applications. Durable, accurate, and designed for superior performance and reliability.',
+        image: balancingdie
       },
        {
-        name: 'Blanking Die Insert',
-        material: 'HCHCR Premium Hardened Steel',
-        specs: 'A Blanking Die Insert is a replaceable, high-precision cutting component used in industrial stamping presses to punch flat shapes out of sheet metal.',
-        image: image9
+        name: 'Claw-blank',
+        description: 'High-precision progressive die base manufactured using advanced CNC machining and tooling technology for press tool applications. Designed for durability, accurate alignment, and high-performance metal stamping operations.',
+        image: claw
       },
         {
-        name: 'Precision Dowel Pins',
-        material: 'HCHCR Premium Hardened Steel',
-        specs: 'High-precision dowel pins engineered for progressive die applications and precision tooling systems. Manufactured with superior CNC machining and hardened steel construction, these pins provide accurate alignment, exceptional wear resistance, and long-lasting performance in demanding industrial environments.',
-        image: image10
+        name: 'Ejector Pins',
+        description: 'High-precision dowel pins engineered for progressive die applications and precision tooling systems. Manufactured with superior CNC machining and hardened steel construction, these pins provide accurate alignment, exceptional wear resistance, and long-lasting performance in demanding industrial environments.',
+        image: ejectorpins
       },
       {
-        name: 'Window Shaving Punch (511)',
-        material: 'HCHCR Premium Hardened Steel',
-        specs: 'High-precision Window Shaving Punch (511) manufactured from premium SKD11 tool steel with hardness of HRC 58–60 for superior wear resistance and dimensional accuracy.',
-        image: image12
-      },
-      
-      
-       {
-        name: 'Sodick AG400L Wire Cut EDM',
-        material: 'HCHCR Premium Hardened Steel',
-        specs:"The Sodick AG400L is a high-precision CNC Wire Cut EDM machine used for cutting complex and accurate metal components using electrically charged wire technology.",
-        image: image25
-      },
-       {
-        name: 'Precision Locking Plate',
-        material: 'HCHCR Premium Hardened Steel',
-        specs:"Used for accurate positioning, locking, and alignment of mechanical components in precision engineering and industrial assemblies.",
-        image: image37
+        name: 'Fine Blanking Dies',
+        description: 'High-precision CNC machined plate component manufactured for industrial tooling and engineering applications. Designed with superior surface finishing, intricate pocket machining, and high dimensional accuracy for reliable performance in precision assemblies.',
+        image: fine
       },
       {
-        name: 'Progressive Die Insert',
-        material: 'HCHCR Premium Hardened Steel',
-        specs:'Used in progressive die operations for precision cutting, shaping, and forming of sheet metal components with high accuracy.',
-        image: image40
+        name: 'Lower spring sheet',
+        description: 'High-precision carbide die insert manufactured for progressive dies and press tool applications. Engineered with superior hardness, wear resistance, and dimensional accuracy for reliable high-speed metal stamping performance.',
+        image: lower
+      },
+      {
+        name: 'Punch Holder',
+        description: 'High-precision machined die block manufactured using advanced CNC machining for progressive die and press tool applications.',
+        image: punch
+      },
+       {
+        name: 'Sheet Metal',
+        description: 'High-precision slotted die plate manufactured using advanced wire-cut EDM and CNC machining technology for progressive die and industrial tooling applications.',
+        image: sheetmetal
+      },
+      {
+        name: 'Slitting Die Insert',
+        description: 'High-precision wire-cut EDM die block manufactured for progressive die and press tool applications. Engineered with intricate profile cutting, superior dimensional accuracy, and excellent surface finishing for reliable high-performance metal stamping and industrial tooling operations.',
+        image: slitting
+      },
+       {
+        name: 'Base Insert',
+        description: 'High-precision progressive die assembly designed for complex sheet metal stamping and forming applications in automotive and industrial manufacturing.',
+        image: base
       },
     ]
   },
   'Press Tools': {
     title: 'Press Tools',
     description: 'We manufacture reliable and durable press tooling solutions designed for demanding industrial forming and stamping operations. Each tool is built with high-grade materials to withstand heavy use while maintaining superior production quality.',
-    mainImage: image20,
+    mainImage: slot,
     subProducts: [
       {
-        name: 'Industrial Machined Parts',
-        material: 'WPS High-Carbon Steel',
-        specs: 'A collection of high-precision CNC machined metal components manufactured for industrial tooling, automation systems, jigs & fixtures, and mechanical engineering applications.',
-        image: image20
+        name: 'Slot die ',
+        description: 'High-precision CNC machined conical flange component manufactured for industrial tooling and precision engineering applications.',
+        image:slot
+      },
+      {
+        name: 'Side Piercing Tool Bottom ',
+        description: 'High-precision progressive press tool assembly manufactured using advanced CNC machining for metal stamping and industrial production applications.',
+        image:side
       },
        {
-        name: 'Notch Cam Slider',
-        material: 'WPS High-Carbon Steel',
-        specs: 'A precision CNC-machined notch cam slide manufactured from SKD11 hardened tool steel, designed for accurate sliding and cam movement operations in industrial press tooling and metal forming applications.',
-        image: image22
-      }
+        name: 'Side Piercing Tool Top',
+        description: 'High-precision press tool die set manufactured using advanced CNC machining for metal stamping and industrial production applications.',
+        image:side1
+      },
+       {
+        name: 'Fine Blanking Die Insert',
+        description: 'High-precision CNC machined profile insert manufactured for press tool and industrial tooling applications.',
+        image:fine1
+      },
     ]
   },
   'Jigs & Fixtures': {
     title: 'Jigs & Fixtures',
     description: 'PIW provides custom-engineered jigs and fixtures developed specifically to improve production accuracy, reduce setup times, and ensure operational efficiency in complex manufacturing workflows.',
-    mainImage: image15,
+    mainImage: cavity,
     subProducts: [
       {
-        name: 'Tooling Clamping Kit',
-        material: 'Hardened Structural Steel Alloys',
-        specs: 'High-strength tooling clamping kit designed for secure workholding in CNC machining, milling, drilling, and industrial fixture applications. Manufactured from hardened steel for durability and precision, this kit ensures stable component positioning, improved machining accuracy, and reliable industrial performance.',
-        image: image15
+        name: 'Cavity Fixtures',
+        description: 'High-precision machining fixture plate designed for jig & fixture and industrial assembly applications.',
+        image: cavity
       },
        {
-        name: 'CNC Machined Mounting Block',
-        material: 'Hardened Structural Steel Alloys',
-        specs: 'A precision CNC-machined metal mounting block designed for industrial tooling, fixture alignment, and mechanical assembly applications.',
-        image: image18
-      },
-         {
-        name: 'Precision Locator Block',
-        material: 'Hardened Structural Steel Alloys',
-        specs: 'A precision-machined metal block used for positioning, alignment, and support in industrial tooling and fixture applications.',
-        image: image19
+        name: 'Coining Die',
+        description: 'High-precision CNC machined tooling plate designed for fixture positioning, indexing, and industrial assembly applications.',
+        image: coining
       },
        {
-        name: 'Threaded Fixture Block',
-        material: 'Hardened Structural Steel Alloys',
-        specs: 'A precision CNC-machined threaded block designed for industrial tooling, workholding, and fixture applications.',
-        image: image21
-      },
-    {
-        name: 'Precision Fixture Component',
-        material: 'Hardened Structural Steel Alloys',
-        specs: 'Used for accurate positioning, alignment, and support of industrial parts during machining and assembly operations.',
-        image:image32
+        name: 'Intake',
+        description: 'High-precision CNC machined holding fixture designed for automotive and industrial assembly applications.',
+        image: intake
       },
       {
-        name: 'Jig & Fixture Base Plate',
-        material: 'Hardened Structural Steel Alloys',
-        specs: 'Used for accurate holding, positioning, and alignment of components during machining and assembly operations.',
-        image:image38
-      }
-    
+        name: 'Core Insert',
+        description: 'High-precision machining fixture plate designed for component holding, positioning, and inspection applications in industrial manufacturing.',
+        image: core
+      },
     ]
   },
   'Gauges': {
     title: 'Gauges',
-    description: 'Our precision inspection gauges are designed for accurate dimensional verification and rigorous quality assurance. We manufacture durable gauges that help you maintain strict compliance with international quality standards.',
-    mainImage: image28,
+    description: 'High-precision machined die plate manufactured using advanced CNC machining technology for tooling and industrial applications',
+    mainImage: Gauges,
     subProducts: [
     {
-        name: 'Surface Grinding Machine',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'Used for precision grinding and finishing of metal components, dies, and tool surfaces to achieve high accuracy and smooth surface finish.',
-        image: image28
+        name: 'Precision Circular Inspection Gauge',
+        description: 'High-precision circular inspection gauge manufactured using advanced CNC machining for dimensional checking and industrial quality control applications.',
+        image: ingauge
       },
     ]
   },
   'Welding Fixtures': {
     title: 'Welding Fixtures',
     description: 'Built for stability and alignment precision, our heavy-duty welding fixture systems enhance manufacturing productivity. They are engineered to handle complex assemblies with robust structural integrity.',
-    mainImage: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format',
+    mainImage: Grinding,
     subProducts: [
-      {
-        name: 'Manual & Robotic Welding Beds',
-        material: 'Heat-Resistant Heavy Gauge Structural Steel',
-        specs: 'Integrated spatter-resistant pneumatic clamp designs for absolute rigid framing.',
-        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format'
-      }
+       {
+        name: 'Surface Grinding Machine',
+        description: 'Advanced surface grinding machine used for precision die and tool manufacturing. Delivers high-accuracy surface finishing, superior flatness, and reliable performance for industrial machining applications.',
+        image: Grinding
+      },
     ]
   },
   'Precision Components': {
     title: 'Precision Components',
     description: 'We deliver high-quality machined components manufactured to meet demanding industrial specifications. Using advanced CNC technology, we ensure superior finish quality and dimensional accuracy for every part.',
-    mainImage: percision,
+    mainImage: balancingfigures,
     subProducts: [
       {
-        name: 'Plug Valve Components',
-        material: 'Premium-grade Teflon / SS316',
-        specs: 'Precision machined for accurate sealing and extreme chemical resistance capabilities.',
-        image: percision
+        name: 'Balancing Figures',
+        description: 'High-quality precision machined flange components manufactured with advanced CNC machining for industrial, tooling, and engineering applications with superior accuracy and durability.',
+        image: balancingfigures
       },
-     
        {
-        name: 'Precision CNC Shaft Assembly',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'High-precision CNC machined shaft assembly engineered for industrial automation, rotary motion systems, and mechanical transmission applications. Manufactured with premium-grade steel and finished with superior surface machining for exceptional durability, smooth rotation, and high dimensional accuracy.',
+        name: 'Collat',
+        description: 'High-precision collet component manufactured using advanced CNC machining for tooling, press tool, and industrial applications. Engineered for superior accuracy, durability, and reliable gripping performance.',
+        image: collat
+      },
+        {
+        name: 'Piercing Punch',
+        description: 'High-precision CNC machined cylindrical tooling component manufactured for industrial tooling, die assemblies, and engineering applications.',
+        image: piercing
+      },
+     {
+        name: 'Shaft Component',
+        description: 'High-precision machined shaft and collet assembly manufactured using advanced CNC turning and grinding processes for industrial tooling and precision engineering applications.',
+        image: shaft
+      },
+       {
+        name: 'Draw Die',
+        description: 'High-precision machined circular mounting plate designed for industrial tooling, rotary assemblies, and precision engineering applications.',
+        image: draw
+      },
+       {
+        name: 'Matrix Die',
+        description: 'High-precision CNC machined component manufactured for industrial tooling and engineering applications. Designed with superior surface finish, accurate slot profiling, and durable material quality for reliable precision performance in advanced manufacturing industries.',
+        image: matrix
+      },
+        {
+        name: 'Locating Insert',
+        description: 'High-precision CNC machined circular flange component manufactured for industrial tooling, automation, and engineering applications.',
+        image: locate
+      },
+      {
+        name: 'Window Shaving Punch',
+        description: 'High-precision CNC machined threaded block component manufactured for industrial tooling, fixture systems, and precision engineering applications.',
         image: image3
       },
-        {
-        name: 'Precision Flexible Coupling',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'High-precision flexible coupling engineered for accurate torque transmission and vibration reduction in industrial motion systems. Manufactured with premium CNC machining and designed for smooth rotational performance, alignment compensation, and long-lasting durability',
-        image: image4
-      },
-         {
-        name: 'Precision CNC Fixture Block',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'High-precision CNC machined fixture block designed for industrial tooling, automation systems, and precision mechanical assemblies. Manufactured from premium-grade metal with accurate drilled mounting holes and a precision-cut slot profile for stable positioning, durability, and reliable performance.',
-        image: image5
-      },
-    
        {
-        name: 'Precision Stop Block',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: '“Compact precision-machined stop block engineered for accurate positioning, fixture alignment, and industrial tooling applications. Designed with smooth rounded geometry and premium metallic finishing for durability and reliable mechanical performance.',
-        image: image7
-      },
-        {
-        name: 'PRE-PP-505 Precision Tooling Component',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'PRE-PP-505 is a high-precision CNC machined tooling component manufactured from premium SKD11 tool steel with hardness ranging from HRC 58–60. Engineered for superior wear resistance, dimensional accuracy, and long operational life in demanding industrial and tooling applications',
-        image: image8
+        name: 'Notch Cam Slide',
+        description: 'High-precision CNC machined rectangular tooling component manufactured for industrial engineering and precision tooling applications.',
+        image: notch
       },
        {
-        name: 'Precision CNC Flange Hub Assembly',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'High-precision CNC machined flange hub assembly engineered for industrial automation, rotary systems, and precision mechanical applications. Manufactured with superior dimensional accuracy and a premium metallic finish, this component ensures stable mounting, smooth rotational alignment, and long-lasting industrial performance.',
-        image: image11
-      },
-      {
-        name: 'DMG DMC 835V CNC Vertical Machining Center (VMC)',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'The DMG DMC 835V is a high-precision CNC Vertical Machining Center designed for advanced milling, drilling, tapping, and precision machining operations. Engineered for superior accuracy',
-        image: image14
-      },
-         {
-        name: 'Mazak CNC Vertical Machining Center (VMC)',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'The Mazak CNC VMC is a high-precision vertical machining center designed for advanced milling, drilling, tapping, and precision machining operations. Engineered for superior accuracy',
-        image: image16
-      },
-       
-      {
-        name: 'Sodick Wire Cut EDM Machine',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'A Sodick Wire-Cut EDM (Electrical Discharge Machining) Machine is a high-precision CNC machine used for cutting complex metal components with extreme accuracy using a thin electrically charged wire.',
-        image: image24
-      },
-        {
-        name: 'EDM Chiller Unit',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'Used for cooling and maintaining the temperature of the Wire Cut EDM machine for stable and high-precision machining.',
-        image: image27
-      },
-     
-       {
-        name: 'Milling Machine',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'Used for precision machining, drilling, slotting, and shaping of metal components for dies, tools, and industrial parts.',
-        image: image30
-      },
-       
-       
-      {
-        name: 'Mounting Plate',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'Used for accurate mounting, alignment, and fastening of machine components in precision engineering and industrial assemblies.',
-        image: image33
-      },
-      
-       {
-        name: 'Precision Disc Plate',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'Used for precision alignment, positioning, and controlled flow or mechanical applications in industrial assemblies and tooling systems.',
-        image: image34
-      },
-     
-
-       {
-        name: 'Precision Machined Components',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'Used for precision fitting, alignment, and industrial engineering applications with high dimensional accuracy and fine machining quality.',
-        image: image39
-      },
-      {
-        name: 'CNC Vertical Machining Center (VMC)',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'Used for precision milling, drilling, cutting, and machining of metal components with high accuracy in industrial manufacturing applications.',
-        image: image42
-      },
-        {
-        name: 'Precision CNC Machined Mounting Flange',
-        material: 'SS316 Stainless Steel Alloy',
-        specs: 'High-precision CNC machined mounting flange manufactured for industrial and engineering applications. Durable, accurate, and custom-designed components for automotive, machinery, and heavy engineering industries in India.',
-        image: image45
+        name: 'Shaving Punch',
+        description: 'High-precision CNC machined threaded tooling component manufactured for industrial fixture systems and precision engineering applications.',
+        image: shaving
       },
     ]
   }
@@ -340,7 +256,7 @@ export default function Products() {
       <section className="relative h-[400px] flex items-center justify-center text-center bg-slate-900">
         <div className="absolute inset-0 z-0">
           <img 
-            src={image1} 
+            src={Grinding} 
             alt="Products Background" 
             className="w-full h-full object-cover opacity-20 filter grayscale"
           />
@@ -458,11 +374,9 @@ export default function Products() {
                           <h4 className="text-xl text-white font-bold group-hover:text-amber-400 transition-colors">
                             {product.name}
                           </h4>
-                          <p className="text-xs font-semibold text-slate-400">
-                            <span className="text-slate-500">Material:</span> {product.material}
-                          </p>
+                          
                           <p className="text-sm text-slate-400 line-clamp-3 leading-relaxed">
-                            {product.specs}
+                            {product.description}
                           </p>
                         </div>
 
@@ -501,13 +415,18 @@ export default function Products() {
   );
 }
 
-function FeatureItem({ icon, title, text }: { icon: React.ReactNode, title: string, text: string }) {
+interface FeatureItemProps {
+  icon: React.ReactElement;
+  title: string;
+  text: string;
+}
+
+// Ensure the "I" is capitalized to match <FeatureItem /> exactly
+function FeatureItem({ icon, title, text }: FeatureItemProps) {
   return (
     <div className="flex gap-4 p-6 bg-slate-900/40 backdrop-blur-sm border border-slate-800/60 rounded-2xl">
-       <div className="text-amber-400 p-3 bg-slate-950 rounded-xl h-fit">
-          {icon && typeof icon === 'object' && 'props' in icon
-            ? (icon as React.ReactElement)
-            : <Settings className="h-6 w-6" />}
+       <div className="text-amber-400 p-3 bg-slate-950 rounded-xl h-fit flex items-center justify-center">
+          {icon}
        </div>
        <div className="space-y-1">
           <h4 className="text-white font-bold text-base">{title}</h4>

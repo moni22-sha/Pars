@@ -4,9 +4,10 @@ import { ArrowRight, Settings, Users, Factory, Target, Shield, Clock, Zap, Cpu, 
 import { motion, Variants } from 'motion/react';
 import image16 from '../assets/images/image16.png';
 import image27 from '../assets/images/image27.png';
-import image2 from '../assets/images/image2.png';
+import mach2 from '../assets/images/mach2.png';
 import image28 from '../assets/images/image28.png';
 import mach1 from '../assets/images/mach1.png';
+import adlogo from '../assets/images/adlogo.png';
 
 
 
@@ -254,7 +255,7 @@ export default function Home() {
                      transition={{ duration: 0.5, delay: 0.1 }}
                      className="h-48 bg-slate-100 rounded-lg overflow-hidden relative shadow-md group"
                    >
-                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={image2} className="w-full h-full object-cover" alt="Detail 3" />
+                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={mach2} className="w-full h-full object-cover" alt="Detail 3" />
                    </motion.div>
                    <motion.div 
                      initial={{ opacity: 0, y: 30 }}

@@ -1,6 +1,6 @@
 import {Phone, Mail, MapPin, Clock, Send} from 'lucide-react';
 import {motion} from 'motion/react';
-import image10 from '../assets/images/image10.png';
+import shaft from '../assets/images/shaft.png';
 
 export default function Contact() {
   return (
@@ -9,7 +9,7 @@ export default function Contact() {
       <section className="bg-brand-primary min-h-[400px] flex items-center py-24 relative overflow-hidden">
           <div className="absolute inset-0 z-0">
                                    <img 
-                                     src={image10}
+                                     src={shaft}
                                      alt="Industrial Facility" 
                                      className="w-full h-full object-cover opacity-20"
                                    />
