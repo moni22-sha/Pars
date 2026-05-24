@@ -243,9 +243,9 @@ export default function Facility() {
                   alt="Ultra-Precision Component Milling Infrastructure" 
                   className="max-w-full max-h-full object-contain group-hover:scale-103 transition-transform duration-500"
                 />
-                <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-md">
-                  Line Unit 01
-                </div>
+                {/* <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-md">
+                  
+                </div> */}
               </div>
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">
@@ -282,9 +282,9 @@ export default function Facility() {
                   alt="Advanced Heavy Grinding Technology" 
                   className="max-w-full max-h-full object-contain group-hover:scale-103 transition-transform duration-500"
                 />
-                <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-md">
-                  Line Unit 02
-                </div>
+                {/* <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-md">
+                  
+                </div> */}
               </div>
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">

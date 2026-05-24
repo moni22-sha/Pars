@@ -187,99 +187,97 @@ const productsList: ProductItem[] = [
 
 export default function Products() {
   return (
-    <div className="bg-slate-50 min-h-screen flex flex-col w-full">
+    <div className="bg-slate-50 min-h-screen flex flex-col w-full font-sans">
       {/* Hero Section */}
-      <section className="relative h-[400px] flex items-center justify-center text-center bg-slate-900">
+      <section className="relative h-[360px] flex items-center justify-center text-center bg-slate-900">
         <div className="absolute inset-0 z-0">
           <img 
             src={Grinding} 
             alt="Products Background" 
-            className="w-full h-full object-cover opacity-20 filter grayscale"
+            className="w-full h-full object-cover opacity-25"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-slate-900/80" />
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-6xl text-white font-black mb-6 tracking-tight">Our Products</h1>
-          <p className="text-lg md:text-xl text-slate-300 font-medium max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl text-white font-extrabold mb-4 tracking-tight">Our Products</h1>
+          <p className="text-base md:text-lg text-slate-300 font-normal max-w-2xl mx-auto">
             Explore our comprehensive range of high-quality, precision-engineered components for various industrial applications.
           </p>
         </div>
       </section>
 
       {/* Intro/Sub-Hero Section */}
-      <section className="py-12 bg-white text-center">
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl text-sky-600 font-black mb-2 tracking-tight">
-            Fine Blanking 
-          </h2>
-          <h3 className="text-3xl md:text-4xl text-amber-500 font-bold mb-6 tracking-tight">
-              Tool
-          </h3>
-          <p className="text-lg md:text-xl text-slate-600 font-medium max-w-2xl mx-auto">
+      <section className="py-12 bg-white border-b border-slate-100 text-center">
+        <div className="max-w-4xl mx-auto px-4">
+       <h2 className="text-3xl md:text-4xl text-slate-900 font-extrabold mb-2 tracking-tight relative pb-3 inline-block">
+      Fine Blanking Tool
+      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-sky-600 rounded-full" />
+    </h2>
+          <p className="text-base text-slate-500 max-w-xl mx-auto mt-3">
             All precision components have been thoroughly validated, fully integrated, and are now ready for comprehensive exploration.
           </p>
         </div>
       </section>
 
       {/* Main Catalog Section */}
-      <section className="py-16 bg-[#0f172a]">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
           {/* Catalog Header */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-slate-800 pb-4 mb-12">
-            <div>
-              <span className="text-amber-400 text-sm font-bold uppercase tracking-widest">Catalog Catalogues</span>
-              <h3 className="text-2xl md:text-3xl text-white font-bold mt-1">Available Models & Configurations</h3>
-            </div>
-            <p className="text-slate-400 text-sm max-w-sm mt-2 md:mt-0">
-              Select variants engineered specifically to match specialized technical print documentation.
-            </p>
-          </div>
+          {/* <div className="mb-10 text-center md:text-left">
+            <span className="text-sky-600 text-xs font-bold uppercase tracking-widest">Catalog Documentation</span>
+            <h3 className="text-2xl md:text-3xl text-slate-900 font-bold mt-1">Available Models & Configurations</h3>
+          </div> */}
 
-          {/* Sub-item Products Box Rows Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Sub-item Products Box Rows Grid styled precisely like image_648eec.jpg */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {productsList.map((product, idx) => (
               <div
                 key={product.name + idx}
-                className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl p-6 flex flex-col sm:flex-row gap-6 hover:border-slate-700 transition-all group"
+                className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md"
               >
-                <div className="sm:w-1/3 aspect-square relative rounded-xl overflow-hidden bg-slate-950 flex-shrink-0">
+                {/* Image Container wrapper */}
+                <div className="p-4 w-full aspect-[4/3] relative overflow-hidden bg-white flex-shrink-0">
                   <img 
                     src={product.image} 
                     alt={product.name} 
-                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover rounded-xl border border-slate-100"
                   />
                 </div>
-                <div className="sm:w-2/3 flex flex-col justify-start">
-                  <h4 className="text-xl text-white font-bold group-hover:text-amber-400 transition-colors mb-2">
-                    {product.name}
-                  </h4>
-                  <p className="text-sm text-slate-400 line-clamp-4 leading-relaxed">
-                    {product.description}
-                  </p>
+                
+                {/* Text Description Block */}
+                <div className="p-5 pt-2 border-t border-slate-100 flex-grow flex flex-col justify-between bg-white">
+                  <div>
+                    <h4 className="text-base text-slate-800 font-bold tracking-tight mb-2 min-h-[2.5rem] flex items-center">
+                      {product.name}
+                    </h4>
+                    <p className="text-xs text-slate-500 leading-relaxed line-clamp-3">
+                      {product.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Standard Features Row Footer item component alignment links */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-8 border-t border-slate-800/60">
-             <FeatureItem icon={<Settings />} title="Precision Engineering" text="High dimensional accuracy and tight tolerances verified by inspection steps." />
-             <FeatureItem icon={<Cpu />} title="Advanced Material" text="Selection of superior alloy variations for extended tool lifespan configurations." />
-             <FeatureItem icon={<Boxes />} title="Custom Design" text="Tailored build metrics engineered around unique project blueprint limits." />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 pt-10 border-t border-slate-200">
+             <FeatureItem icon={<Settings size={20} />} title="Precision Engineering" text="High dimensional accuracy and tight tolerances verified by inspection steps." />
+             <FeatureItem icon={<Cpu size={20} />} title="Advanced Material" text="Selection of superior alloy variations for extended tool lifespan configurations." />
+             <FeatureItem icon={<Boxes size={20} />} title="Custom Design" text="Tailored build metrics engineered around unique project blueprint limits." />
           </div>
         </div>
       </section>
 
       {/* Global Quality Recap */}
-      <section className="py-24 bg-white border-t border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
-          <h2 className="text-3xl font-bold text-slate-900 relative pb-3 inline-block">
+      <section className="py-20 bg-white border-t border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
+          <h2 className="text-2xl font-bold text-slate-900 relative pb-3 inline-block">
             Global Quality Standards
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-amber-400 rounded-full" />
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-0.5 bg-sky-600 rounded-full" />
           </h2>
-          <p className="text-slate-600 text-lg leading-relaxed max-w-3xl mx-auto">
+          <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
             Every component manufactured at PIW Engineering Works undergoes stringent quality checks and inspections using advanced measuring instruments to ensure 100% compliance with international standards.
           </p>
         </div>
@@ -296,13 +294,13 @@ interface FeatureItemProps {
 
 function FeatureItem({ icon, title, text }: FeatureItemProps) {
   return (
-    <div className="flex gap-4 p-6 bg-slate-900/40 backdrop-blur-sm border border-slate-800/60 rounded-2xl">
-      <div className="text-amber-400 p-3 bg-slate-950 rounded-xl h-fit flex items-center justify-center">
+    <div className="flex gap-4 p-5 bg-white border border-slate-200 rounded-xl shadow-sm">
+      <div className="text-sky-600 p-2.5 bg-sky-50 rounded-lg h-fit flex items-center justify-center">
         {icon}
       </div>
       <div className="space-y-1">
-        <h4 className="text-white font-bold text-base">{title}</h4>
-        <p className="text-slate-400 text-sm leading-relaxed">{text}</p>
+        <h4 className="text-slate-800 font-bold text-sm">{title}</h4>
+        <p className="text-slate-500 text-xs leading-relaxed">{text}</p>
       </div>
     </div>
   );
