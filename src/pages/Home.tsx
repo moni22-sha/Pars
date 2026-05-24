@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Settings, Users, Factory, Target, Shield, Clock, Zap, Cpu, Layers } from 'lucide-react';
+import { ArrowRight, Settings, Users, Factory, Target, Shield, Clock, Zap } from 'lucide-react';
 import { motion, Variants } from 'motion/react';
-import image16 from '../assets/images/image16.png';
-import image27 from '../assets/images/image27.png';
-import mach2 from '../assets/images/mach2.png';
-import image28 from '../assets/images/image28.png';
-import mach1 from '../assets/images/mach1.png';
-import adlogo from '../assets/images/adlogo.png';
 
-
-
+// Industrial & Precision Manufacturing Assets
+import image16 from '../assets/images/image16.png'; // Hero Background / CAD Design
+import image27 from '../assets/images/image27.png'; // Heavy Press Tools / Die Sets
+import mach2 from '../assets/images/mach2.png';     // Spark Erosion / Wire EDM Close-up
+import image28 from '../assets/images/image28.png'; // Quality Control / Micrometer Metrology
+import mach1 from '../assets/images/mach1.png';     // High-Precision CNC Machine in Action
+import adlogo from '../assets/images/adlogo.png';   // Company Logo / Certification Seal
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -30,26 +29,17 @@ const itemVariants: Variants = {
 };
 
 export default function Home() {
-  const CATEGORIES = [
-    'Precision  Dies',
-    'Press Tools',
-    'Jigs & Fixtures',
-    'Gauges',
-    'Welding Fixtures',
-    'Precision Components'
-  ] as const;
-
   return (
     <div className="overflow-hidden relative bg-slate-50">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center text-center bg-brand-primary overflow-hidden">
+      <section className="relative h-[95vh] flex items-center justify-center text-center bg-brand-primary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <motion.img 
             initial={{ scale: 1 }}
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
             src={image16}
-            alt="Industrial Facility" 
+            alt="Modern Smart Factory Floor Background" 
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-black/40" />
@@ -62,8 +52,23 @@ export default function Home() {
             variants={{
               visible: { transition: { staggerChildren: 0.2 } }
             }}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto flex flex-col items-center"
           >
+            {/* Pill Tag Badge from image_560765.png */}
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-blue-500/10 border border-blue-400/30 rounded-full backdrop-blur-sm"
+            >
+              <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center relative">
+                <span className="w-2 h-2 rounded-full bg-white" />
+                <span className="absolute inset-0 rounded-full bg-blue-500/50 animate-ping" />
+              </span>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+                Trusted All-In-One Industrial Platform
+              </span>
+            </motion.div>
+
+            {/* Typography Heading layout matching image_560721.jpg */}
             <motion.h1 
               variants={itemVariants}
               className="text-5xl md:text-7xl text-white mb-6 leading-tight font-bold tracking-tight"
@@ -74,7 +79,7 @@ export default function Home() {
             
             <motion.p 
               variants={itemVariants}
-              className="text-xl text-slate-200 mb-10 leading-relaxed font-medium"
+              className="text-xl text-slate-200 mb-10 leading-relaxed font-medium max-w-2xl"
             >
               Precision engineering solutions for modern manufacturing — delivering high-precision tooling, machining, and fabrication with global quality standards.
             </motion.p>
@@ -160,7 +165,7 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                   src={mach1}  
-                  alt="Capability Image" 
+                  alt="Precision CNC Machinery Axis Milling" 
                   className="w-full h-[500px] object-cover"
                 />
                </motion.div>
@@ -180,11 +185,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Section - Organized Into 6 Categories */}
-     
-
-          
-
       {/* About Preview */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -201,7 +201,7 @@ export default function Home() {
                 </div>
                 <h2 className="text-4xl font-bold text-slate-900 mb-6">Engineering Excellence Built on Precision</h2>
                 <p className="text-lg text-slate-600 mb-6 font-medium">
-                   At Pars Engineering Works, we specialize in delivering advanced engineering and tooling solutions designed for efficiency, consistency, and long-term performance.
+                   At Digi Max Sustainable Services, we specialize in delivering advanced engineering and tooling solutions designed for efficiency, consistency, and long-term performance.
                 </p>
                 <p className="text-slate-500 mb-10 leading-relaxed">
                    Backed by over 30 years of experience, a modern manufacturing facility, and the trust of 1000+ clients, we serve a wide range of industries with customized solutions that meet exact operational requirements.
@@ -215,8 +215,8 @@ export default function Home() {
                    <motion.img 
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
-                    src={image16}
-                    alt="Quality Seal" 
+                    src={adlogo}
+                    alt="Quality Control Verification Seal" 
                     className="h-16 w-16 rounded-full object-cover"
                    />
                    <div>
@@ -236,7 +236,7 @@ export default function Home() {
                      transition={{ duration: 0.5 }}
                      className="h-48 bg-slate-100 rounded-lg overflow-hidden relative shadow-md group"
                    >
-                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={image16} className="w-full h-full object-cover" alt="Detail 1" />
+                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={image16} className="w-full h-full object-cover" alt="Industrial Blueprint CAD/CAM Interface" />
                    </motion.div>
                    <motion.div 
                      initial={{ opacity: 0, y: 30 }}
@@ -245,7 +245,7 @@ export default function Home() {
                      transition={{ duration: 0.5, delay: 0.2 }}
                      className="h-48 bg-slate-100 rounded-lg overflow-hidden relative shadow-md group"
                    >
-                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={image27} className="w-full h-full object-cover" alt="Detail 2" />
+                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={image27} className="w-full h-full object-cover" alt="Heavy Metal Press Tools and Die Assemblies" />
                    </motion.div>
                 </div>
                 <div className="space-y-4 pt-8">
@@ -256,7 +256,7 @@ export default function Home() {
                      transition={{ duration: 0.5, delay: 0.1 }}
                      className="h-48 bg-slate-100 rounded-lg overflow-hidden relative shadow-md group"
                    >
-                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={mach2} className="w-full h-full object-cover" alt="Detail 3" />
+                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={mach2} className="w-full h-full object-cover" alt="Submerged Wire EDM Spark Erosion Cut" />
                    </motion.div>
                    <motion.div 
                      initial={{ opacity: 0, y: 30 }}
@@ -265,7 +265,7 @@ export default function Home() {
                      transition={{ duration: 0.5, delay: 0.3 }}
                      className="h-48 bg-slate-100 rounded-lg overflow-hidden relative shadow-md group"
                    >
-                    <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={image28} className="w-full h-full object-cover" alt="Detail 4" />
+                    <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={image28} className="w-full h-full object-cover" alt="Metrology Specialist Measuring Component Tolerances" />
                    </motion.div>
                 </div>
              </div>
@@ -318,7 +318,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
            <h2 className="text-4xl md:text-5xl font-bold mb-8">Looking for Reliable Engineering & Tooling Solutions?</h2>
            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-             Partner with PIW Engineering Works for precision-driven manufacturing support tailored to your industrial requirements.
+             Partner with Digi Max Sustainable Services for precision-driven manufacturing support tailored to your industrial requirements.
            </p>
            <Link 
              to="/contact" 
@@ -347,7 +347,7 @@ export default function Home() {
   );
 }
 
-// Sub-components
+// Layout Sub-components
 interface IconProps {
   className?: string;
 }

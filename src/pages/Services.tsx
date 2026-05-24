@@ -90,10 +90,10 @@ export default function Services() {
         'Precision‑engineered jigs and fixtures that improve production efficiency, reduce setup time, and maintain dimensional consistency.'
     },
     {
-      title: 'Inspection Gauges',
+      title: 'Gauges',
       icon: <Drill />,
       description:
-        'Inspection gauges manufactured to ensure accurate measurement and quality verification across production environments.'
+        'gauges manufactured to ensure accurate measurement and quality verification across production environments.'
     },
   ];
 

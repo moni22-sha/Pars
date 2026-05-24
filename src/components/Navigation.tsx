@@ -24,25 +24,39 @@ export function Navbar() {
       <div className="top-accent w-full" />
       <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20">
+          <div className="flex justify-between h-24">
             <div className="flex items-center">
-              <Link to="/" className="flex items-center gap-2">
-                <img 
-                  src={para} 
-                  alt="PIW Engineering Works Logo" 
-                  className="h-15 w-20"
-                  referrerPolicy="no-referrer"
-                />
-                <img 
-                  src={adlogo} 
-                  alt="PIW Engineering Works Logo" 
-                  className="h-15 w-20"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="flex flex-col">
-                  <span className="text-xl font-display font-bold text-brand-primary leading-tight"></span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium"></span>
+              <Link to="/" className="flex items-center gap-4 py-2">
+                
+                {/* First Brand Group */}
+                <div className="flex flex-col items-center justify-center text-center">
+                  <img 
+                    src={para} 
+                    alt="PIW Engineering Works Logo" 
+                    className="h-10 w-auto object-contain"
+                    referrerPolicy="no-referrer"
+                  />
+                  <span className="block text-[9px] font-bold uppercase tracking-[0.1em] text-brand-primary mt-1 whitespace-nowrap">
+                    Pars Industries Work
+                  </span>
                 </div>
+
+                {/* Subtle Divider Line like image_5531a9.png */}
+                <div className="h-10 w-[1px] bg-slate-200 self-center mt-[-8px]" />
+
+                {/* Second Brand Group */}
+                <div className="flex flex-col items-center justify-center text-center">
+                  <img 
+                    src={adlogo} 
+                    alt="Advanex Toolings Logo" 
+                    className="h-10 w-auto object-contain"
+                    referrerPolicy="no-referrer"
+                  />
+                  <span className="block text-[9px] font-bold uppercase tracking-[0.1em] text-brand-primary mt-1 whitespace-nowrap">
+                    Advanex Toolings
+                  </span>
+                </div>
+
               </Link>
             </div>
             
@@ -59,14 +73,12 @@ export function Navbar() {
                   }
                 >
                   {({ isActive }) => (
-                    // motion.span adds a subtle scaling click effect when pressed
                     <motion.span
                       whileTap={{ scale: 0.95, y: 1 }}
                       className="inline-block relative z-10"
                     >
                       {link.name}
                       {isActive && (
-                        // This moves the active underline smoothly from word to word when clicked
                         <motion.div
                           layoutId="activeUnderline"
                           className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-accent"
@@ -154,15 +166,29 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-6">
-               <img 
-                src={para} 
-                alt="PIW Logo" 
-                className="h-10 w-auto"
-                referrerPolicy="no-referrer"
-              />
-              <div className="flex flex-col">
-                <span className="text-lg font-display font-bold text-white leading-tight"></span>
+            <Link to="/" className="flex flex-col items-start gap-2 mb-6">
+              <div className="flex items-center gap-3">
+                <img 
+                  src={para} 
+                  alt="PIW Logo" 
+                  className="h-9 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="h-6 w-[1px] bg-slate-700" />
+                <img 
+                  src={adlogo} 
+                  alt="Branding Logo" 
+                  className="h-9 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="mt-2 space-y-0.5">
+                <span className="block text-xs font-bold uppercase tracking-wider text-white leading-tight">
+                  Pars Industries Works
+                </span>
+                <span className="block text-[11px] font-medium uppercase tracking-wider text-slate-400 leading-tight">
+                  Advanex Toolings
+                </span>
               </div>
             </Link>
             <p className="text-sm leading-relaxed text-slate-400 mb-6">
