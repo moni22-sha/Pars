@@ -9,7 +9,7 @@ import lower from "../assets/images/lower.png";
 import punch from "../assets/images/punch.png";
 import sheetmetal from "../assets/images/sheetmetal.png";
 import slitting from "../assets/images/slitting.png";
-import base from "../assets/images/base.png";
+import basedie from "../assets/images/basedie.png";
 import matrix from '../assets/images/matrix.png';
 import fine1 from '../assets/images/fine1.png';
 import locate from '../assets/images/locate.png';
@@ -81,7 +81,7 @@ const productsList: ProductItem[] = [
   { 
     name: 'Base Insert', 
     description: 'High-precision progressive die assembly designed for complex sheet metal stamping.', 
-    image: base 
+    image: basedie 
   },
   {
     name: 'Balancing Figures',
