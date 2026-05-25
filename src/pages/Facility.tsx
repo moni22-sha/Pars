@@ -153,7 +153,7 @@ export default function Facility() {
   const facilityVideos: VideoItem[] = [
     {
       subtitle: "DMC 835V DECKAL MAHO Milling Operations",
-      title: "Travel Size: 830 * 5ton * 5ton",
+      title: "Travel Size: 830 * 510 * 510",
       video: DMC,
     },
     {

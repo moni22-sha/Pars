@@ -162,7 +162,8 @@ export default function About() {
               </div>
               <div className="text-center mt-4">
                 <h4 className="text-lg font-bold text-slate-900">Mr. Iyyappan Mohanraj</h4>
-                <p className="text-xs font-semibold text-brand-accent uppercase tracking-widest mt-0.5">CEO, Advanex Toolings</p>
+                <p className="text-xs font-semibold text-brand-accent uppercase tracking-widest mt-0.5">Proprietor, Advanex Toolings</p>
+                 <p className="text-xs font-semibold text-brand-accent uppercase tracking-widest mt-0.5">+91 98402 55994</p>
               </div>
             </motion.div>
 
