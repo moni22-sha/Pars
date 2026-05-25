@@ -153,22 +153,23 @@ export default function Facility() {
   const facilityVideos: VideoItem[] = [
     {
       subtitle: "DMC 835V DECKAL MAHO Milling Operations",
-      title: "Travelsize: 830 * 5ton * 5ton",
+      title: "Travel Size: 830 * 5ton * 5ton",
       video: DMC,
     },
     {
-      subtitle: "ALN 600G IGROOVE TECHNOLOGY (Sodick 2.0 High Accuracy Wire Cut EDM Processing)",
-      title: "Travelsize: 600 * 400 * 350",
+      subtitle: "ALN 600G Igroove Technology \n"+  
+                "Sodick 2.0 High Accuracy Wire Cut EDM Processing",
+      title: "Travel Size: 600 * 400 * 350",
       video: sordick,
     },
     {
       subtitle: "Makino F5 CNC Vertical Machining Center Demonstration",
-      title: "Travelsize: 950 * 450 * 450",
+      title: "Travel Size: 950 * 450 * 450",
       video: Makino,
     },
     {
       subtitle: "Mazak 530c VMC Precision Component Profiling",
-      title: "Travelsize: 1050 * 530 * 530",
+      title: "Travel Size: 1050 * 530 * 530",
       video: Mazak,
     },
   ];
@@ -549,8 +550,8 @@ export default function Facility() {
                   </video>
                 </div>
                 <div className="p-5 flex-grow content-center bg-white flex flex-col gap-1.5">
-                  {/* FIXED: Displaying subtitle as textual info here */}
-                  <span className="font-bold text-slate-800 tracking-wide text-sm group-hover:text-brand-primary transition-colors duration-300">
+                  {/* FIXED: Added 'whitespace-pre-line' to preserve text newlines (\n) */}
+                  <span className="font-bold text-slate-800 tracking-wide text-sm group-hover:text-brand-primary transition-colors duration-300 whitespace-pre-line">
                     {video.subtitle}
                   </span>
                   <h3 className="font-bold text-slate-800 tracking-wide text-sm group-hover:text-brand-primary transition-colors duration-300">

@@ -46,7 +46,7 @@ export default function Contact() {
                        <Phone className="h-6 w-6 text-brand-accent shrink-0" />
                        <div>
                           <p className="font-bold mb-1">Phone Number</p>
-                          <p className="text-slate-400 text-sm"> +91 98402 55994/994004477</p>
+                          <p className="text-slate-400 text-sm"> +91 98402 55994/99400 44477</p>
                        </div>
                     </div>
                     
