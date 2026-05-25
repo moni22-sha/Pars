@@ -201,7 +201,7 @@ export default function Home() {
                 </div>
                 <h2 className="text-4xl font-bold text-slate-900 mb-6">Engineering Excellence Built on Precision</h2>
                 <p className="text-lg text-slate-600 mb-6 font-medium">
-                   At Digi Max Sustainable Services, we specialize in delivering advanced engineering and tooling solutions designed for efficiency, consistency, and long-term performance.
+                   At Pars industries work, we specialize in delivering advanced engineering and tooling solutions designed for efficiency, consistency, and long-term performance.
                 </p>
                 <p className="text-slate-500 mb-10 leading-relaxed">
                    Backed by over 30 years of experience, a modern manufacturing facility, and the trust of 1000+ clients, we serve a wide range of industries with customized solutions that meet exact operational requirements.
@@ -318,7 +318,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
            <h2 className="text-4xl md:text-5xl font-bold mb-8">Looking for Reliable Engineering & Tooling Solutions?</h2>
            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-             Partner with Digi Max Sustainable Services for precision-driven manufacturing support tailored to your industrial requirements.
+             Partner with Pars insdutries work for precision-driven manufacturing support tailored to your industrial requirements.
            </p>
            <Link 
              to="/contact" 

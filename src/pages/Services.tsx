@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ArrowRight,
   Settings,
@@ -58,6 +57,105 @@ const industries = [
 ];
 
 export default function Services() {
+  // Inject Dynamic Schema Tag on Component Mount for Search Engine Optimization
+  useEffect(() => {
+    const schemaId = 'pars-services-jsonld-schema';
+    let script = document.getElementById(schemaId) as HTMLScriptElement;
+    
+    if (!script) {
+      script = document.createElement('script');
+      script.id = schemaId;
+      script.type = 'application/ld+json';
+      
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Industrial Tooling and Precision Machining Services",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Pars Industries",
+          "description": "Premium industrial tool room and progressive die design company offering multi-axis CNC turning, milling, and fixture design infrastructure.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chennai",
+            "addressRegion": "Tamil Nadu",
+            "addressCountry": "India"
+          }
+        },
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Chennai" },
+          { "@type": "AdministrativeArea", "name": "Hosur" },
+          { "@type": "AdministrativeArea", "name": "Coimbatore" },
+          { "@type": "AdministrativeArea", "name": "Delhi" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Precision Engineering Solutions",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "CNC Machining Services",
+                "description": "High-precision CNC machining solutions tailored for OEMs, industrial tooling setups, and specialized engineering applications in India."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Vertical Machining Centers (VMC)",
+                "description": "Advanced VMC machining services delivering high-precision CNC components, molds, dies, and industrial parts with superior accuracy and production turnaround."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Progressive Tools Design & Manufacturing",
+                "description": "High-precision progressive stamping tool design and press tools engineered for continuous sheet metal manufacturing streams."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Press Tools Fabrication",
+                "description": "Custom sheet metal press tools configured for reliable heavy-duty component forming, cutting, and industrial metal blanking operations."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Jigs & Fixtures Engineering",
+                "description": "Precision-engineered jigs and industrial fixture production to eliminate layout errors, reduce setup constraints, and scale component consistency."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Industrial Gauges Production",
+                "description": "Custom go/no-go quality assurance verification gauges manufactured to sustain dimensional validation metrics across high-volume tooling systems."
+              }
+            }
+          ]
+        }
+      };
+
+      script.text = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      const existingScript = document.getElementById(schemaId);
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+
   const services = [
     {
       title: 'CNC Machining Services',
@@ -93,7 +191,7 @@ export default function Services() {
       title: 'Gauges',
       icon: <Drill />,
       description:
-        'gauges manufactured to ensure accurate measurement and quality verification across production environments.'
+        'Gauges manufactured to ensure accurate measurement and quality verification across production environments.'
     },
   ];
 
@@ -105,7 +203,7 @@ export default function Services() {
         <div
           className="absolute inset-0 bg-cover bg-center scale-105 animate-pulse"
           style={{
-            backgroundImage: factory4,
+            backgroundImage: `url(${factory4})`,
           }}
         />
 
@@ -221,27 +319,23 @@ export default function Services() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              'Automotive',
-              'Electrical',
-              'Heavy Engineering',
-              'OEM Manufacturing',
-              'Industrial Fabrication',
-              'Precision Components',
-              'Machine Tools',
-              'Global Export',
-            ].map((item, index) => (
+            {industries.map((item, index) => (
               <motion.div
-                key={item}
+                key={item.title}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -5 }}
-                className="bg-[#f8fafc] border border-gray-100 rounded-2xl py-8 px-4 text-center shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-[#f8fafc] border border-gray-100 rounded-2xl py-8 px-4 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-lg transition-all duration-300 gap-4"
               >
-                <span className="font-semibold text-[#123a74] tracking-wide">
-                  {item}
+                <img 
+                  src={item.image} 
+                  alt={`${item.title} industrial engineering market sector`} 
+                  className="w-12 h-12 object-contain opacity-85 group-hover:opacity-100" 
+                />
+                <span className="font-semibold text-[#123a74] tracking-wide text-sm">
+                  {item.title}
                 </span>
               </motion.div>
             ))}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Factory } from 'lucide-react';
 import { motion, Variants } from 'motion/react';
 import image16 from '../assets/images/image16.png';
@@ -16,28 +17,100 @@ import mach1 from '../assets/images/mach1.png';
 import image2 from '../assets/images/image2.png';
 import image1 from '../assets/images/image1.png';
 
+// FIXED: Added explicit .mp4 extensions to static video asset imports
+import DMC from '../video/DMC.mp4';
+import Makino from '../video/Makino.mp4';
+import Mazak from '../video/Mazak.mp4';
+import sordick from '../video/sordick.mp4';
+
 interface HighlightItem {
   title: string;
   image: string;
+  altText?: string;
+}
+
+interface VideoItem {
+  title: string;
+  video: string;
+  poster?: string; // Optional thumbnail image
 }
 
 export default function Facility() {
+  // Inject Dynamic Schema Tag on Component Mount for GEO/AEO optimization
+  useEffect(() => {
+    const schemaId = 'facility-jsonld-schema';
+    let script = document.getElementById(schemaId) as HTMLScriptElement;
+    
+    if (!script) {
+      script = document.createElement('script');
+      script.id = schemaId;
+      script.type = 'application/ld+json';
+      
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Pars Industries Facility",
+        "description": "State-of-the-art 4000+ sq. ft. tool room facility in India specializing in custom progressive tool manufacturing, CNC turning and milling services, and high accuracy wire EDM.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chennai",
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "India"
+        },
+        "knowsAbout": [
+          "Progressive die design and manufacturing company India",
+          "Tool room and press tools manufacturers Hosur",
+          "CNC machining service providers in Coimbatore",
+          "High accuracy CNC machining services Delhi",
+          "Tool room progressive die manufacturers Hosur"
+        ],
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "Advanced Precision Machinery Inventory",
+          "numberOfItems": 10,
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Seibu MM35UP CNC Ultra-Precision Wire EDM Machine" },
+            { "@type": "ListItem", "position": 2, "name": "Makino W53FB Precision Wire EDM Machine" },
+            { "@type": "ListItem", "position": 3, "name": "Sodick Wire Cut EDM Machine" },
+            { "@type": "ListItem", "position": 4, "name": "Makino F5 CNC Vertical Machining Center" },
+            { "@type": "ListItem", "position": 5, "name": "DMC 835V DECKAL MAHO" },
+            { "@type": "ListItem", "position": 6, "name": "Mazak VMC" }
+          ]
+        }
+      };
+
+      script.text = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      const existingScript = document.getElementById(schemaId);
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+
   const highlights: HighlightItem[] = [
     {
       title: "Main Fabrication Assembly",
       image: factory1,
+      altText: "Progressive die and press tools assembly floor Chennai"
     },
     {
       title: "Precision CNC Machining Center",
       image: factory2,
+      altText: "Precision engineering and CNC machining India production floor"
     },
     {
       title: "Heavy-Duty Milling & Lathes",
       image: factory3,
+      altText: "Industrial tooling manufacturers Delhi workshop setup"
     },
     {
       title: "Quality Assurance & Inspection Lab",
       image: factory4,
+      altText: "Precision jigs and fixtures suppliers Chennai inspection setup"
     },
   ];
 
@@ -45,35 +118,63 @@ export default function Facility() {
     {
       title: "Sodick Wire Cut EDM Machine (Wire-cut Electrical Discharge Machine)",
       image: mach2,
+      altText: "Sodick wire cut EDM operations - tool room progressive die manufacturers Hosur"
     },
     {
       title: "Sodick AG400L Wire Cut EDM Machine",
       image: mach3,
+      altText: "High precision press tools manufacturers Chennai hardware"
     },
     {
       title: "Industrial Water Chiller Unit / EDM Cooling System",
       image: mach4,
+      altText: "Industrial cooling infrastructure - premium industrial die makers Chennai"
     },
     {
       title: "Tool & Cutter Grinding Machine",
       image: mach5,
+      altText: "Tool room and press tools manufacturers Hosur tooling grinders"
     },
     {
       title: "Vertical Milling Machine",
       image: mach6,
+      altText: "Progressive press tool manufacturers Coimbatore vertical milling systems"
     },
     {
       title: "DMC 835V DECKAL MAHO",
       image: mach7,
+      altText: "Advanced milling setups - precision progressive tools manufacturers India"
     },
     {
       title: "Makino F5 CNC Vertical Machining Center",
       image: mech8,
+      altText: "Automotive CNC machining company Chennai multi axis platform"
     },
      {
       title: "Mazak VMC",
       image: image16,
+      altText: "CNC machining for automotive parts Delhi workshop machinery"
     }
+  ];
+
+  // 4 Video Items Data Setup
+  const facilityVideos: VideoItem[] = [
+    {
+      title: "DMC 835V DECKAL MAHO Milling Operations",
+      video: DMC,
+    },
+    {
+      title: "Sodick 2.0 High Accuracy Wire Cut EDM Processing",
+      video: sordick,
+    },
+    {
+      title: "Makino F5 CNC Vertical Machining Center Demonstration",
+      video: Makino,
+    },
+    {
+      title: "Mazak VMC Precision Component Profiling",
+      video: Mazak,
+    },
   ];
 
   const containerVariants: Variants = {
@@ -100,12 +201,10 @@ export default function Facility() {
   };
 
   // --- ANIMATION VARIANTS FOR THE EXPANSION SECTION ---
-  
-  // Single element zoom variant for the entire heading header
   const headingZoomVariants: Variants = {
     hidden: { 
       opacity: 0, 
-      scale: 1.15, // Smooth zoom-out starting point
+      scale: 1.15,
       y: 10
     },
     visible: { 
@@ -120,7 +219,6 @@ export default function Facility() {
     }
   };
 
-  // Staggered Layout Container for Card Grid
   const expansionGridVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -131,7 +229,6 @@ export default function Facility() {
     },
   };
 
-  // Card 1: Zoom Out (Starts larger -> returns to normal)
   const cardZoomOutVariants: Variants = {
     hidden: { 
       opacity: 0, 
@@ -149,7 +246,6 @@ export default function Facility() {
     }
   };
 
-  // Card 2: Zoom In (Starts smaller -> snaps up to position)
   const cardZoomInVariants: Variants = {
     hidden: { 
       opacity: 0, 
@@ -178,7 +274,7 @@ export default function Facility() {
             transition={{ duration: 0.6 }}
             className="text-5xl mb-8 font-bold text-slate-900"
           >
-            Our Facility
+            Tool Room & Machining Facility
           </motion.h1>
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -187,10 +283,10 @@ export default function Facility() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end"
           >
             <p className="text-xl text-slate-600 font-medium leading-relaxed">
-              Our 4000+ sq. ft. manufacturing facility is equipped with advanced machinery and precision engineering systems.
+              Our 4000+ sq. ft. manufacturing facility is engineered for top tier tool room services in Chennai, managing tight-tolerance progressive press tools and custom die assemblies.
             </p>
             <p className="text-slate-500 leading-relaxed">
-              Backed by over three decades of engineering expertise, we continuously invest in process improvement, quality systems, and manufacturing excellence to meet evolving industrial demands.
+              As trusted progressive tools manufacturers India, our infrastructure blends over three decades of tool and die making heritage with modern CNC turning and milling services to fulfill high-volume automotive B2B pipelines.
             </p>
           </motion.div>
         </div>
@@ -204,7 +300,6 @@ export default function Facility() {
               Expansion Update
             </span>
             
-            {/* Animates the complete line together as one single element */}
             <motion.h2 
               variants={headingZoomVariants}
               initial="hidden"
@@ -224,7 +319,6 @@ export default function Facility() {
             />
           </div>
 
-          {/* Staggered Cards Layout Container */}
           <motion.div
             variants={expansionGridVariants}
             initial="hidden"
@@ -232,7 +326,7 @@ export default function Facility() {
             viewport={{ once: true, margin: '-100px' }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
           >
-            {/* Upcoming Machine 1 — Card Zoom-Out */}
+            {/* Upcoming Machine 1 */}
             <motion.div 
               variants={cardZoomOutVariants}
               className="bg-white border border-slate-200/60 rounded-2xl p-6 shadow-sm flex flex-col gap-6 hover:shadow-md transition-shadow duration-300"
@@ -240,19 +334,16 @@ export default function Facility() {
               <div className="aspect-[4/3] w-full bg-slate-50 rounded-xl overflow-hidden relative border border-slate-100 p-4 flex items-center justify-center group">
                 <img 
                   src={image2} 
-                  alt="Ultra-Precision Component Milling Infrastructure" 
+                  alt="High accuracy spline die block suppliers Hosur - Seibu Setup" 
                   className="max-w-full max-h-full object-contain group-hover:scale-103 transition-transform duration-500"
                 />
-                {/* <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-md">
-                  
-                </div> */}
               </div>
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">
                   Seibu MM35UP CNC Ultra-Precision Wire EDM Machine
                 </h3>
                 <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                 Discover the Seibu MM35UP CNC Ultra-Precision Wire EDM. Features pitch accuracy to eliminate coordinate grinding, ultra-reliable Automatic Wire Feeder (AWF), and a compact design built for high-precision mold manufacturing.
+                 Discover the Seibu MM35UP CNC Ultra-Precision Wire EDM. Custom engineered for high-precision progressive die makers Delhi, it delivers extreme pitch accuracy to completely eliminate coordinate grinding stages.
                 </p>
                 <ul className="space-y-2.5 border-t border-slate-100 pt-4">
                   <li className="flex items-center text-xs font-medium text-slate-600 gap-2">
@@ -261,17 +352,17 @@ export default function Facility() {
                   </li>
                   <li className="flex items-center text-xs font-medium text-slate-600 gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shrink-0" />
-                   Intelligent automatic wire feeder threads reliably at the breakpoint under water.
+                   Intelligent automatic wire feeder threads reliably at the breakpoint under water for complex stamping progressive die geometries.
                   </li>
                   <li className="flex items-center text-xs font-medium text-slate-600 gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shrink-0" />
-                    Supports ultra-fine wires down to 0.05mm for intricate, tight-radius cuts.
+                    Supports ultra-fine wires down to 0.05mm optimized for intricate spline die blocks and tight-radius tool inserts.
                   </li>
                 </ul>
               </div>
             </motion.div>
 
-            {/* Upcoming Machine 2 — Card Zoom-In */}
+            {/* Upcoming Machine 2 */}
             <motion.div 
               variants={cardZoomInVariants}
               className="bg-white border border-slate-200/60 rounded-2xl p-6 shadow-sm flex flex-col gap-6 hover:shadow-md transition-shadow duration-300"
@@ -279,32 +370,29 @@ export default function Facility() {
               <div className="aspect-[4/3] w-full bg-slate-50 rounded-xl overflow-hidden relative border border-slate-100 p-4 flex items-center justify-center group">
                 <img 
                   src={image1} 
-                  alt="Advanced Heavy Grinding Technology" 
+                  alt="Custom metal press tools manufacturers Hosur - Makino Wire EDM System" 
                   className="max-w-full max-h-full object-contain group-hover:scale-103 transition-transform duration-500"
                 />
-                {/* <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-md">
-                  
-                </div> */}
               </div>
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">
                   Makino W53FB Precision Wire EDM Machine
                 </h3>
                 <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                 An advanced, production-grade wire electrical discharge machining (EDM) system built with a stationary work table design. It is engineered to maintain exceptional mechanical repeatability and pitch accuracy regardless of workpiece size or total weight load.
+                 An advanced, production-grade wire electrical discharge machining (EDM) system built with a stationary work table design. It is engineered to maintain exceptional mechanical repeatability and pitch accuracy regardless of workpiece weight.
                 </p>
                 <ul className="space-y-2.5 border-t border-slate-100 pt-4">
                   <li className="flex items-center text-xs font-medium text-slate-600 gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shrink-0" />
-                    Isolates heavy workpiece loads to maintain high mechanical accuracy.
+                    Isolates heavy workpiece loads to maintain high mechanical accuracy on automotive progressive die blocks.
                   </li>
                   <li className="flex items-center text-xs font-medium text-slate-600 gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shrink-0" />
-                    Smart touch-screen CNC panel optimized for rapid job setup and monitoring.
+                    Smart touch-screen CNC panel optimized for rapid job setup and real-time tool room monitoring.
                   </li>
                   <li className="flex items-center text-xs font-medium text-slate-600 gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shrink-0" />
-                    High-reliability automated wire-annealing feed reduces cycle downtime.
+                    High-reliability automated wire-annealing feed minimizes downtime for custom blanking die insert creation.
                   </li>
                 </ul>
               </div>
@@ -351,7 +439,7 @@ export default function Facility() {
                 <div className="aspect-[4/3] w-full bg-slate-50 overflow-hidden relative border-b border-slate-100 p-2 flex items-center justify-center">
                   <img 
                     src={item.image} 
-                    alt={item.title} 
+                    alt={item.altText || item.title} 
                     className="max-w-full max-h-full object-contain group-hover:scale-102 transition-transform duration-500 ease-out"
                   />
                 </div>
@@ -376,7 +464,7 @@ export default function Facility() {
               viewport={{ once: true, margin: '-100px' }}
               className="text-3xl mb-4 font-bold text-slate-900"
             >
-              Our Machine Categories
+              Our Machine Inventory & Capabilities
             </motion.h2>
             <motion.div 
               initial={{ width: 0 }}
@@ -404,7 +492,7 @@ export default function Facility() {
                 <div className="aspect-[4/3] w-full bg-slate-50 overflow-hidden relative border-b border-slate-100 p-3 flex items-center justify-center">
                   <img 
                     src={item.image} 
-                    alt={item.title} 
+                    alt={item.altText || item.title} 
                     className="max-w-full max-h-full object-contain group-hover:scale-102 transition-transform duration-500 ease-out"
                   />
                 </div>
@@ -419,30 +507,78 @@ export default function Facility() {
         </div>
       </section>
 
+      {/* VIDEO GALLERY SECTION */}
+      <section className="pt-12 pb-24 bg-slate-50/50 border-t border-b border-slate-100/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.h2 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: '-100px' }}
+              className="text-3xl mb-4 font-bold text-slate-900"
+            >
+              Our Video Gallery
+            </motion.h2>
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="h-1 bg-brand-accent mx-auto"
+            />
+          </div>
+          
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8"
+          >
+            {facilityVideos.map((video, index) => (
+              <motion.div 
+                key={index} 
+                variants={itemVariants}
+                whileHover={{ y: -8 }}
+                className="bg-white border border-slate-200/80 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group flex flex-col justify-between"
+              >
+                <div className="aspect-[5/3] w-full bg-black relative border-b border-slate-100 flex items-center justify-center">
+                  <video 
+                    className="w-full h-full object-cover"
+                    controls
+                    preload="metadata"
+                    poster={video.poster}
+                    playsInline
+                  >
+                    <source src={video.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="p-5 flex-grow content-center bg-white">
+                  <h3 className="font-bold text-slate-800 tracking-wide text-sm group-hover:text-brand-primary transition-colors duration-300">
+                    {video.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Excellence Section */}
       <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
-        <motion.div 
-          initial={{ opacity: 0, rotate: -10, scale: 0.8 }}
-          whileInView={{ opacity: 0.05, rotate: 5, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5 }}
-          className="absolute top-0 right-0 p-12 pointer-events-none"
-        >
-        </motion.div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            {/* Left Content Column */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl mb-8 font-bold">Manufacturing Excellence</h2>
+              <h2 className="text-4xl mb-8 font-bold">Precision Tooling & Manufacturing Excellence</h2>
               <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-                Every stage of our manufacturing process is carefully monitored to ensure precision, consistency, and superior product quality.
+                Every phase of production within our advanced machine shop is closely monitored by automated metrology tools to guarantee zero-defect blanking die insert and press tool fabrication tracks.
               </p>
               <div className="space-y-6">
                 <motion.div whileHover={{ x: 6 }} className="flex gap-4 items-start group">
@@ -450,7 +586,7 @@ export default function Facility() {
                     <CheckIcon />
                   </div>
                   <p className="text-slate-300 pt-0.5 group-hover:text-white transition-colors">
-                    Strict quality and safety standards maintained throughout the facility.
+                    Strict quality controls backed by high accuracy CNC machining services Coimbatore modules.
                   </p>
                 </motion.div>
                 <motion.div whileHover={{ x: 6 }} className="flex gap-4 items-start group">
@@ -458,13 +594,12 @@ export default function Facility() {
                     <CheckIcon />
                   </div>
                   <p className="text-slate-300 pt-0.5 group-hover:text-white transition-colors">
-                    Modern production technologies enabling efficient project turnaround.
+                    Custom engineering workflows built for heavy duty jigs and fixtures India distribution networks.
                   </p>
                 </motion.div>
               </div>
             </motion.div>
             
-            {/* Right Media Column */}
             <motion.div 
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -475,7 +610,7 @@ export default function Facility() {
               <div className="aspect-video rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl group">
                 <img 
                   src={mach1} 
-                  alt="Excellence" 
+                  alt="Industrial tooling and die manufacturers India facility operations" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
                 />
               </div>
@@ -483,9 +618,9 @@ export default function Facility() {
                 animate={{ 
                   scale: [1, 1.08, 1],
                   boxShadow: [
-                    "0 0 0 0px rgba(59, 130, 246, 0.4)", 
-                    "0 0 0 12px rgba(59, 130, 246, 0)", 
-                    "0 0 0 0px rgba(59, 130, 246, 0)"
+                    "0 0px 0px 0px rgba(59, 130, 246, 0.4)", 
+                    "0 0px 0px 12px rgba(59, 130, 246, 0)", 
+                    "0 0px 0px 0px rgba(59, 130, 246, 0)"
                   ]
                 }}
                 transition={{ 
@@ -493,9 +628,9 @@ export default function Facility() {
                   repeat: Infinity, 
                   ease: "easeInOut" 
                 }}
-                className="absolute -bottom-6 -right-6 h-24 w-24 bg-brand-accent rounded-full flex items-center justify-center font-bold text-xs text-white"
+                className="absolute -bottom-6 -right-6 h-24 w-24 bg-brand-accent rounded-full flex items-center justify-center font-bold text-xs text-white text-center p-2"
               >
-                ISO 9001
+                ISO 9001 Room
               </motion.div>
             </motion.div>
 

@@ -2,6 +2,19 @@ import { CheckCircle2, Factory, Target, Compass, Users, Award, ShieldCheck, Zap,
 import { motion, Variants } from 'motion/react';
 import image28 from '../assets/images/image28.png';
 import ceo from '../assets/images/ceo.png';
+import logo1 from '../assets/images/logo1.png';
+import logo2 from '../assets/images/logo2.png';
+import logo4 from '../assets/images/logo4.png';
+import logo5 from '../assets/images/logo6.png'; // matches your current project layout
+import logo6 from '../assets/images/logo7.png';
+import logo7 from '../assets/images/logo8.png';
+import logo8 from '../assets/images/logo9.png';
+import logo9 from '../assets/images/logo10.png';
+import logo10 from '../assets/images/logo11.png';
+import logo12 from '../assets/images/logo12.png';
+import logo13 from '../assets/images/logo13.png';
+import logo14 from '../assets/images/logo14.png';
+import logo15 from '../assets/images/logo15.png';
 
 export default function About() {
   // Stagger wrapper for lists or grids
@@ -14,6 +27,21 @@ export default function About() {
       },
     },
   };
+
+  const clients = [
+    { name: 'TIDC India Ltd.', logo: logo1 },
+ 
+    { name: 'Modine Thermal Systems', logo: logo15 },
+    { name: 'Federal Mogul', logo: logo4 },
+    { name: 'Petterssons', logo: logo12 },
+    { name: 'Sundaram Fasteners', logo: logo5 },
+    { name: 'TI Diamond Chain', logo: logo14 },
+  
+    { name: 'Magna Cosma', logo: logo6 },
+  
+  
+    { name: 'Akai Fasteners (Sri Lanka)', logo: logo10 },
+  ];
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -219,6 +247,9 @@ export default function About() {
       <section className="py-24 bg-slate-50 border-t border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            {/* Colorful top badge logo centered cleanly above the text */}
+           
+
             <motion.h2 
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -245,22 +276,37 @@ export default function About() {
             </motion.p>
           </div>
           
-          {/* Staggered Client Grid Elements */}
+          {/* Grid Layout rendering the actual Clients list with Logos */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-40px' }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center text-center font-semibold text-slate-500 text-sm tracking-wider uppercase"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 items-stretch text-center font-semibold text-slate-500 text-sm tracking-wider uppercase"
           >
-            {['TIDC India Ltd', 'Amalgamation Valeo Clutch', 'Modine Thermal Systems', 'Federal Mogul', 'Sundaram Fasteners', 'TI Metal Forming', 'Magna Cosma', 'Akai Fasteners'].map((client, index) => (
+            {clients.map((client, index) => (
               <motion.div 
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -4, scale: 1.02, textShadow: '0px 0px 1px rgba(0,0,0,0.2)' }}
-                className="p-6 bg-white shadow-sm rounded-xl hover:text-slate-800 transition-colors border border-slate-100 cursor-default"
+                whileHover={{ y: -6, scale: 1.02, boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.05)' }}
+                className="p-6 bg-white shadow-sm rounded-xl transition-all border border-slate-100 cursor-default flex flex-col items-center justify-between gap-4"
               >
-                {client}
+                {client.logo ? (
+                  <div className="h-12 w-full flex items-center justify-center transition-all duration-300">
+                    <img 
+                      src={client.logo} 
+                      alt={`${client.name} Commercial Logo Reference`} 
+                      className="max-h-full max-w-[85%] object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="h-12 w-full flex items-center justify-center text-slate-300">
+                    <Briefcase className="h-6 w-6" />
+                  </div>
+                )}
+                <span className="text-xs font-bold text-slate-600 mt-2 block tracking-normal text-center w-full border-t border-slate-50 pt-3">
+                  {client.name}
+                </span>
               </motion.div>
             ))}
           </motion.div>
