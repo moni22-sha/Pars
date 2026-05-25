@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Factory } from 'lucide-react';
 import { motion, Variants } from 'motion/react';
 import image16 from '../assets/images/image16.png';
 import factory1 from '../assets/images/factory1.png';
@@ -8,7 +7,6 @@ import factory3 from '../assets/images/factory3.png';
 import factory4 from '../assets/images/factory4.png';
 import mach2 from '../assets/images/mach2.png';
 import mach3 from '../assets/images/mach3.png';
-import mach4 from '../assets/images/mach4.png';
 import mach5 from '../assets/images/mach5.png';
 import mach6 from '../assets/images/mach6.png';
 import mach7 from '../assets/images/mach7.png';
@@ -32,7 +30,7 @@ interface HighlightItem {
 interface VideoItem {
   title: string;
   video: string;
-  poster?: string; // Optional thumbnail image
+  subtitle: string; // The machine specifications / travel dimensions
 }
 
 export default function Facility() {
@@ -116,7 +114,7 @@ export default function Facility() {
 
   const machineHighlights: HighlightItem[] = [
     {
-      title: "Sodick Wire Cut EDM Machine (Wire-cut Electrical Discharge Machine)",
+      title: "Sodick ALN 600G Wire Cut EDM Machine (Wire-cut Electrical Discharge Machine)",
       image: mach2,
       altText: "Sodick wire cut EDM operations - tool room progressive die manufacturers Hosur"
     },
@@ -124,11 +122,6 @@ export default function Facility() {
       title: "Sodick AG400L Wire Cut EDM Machine",
       image: mach3,
       altText: "High precision press tools manufacturers Chennai hardware"
-    },
-    {
-      title: "Industrial Water Chiller Unit / EDM Cooling System",
-      image: mach4,
-      altText: "Industrial cooling infrastructure - premium industrial die makers Chennai"
     },
     {
       title: "Tool & Cutter Grinding Machine",
@@ -150,29 +143,32 @@ export default function Facility() {
       image: mech8,
       altText: "Automotive CNC machining company Chennai multi axis platform"
     },
-     {
+    {
       title: "Mazak VMC",
       image: image16,
       altText: "CNC machining for automotive parts Delhi workshop machinery"
     }
   ];
 
-  // 4 Video Items Data Setup
   const facilityVideos: VideoItem[] = [
     {
-      title: "DMC 835V DECKAL MAHO Milling Operations",
+      subtitle: "DMC 835V DECKAL MAHO Milling Operations",
+      title: "Travelsize: 830 * 5ton * 5ton",
       video: DMC,
     },
     {
-      title: "Sodick 2.0 High Accuracy Wire Cut EDM Processing",
+      subtitle: "ALN 600G IGROOVE TECHNOLOGY (Sodick 2.0 High Accuracy Wire Cut EDM Processing)",
+      title: "Travelsize: 600 * 400 * 350",
       video: sordick,
     },
     {
-      title: "Makino F5 CNC Vertical Machining Center Demonstration",
+      subtitle: "Makino F5 CNC Vertical Machining Center Demonstration",
+      title: "Travelsize: 950 * 450 * 450",
       video: Makino,
     },
     {
-      title: "Mazak VMC Precision Component Profiling",
+      subtitle: "Mazak 530c VMC Precision Component Profiling",
+      title: "Travelsize: 1050 * 530 * 530",
       video: Mazak,
     },
   ];
@@ -200,7 +196,6 @@ export default function Facility() {
     },
   };
 
-  // --- ANIMATION VARIANTS FOR THE EXPANSION SECTION ---
   const headingZoomVariants: Variants = {
     hidden: { 
       opacity: 0, 
@@ -547,14 +542,17 @@ export default function Facility() {
                     className="w-full h-full object-cover"
                     controls
                     preload="metadata"
-                    poster={video.poster}
                     playsInline
                   >
                     <source src={video.video} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
-                <div className="p-5 flex-grow content-center bg-white">
+                <div className="p-5 flex-grow content-center bg-white flex flex-col gap-1.5">
+                  {/* FIXED: Displaying subtitle as textual info here */}
+                  <span className="font-bold text-slate-800 tracking-wide text-sm group-hover:text-brand-primary transition-colors duration-300">
+                    {video.subtitle}
+                  </span>
                   <h3 className="font-bold text-slate-800 tracking-wide text-sm group-hover:text-brand-primary transition-colors duration-300">
                     {video.title}
                   </h3>

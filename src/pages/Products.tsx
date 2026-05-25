@@ -29,6 +29,7 @@ import balancingfigures from '../assets/images/balancingfigures.png';
 import collat from '../assets/images/collat.png';
 import draw from '../assets/images/draw.png';
 import shaft from '../assets/images/shaft.png';
+import Die from "../assets/images/Die.png";
 
 interface ProductItem {
   name: string;
@@ -93,11 +94,7 @@ const productsList: ProductItem[] = [
     description: 'High-precision collet component manufactured using advanced CNC machining for tooling, press tool, and industrial applications. Engineered for superior accuracy, durability, and reliable gripping performance.',
     image: collat
   },
-  {
-    name: 'Piercing Punch',
-    description: 'High-precision CNC machined cylindrical tooling component manufactured for industrial tooling, die assemblies, and engineering applications.',
-    image: piercing
-  },
+
   {
     name: 'Shaft Component',
     description: 'High-precision machined shaft and collet assembly manufactured using advanced CNC turning and grinding processes for industrial tooling and precision engineering applications.',
@@ -154,9 +151,9 @@ const productsList: ProductItem[] = [
     image: coining
   },
   {
-    name: 'Intake',
+    name: 'Die Casting Mould',
     description: 'High-precision CNC machined holding fixture designed for automotive and industrial assembly applications.',
-    image: intake
+    image: Die
   },
   {
     name: 'Core Insert',

@@ -36,7 +36,7 @@ export function Navbar() {
                     className="h-10 w-auto object-contain"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="block text-[9px] font-bold uppercase tracking-[0.1em] text-brand-primary mt-1 whitespace-nowrap">
+                  <span className="block text-[12px] font-bold uppercase tracking-[0.1em] text-brand-primary mt-1 whitespace-nowrap">
                     Pars Industries Work
                   </span>
                 </div>
@@ -52,7 +52,7 @@ export function Navbar() {
                     className="h-10 w-auto object-contain"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="block text-[9px] font-bold uppercase tracking-[0.1em] text-brand-primary mt-1 whitespace-nowrap">
+                  <span className="block text-[12px] font-bold uppercase tracking-[0.1em] text-brand-primary mt-1 whitespace-nowrap">
                     Advanex Toolings
                   </span>
                 </div>
@@ -186,7 +186,7 @@ export function Footer() {
                 <span className="block text-xs font-bold uppercase tracking-wider text-white leading-tight">
                   Pars Industries Works
                 </span>
-                <span className="block text-[11px] font-medium uppercase tracking-wider text-slate-400 leading-tight">
+               <span className="block text-xs font-bold uppercase tracking-wider text-white leading-tight">
                   Advanex Toolings
                 </span>
               </div>
@@ -225,7 +225,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-brand-accent shrink-0" />
-                <span> +91 98402 55994/044 - 2688 0479</span>
+                <span> +91 98402 55994/994004477</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-brand-accent shrink-0" />
