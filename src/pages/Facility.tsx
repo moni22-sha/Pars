@@ -14,7 +14,8 @@ import mech8 from '../assets/images/mech8.png';
 import mach1 from '../assets/images/mach1.png';
 import image2 from '../assets/images/image2.png';
 import image1 from '../assets/images/image1.png';
-import Grinding from '../assets/images/Grinding.png'
+import Grinding from '../assets/images/Grinding.png';
+import Philips from '../assets/images/Philips.png';
 
 // FIXED: Added explicit .mp4 extensions to static video asset imports
 import DMC from '../video/DMC.mp4';
@@ -159,6 +160,11 @@ export default function Facility() {
         title: 'Surface Grinding Machine',
         altText: 'Advanced surface grinding machine',
         image: Grinding
+      },
+      {
+        title: 'Philips',
+        altText: 'Philips machine',
+        image: Philips
       },
   ];
 
@@ -488,7 +494,7 @@ export default function Facility() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {machineHighlights.map((item, index) => (
               <motion.div 
