@@ -162,8 +162,8 @@ export default function Facility() {
         image: Grinding
       },
       {
-        title: 'Philips',
-        altText: 'Philips machine',
+        title: 'Surface Grinding Machine',
+        altText: ' Advanced Surface Grinding Machine',
         image: Philips
       },
   ];
