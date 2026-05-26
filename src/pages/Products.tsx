@@ -30,6 +30,13 @@ import collat from '../assets/images/collat.png';
 import draw from '../assets/images/draw.png';
 import shaft from '../assets/images/shaft.png';
 import Die from "../assets/images/Die.png";
+import gas from "../assets/images/gas.png";
+import gas1 from "../assets/images/gas1.png";
+import oil from "../assets/images/oil.png";
+import honda from "../assets/images/honda.png";
+import honda1 from "../assets/images/honda1.png";
+import ring from "../assets/images/ring.png";
+import plastic from "../assets/images/plastic.png";
 
 interface ProductItem {
   name: string;
@@ -176,8 +183,44 @@ const productsList: ProductItem[] = [
     description: 'High-precision CNC machined profile insert manufactured for press tool and industrial tooling applications.',
     image: fine1
   },
-];
+  {
+    name: ' Gas Cut Mould',
+    description: 'High-precision Gas Cut Mould solutions for industrial and engineering applications.',
+    image: gas
+  },
+   {
+    name: ' Oil Cooler Fin Cutting Tool Bottom',
+    description: 'Premium Oil Cooler Fin Cutting Tool Bottom designed for precise fin cutting, high durability, and efficient industrial performance. Ideal for accurate machining and reliable production applications.',
+    image: gas1
+   },
+   
+   {
+    name: ' Honda Engine Cover Die Casting Core Insert',
+    description: 'Precision Honda Engine Cover Die Casting Core Insert manufactured for high accuracy, durability, and superior die casting performance. Ideal for reliable automotive component production applications.',
+    image: honda
+   },
+    {
+    name: ' Honda Engine Cover Die Casting Die',
+    description: 'High-precision Honda Engine Cover Die Casting Die designed for accurate shaping, durability, and efficient automotive manufacturing. Ensures reliable performance and superior die casting quality.',
+    image: honda1
+    },
+     {
+    name: ' O-Ring Mould',
+    description: 'Premium O-Ring Mould designed for precise rubber moulding, high durability, and efficient production performance. Ideal for manufacturing accurate and reliable sealing components.',
+    image: ring
+    },
+      {
+    name: ' Plastic Bowl Mould',
+    description: 'High-quality Plastic Bowl Mould engineered for precise shaping, smooth finishing, and durable performance. Ideal for efficient plastic bowl manufacturing and mass production applications.',
+    image: plastic
+    },
+    {
+    name: ' Oil Cooler Fin Cutting Tool Top Assy',
+    description: 'High-quality Oil Cooler Fin Cutting Tool Top Assy engineered for precision cutting, durability, and smooth industrial operation. Ideal for efficient oil cooler fin manufacturing applications.',
+    image: oil
+   },
 
+  ]
 export default function Products() {
   // Location-based schema for targeting specific operational regions
   const schemaData = {
