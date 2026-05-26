@@ -9,7 +9,8 @@ import image27 from '../assets/images/image27.png'; // Heavy Press Tools / Die S
 import mach2 from '../assets/images/mach2.png';     // Spark Erosion / Wire EDM Close-up
 import image28 from '../assets/images/image28.png'; // Quality Control / Micrometer Metrology
 import mach1 from '../assets/images/mach1.png';     // High-Precision CNC Machine in Action
-import adlogo from '../assets/images/adlogo.png';   // Company Logo / Certification Seal
+import adlogo from '../assets/images/adlogo.png'; 
+import mach7 from '../assets/images/mach7.png';  // Company Logo / Certification Seal
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -286,7 +287,7 @@ export default function Home() {
                      transition={{ duration: 0.5, delay: 0.2 }}
                      className="h-48 bg-slate-100 rounded-lg overflow-hidden relative shadow-md group"
                    >
-                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={image27} className="w-full h-full object-cover" alt="Heavy Metal Press Tools and Die Assemblies" />
+                     <motion.img whileHover={{ scale: 1.08 }} transition={{ duration: 0.4 }} src={mach7} className="w-full h-full object-cover" alt="Heavy Metal Press Tools and Die Assemblies" />
                    </motion.div>
                 </div>
                 <div className="space-y-4 pt-8">
