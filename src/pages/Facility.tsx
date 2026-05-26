@@ -14,6 +14,7 @@ import mech8 from '../assets/images/mech8.png';
 import mach1 from '../assets/images/mach1.png';
 import image2 from '../assets/images/image2.png';
 import image1 from '../assets/images/image1.png';
+import Grinding from '../assets/images/Grinding.png'
 
 // FIXED: Added explicit .mp4 extensions to static video asset imports
 import DMC from '../video/DMC.mp4';
@@ -47,7 +48,7 @@ export default function Facility() {
       const schemaData = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Pars Industries Facility",
+        "name": "Pars Industries Works",
         "description": "State-of-the-art 4000+ sq. ft. tool room facility in India specializing in custom progressive tool manufacturing, CNC turning and milling services, and high accuracy wire EDM.",
         "address": {
           "@type": "PostalAddress",
@@ -153,7 +154,12 @@ export default function Facility() {
       title: "Mazak VMC",
       image: image16,
       altText: "CNC machining for automotive parts Delhi workshop machinery"
-    }
+    },
+     {
+        title: 'Surface Grinding Machine',
+        altText: 'Advanced surface grinding machine',
+        image: Grinding
+      },
   ];
 
   const facilityVideos: VideoItem[] = [

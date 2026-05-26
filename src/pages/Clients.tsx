@@ -72,7 +72,7 @@ export default function Clients() {
                 Trusted by Leading Industrial Brands
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed">
-                Over the years, PIW Engineering Works has earned the trust of reputed industrial manufacturers and OEMs by consistently delivering precision-engineered solutions with reliability and quality.
+                Over the years, Pars industries Works has earned the trust of reputed industrial manufacturers and OEMs by consistently delivering precision-engineered solutions with reliability and quality.
               </p>
             </div>
             

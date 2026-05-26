@@ -40,12 +40,12 @@ interface ProductItem {
 // Storing the direct list of product items
 const productsList: ProductItem[] = [
   { 
-    name: 'Balacing Die Block', 
+    name: 'Blanking Die Block', 
     description: 'High-precision machined mounting flange manufactured with advanced CNC machining for industrial and engineering applications.', 
     image: Balancingdie 
   },
   { 
-    name: 'Claw-blank', 
+    name: 'Fine Blanking Tool', 
     description: 'High-precision progressive die base manufactured using advanced CNC machining and tooling technology.', 
     image: claw 
   },
@@ -60,7 +60,7 @@ const productsList: ProductItem[] = [
     image: fine 
   },
   { 
-    name: 'Lower spring sheet', 
+    name: 'Forming Punch', 
     description: 'High-precision carbide die insert manufactured for progressive dies and press tool applications.', 
     image: lower 
   },
@@ -70,12 +70,12 @@ const productsList: ProductItem[] = [
     image: punch 
   },
   { 
-    name: 'Sheet Metal', 
+    name: 'Slitting Die', 
     description: 'High-precision slotted die plate manufactured using advanced wire-cut EDM and CNC machining.', 
     image: sheetmetal 
   },
   { 
-    name: 'Slitting Die Insert', 
+    name: 'Sheet Metal Die', 
     description: 'High-precision wire-cut EDM die block manufactured for progressive die configurations.', 
     image: slitting 
   },
@@ -85,7 +85,7 @@ const productsList: ProductItem[] = [
     image: basedie 
   },
   {
-    name: 'Balancing Figures',
+    name: 'Balancing Fixtures',
     description: 'High-quality precision machined flange components manufactured with advanced CNC machining for industrial, tooling, and engineering applications with superior accuracy and durability.',
     image: balancingfigures
   },
@@ -130,11 +130,7 @@ const productsList: ProductItem[] = [
     description: 'High-precision CNC machined threaded tooling component manufactured for industrial fixture systems and precision engineering applications.',
     image: shaving
   },
-  {
-    name: 'Surface Grinding Machine',
-    description: 'Advanced surface grinding machine used for precision die and tool manufacturing. Delivers high-accuracy surface finishing, superior flatness, and reliable performance for industrial machining applications.',
-    image: Grinding
-  },
+ 
   {
     name: 'Precision Circular Inspection Gauge',
     description: 'High-precision circular inspection gauge manufactured using advanced CNC machining for dimensional checking and industrial quality control applications.',

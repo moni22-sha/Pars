@@ -155,7 +155,7 @@ export default function Services() {
       title: 'CNC Machining Services',
       icon: <Cpu className="w-10 h-10 text-blue-500" />,
       description:
-        'At Pars Industries, we specialize in high‑precision CNC machining solutions tailored for OEMs, industrial projects, and specialized engineering requirements.'
+        'At Pars Industries Works, we specialize in high‑precision CNC machining solutions tailored for OEMs, industrial projects, and specialized engineering requirements.'
     },
     {
       title: 'Vertical Machining Centers (VMC)',

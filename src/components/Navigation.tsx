@@ -37,7 +37,7 @@ export function Navbar() {
                     referrerPolicy="no-referrer"
                   />
                   <span className="block text-[12px] font-bold uppercase tracking-[0.1em] text-brand-primary mt-1 whitespace-nowrap">
-                    Pars Industries Work
+                    Pars Industries Works
                   </span>
                 </div>
 
