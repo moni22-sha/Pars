@@ -54,7 +54,9 @@ export default function Contact() {
                        <Mail className="h-6 w-6 text-brand-accent shrink-0" />
                        <div>
                           <p className="font-bold mb-1">Email Address</p>
-                          <p className="text-slate-400 text-sm">parsindustrieswork@gmail.com</p>
+                          <p className="text-slate-400 text-sm">parsindustrieswork@gmail.com
+                           advanextoolings@gmail.com
+                          </p>
                        </div>
                     </div>
                     

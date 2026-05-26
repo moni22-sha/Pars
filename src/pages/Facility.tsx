@@ -58,9 +58,15 @@ export default function Facility() {
         "knowsAbout": [
           "Progressive die design and manufacturing company India",
           "Tool room and press tools manufacturers Hosur",
-          "CNC machining service providers in Coimbatore",
           "High accuracy CNC machining services Delhi",
-          "Tool room progressive die manufacturers Hosur"
+          "Tool room progressive die manufacturers Hosur",
+          "Best progressive die manufacturers in Chennai",
+          " Custom spline die block manufacturers in Chennai",
+          " CNC machined spline die block manufacturers India",
+          " Blanking die insert suppliers in Coimbatore",
+          " Heavy duty blanking die insert suppliers Chennai",
+          "Press tool design and manufacturing India",
+
         ],
         "mainEntity": {
           "@type": "ItemList",

@@ -16,43 +16,35 @@ import factory4 from '../assets/images/factory4.png';
 const industries = [
   {
     title: 'Automotive',
-    image:
-      'https://cdn-icons-png.flaticon.com/512/744/744465.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/744/744465.png',
   },
   {
     title: 'Electrical',
-    image:
-      'https://cdn-icons-png.flaticon.com/512/1048/1048953.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/1048/1048953.png',
   },
   {
     title: 'Heavy Engineering',
-    image:
-      'https://cdn-icons-png.flaticon.com/512/1995/1995574.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/1995/1995574.png',
   },
   {
     title: 'OEM Manufacturing',
-    image:
-      'https://cdn-icons-png.flaticon.com/512/4290/4290854.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/4290/4290854.png',
   },
   {
     title: 'Industrial Fabrication',
-    image:
-      'https://cdn-icons-png.flaticon.com/512/2942/2942789.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/2942/2942789.png',
   },
   {
     title: 'Precision Components',
-    image:
-      'https://cdn-icons-png.flaticon.com/512/1687/1687675.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/1687/1687675.png',
   },
   {
     title: 'Machine Tools',
-    image:
-      'https://cdn-icons-png.flaticon.com/512/2092/2092663.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/2092/2092663.png',
   },
   {
     title: 'Global Export',
-    image:
-      'https://cdn-icons-png.flaticon.com/512/854/854878.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/854/854878.png',
   },
 ];
 
@@ -86,7 +78,9 @@ export default function Services() {
           { "@type": "AdministrativeArea", "name": "Chennai" },
           { "@type": "AdministrativeArea", "name": "Hosur" },
           { "@type": "AdministrativeArea", "name": "Coimbatore" },
-          { "@type": "AdministrativeArea", "name": "Delhi" }
+          { "@type": "AdministrativeArea", "name": "Delhi" },
+          { "@type": "Country", "name": "India" },
+          { "@type": "Country", "name": "Germany" }
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -97,7 +91,7 @@ export default function Services() {
               "itemOffered": {
                 "@type": "Service",
                 "name": "CNC Machining Services",
-                "description": "High-precision CNC machining solutions tailored for OEMs, industrial tooling setups, and specialized engineering applications in India."
+                "description": "High-precision CNC machining solutions tailored for OEMs, industrial tooling setups, and specialized engineering applications globally."
               }
             },
             {
@@ -159,37 +153,37 @@ export default function Services() {
   const services = [
     {
       title: 'CNC Machining Services',
-      icon: <Cpu />,
+      icon: <Cpu className="w-10 h-10 text-blue-500" />,
       description:
         'At Pars Industries, we specialize in high‑precision CNC machining solutions tailored for OEMs, industrial projects, and specialized engineering requirements.'
     },
     {
-      title: 'Vertical Machining Centers(VMC)',
-      icon: <Boxes />,
+      title: 'Vertical Machining Centers (VMC)',
+      icon: <Boxes className="w-10 h-10 text-blue-500" />,
       description:
-        'Advanced VMC machining services delivering high-precision CNC components, molds, dies, and industrial parts with superior accuracy, durability, and fast production turnaround in India.',
+        'Advanced VMC machining services delivering high-precision CNC components, molds, dies, and industrial parts with superior accuracy, durability, and fast production turnaround.',
     },
     {
       title: 'Progressive Tools',
-      icon: <Command />,
+      icon: <Command className="w-10 h-10 text-blue-500" />,
       description:
         'We design and manufacture high‑precision progressive tools engineered for efficient and continuous production operations.'
     },
     {
       title: 'Press Tools',
-      icon: <Shrink />,
+      icon: <Shrink className="w-10 h-10 text-blue-500" />,
       description:
         'Custom press tools designed for reliable metal forming and industrial stamping applications with precision and durability.'
     },
     {
       title: 'Jigs & Fixtures',
-      icon: <Settings />,
+      icon: <Settings className="w-10 h-10 text-blue-500" />,
       description:
         'Precision‑engineered jigs and fixtures that improve production efficiency, reduce setup time, and maintain dimensional consistency.'
     },
     {
       title: 'Gauges',
-      icon: <Drill />,
+      icon: <Drill className="w-10 h-10 text-blue-500" />,
       description:
         'Gauges manufactured to ensure accurate measurement and quality verification across production environments.'
     },
@@ -201,7 +195,7 @@ export default function Services() {
       <section className="relative min-h-[420px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center scale-105 animate-pulse"
+          className="absolute inset-0 bg-cover bg-center scale-105"
           style={{
             backgroundImage: `url(${factory4})`,
           }}
@@ -216,7 +210,7 @@ export default function Services() {
           transition={{ repeat: Infinity, duration: 5 }}
           className="absolute top-20 left-10 hidden lg:block"
         >
-          <Cog className="w-24 h-24 text-blue-200 opacity-40" />
+          <Cog className="w-24 h-24 text-blue-200 opacity-40 animate-[spin_20s_linear_infinite]" />
         </motion.div>
 
         <motion.div
@@ -267,7 +261,7 @@ export default function Services() {
               <div className="absolute top-0 left-0 h-1 w-0 bg-blue-500 group-hover:w-full transition-all duration-700" />
 
               <div className="p-10">
-                {/* Icon */}
+                {/* Icon Wrapper */}
                 <motion.div
                   whileHover={{ rotate: 10, scale: 1.1 }}
                   className="w-20 h-20 rounded-2xl bg-blue-50 flex items-center justify-center mb-8"
@@ -327,12 +321,12 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -5 }}
-                className="bg-[#f8fafc] border border-gray-100 rounded-2xl py-8 px-4 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-lg transition-all duration-300 gap-4"
+                className="bg-[#f8fafc] border border-gray-100 rounded-2xl py-8 px-4 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-lg transition-all duration-300 gap-4 group"
               >
                 <img 
                   src={item.image} 
                   alt={`${item.title} industrial engineering market sector`} 
-                  className="w-12 h-12 object-contain opacity-85 group-hover:opacity-100" 
+                  className="w-12 h-12 object-contain opacity-85 group-hover:opacity-100 transition-opacity" 
                 />
                 <span className="font-semibold text-[#123a74] tracking-wide text-sm">
                   {item.title}

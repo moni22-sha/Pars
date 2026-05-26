@@ -183,8 +183,44 @@ const productsList: ProductItem[] = [
 ];
 
 export default function Products() {
+  // Location-based schema for targeting specific operational regions
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Pars industires Works",
+    "description": "High-precision progressive tool die manufacturing and CNC machining services.",
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Chennai"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Hosur"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Delhi"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Coimbatore"
+      },
+      {
+        "@type": "Country",
+        "name": "Germany"
+      }
+    ]
+  };
+
   return (
     <div className="bg-slate-50 min-h-screen flex flex-col w-full font-sans">
+      {/* Dynamic JSON-LD injection for Geo-targeting SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
       {/* Hero Section */}
       <section className="relative h-[360px] flex items-center justify-center text-center bg-slate-900">
         <div className="absolute inset-0 z-0">
@@ -220,12 +256,6 @@ export default function Products() {
       {/* Main Catalog Section */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-          {/* Catalog Header */}
-          {/* <div className="mb-10 text-center md:text-left">
-            <span className="text-sky-600 text-xs font-bold uppercase tracking-widest">Catalog Documentation</span>
-            <h3 className="text-2xl md:text-3xl text-slate-900 font-bold mt-1">Available Models & Configurations</h3>
-          </div> */}
 
           {/* Sub-item Products Box Rows Grid styled precisely like image_648eec.jpg */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">

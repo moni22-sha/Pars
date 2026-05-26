@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Added useEffect for Schema Injection
 import { Link } from 'react-router-dom';
 import { ArrowRight, Settings, Users, Factory, Target, Shield, Clock, Zap } from 'lucide-react';
 import { motion, Variants } from 'motion/react';
@@ -29,6 +29,47 @@ const itemVariants: Variants = {
 };
 
 export default function Home() {
+  // --- SCHEMA MARKUP INJECTION ---
+  useEffect(() => {
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "ManufacturingBusiness",
+      "name": "Pars Industries work",
+      "description": "Precision engineering solutions for modern manufacturing — delivering high-precision tooling, machining, and fabrication with global quality standards.",
+      "knowsAbout": [
+        "Progressive Tools",
+        "Press Tools",
+        "Jigs & Fixtures",
+        "Gauges",
+        "Welding Fixtures",
+        "CNC Machining"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "url": window.location.origin + "/contact"
+      }
+    };
+
+    // Create script element
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'pars-industries-schema';
+    script.innerHTML = JSON.stringify(schemaData);
+    
+    // Append to document head
+    document.head.appendChild(script);
+
+    // Clean up script when component unmounts
+    return () => {
+      const existingScript = document.getElementById('pars-industries-schema');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+  // ---------------------------------
+
   return (
     <div className="overflow-hidden relative bg-slate-50">
       {/* Hero Section */}
