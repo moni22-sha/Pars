@@ -19,7 +19,6 @@ import shaving from '../assets/images/shaving.png';
 import ingauge from '../assets/images/ingauges.png';
 import cavity from '../assets/images/cavity.png';
 import coining from '../assets/images/coining.png';
-import intake from '../assets/images/intake.png';
 import core from '../assets/images/core.png';
 import slot from '../assets/images/slot.png';
 import side from '../assets/images/side.png';
